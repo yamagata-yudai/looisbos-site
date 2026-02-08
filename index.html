@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Looisbos - Official Website</title>
+    <meta name="description" content="Looisbos 公式ウェブサイト。最新ニュース、ライブ情報、バイオグラフィ、コンタクト。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oswald:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <header class="header">
+        <div class="logo">
+            <img src="logo.png" alt="Looisbos" class="logo-img-header">
+        </div>
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#news" class="nav-link">News</a></li>
+                <li><a href="#bio" class="nav-link">Bio</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <img src="logo.png" alt="Looisbos" class="logo-img-hero">
+                </h1>
+                <p class="hero-subtitle">Resonating Through the Void</p>
+                <a href="#news" class="btn btn-primary">Latest News</a>
+            </div>
+            <div class="hero-overlay"></div>
+        </section>
+
+        <section id="news" class="section news">
+            <div class="container">
+                <h2 class="section-title">News</h2>
+                <div class="news-grid">
+                    <article class="news-item">
+                        <span class="news-date">2026.02.08</span>
+                        <h3 class="news-title">New Single "Void" Released</h3>
+                        <p class="news-excerpt">待望のニューシングルが本日リリース。各ストリーミングサービスで配信中。</p>
+                    </article>
+                    <article class="news-item">
+                        <span class="news-date">2026.01.15</span>
+                        <h3 class="news-title">Live Tour 2026 Announced</h3>
+                        <p class="news-excerpt">全国5都市を巡るツアーが決定。チケット先行予約受付開始。</p>
+                    </article>
+                    <article class="news-item">
+                        <span class="news-date">2025.12.20</span>
+                        <h3 class="news-title">Official Site Renewal</h3>
+                        <p class="news-excerpt">公式サイトをリニューアルしました。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="bio" class="section bio">
+            <div class="container">
+                <h2 class="section-title">Biography</h2>
+                <div class="bio-content">
+                    <p class="bio-text">
+                        2020年結成。東京を拠点に活動するオルタナティブ・ロックバンド。<br>
+                        エモーショナルなメロディと轟音ギターサウンドが織りなす独自の音像は、<br>
+                        聴く者の感情を揺さぶる。
+                    </p>
+                    <div class="members">
+                        <div class="member">
+                            <h3 class="member-name">Name 1</h3>
+                            <p class="member-role">Vocal & Guitar</p>
+                        </div>
+                        <div class="member">
+                            <h3 class="member-name">Name 2</h3>
+                            <p class="member-role">Bass</p>
+                        </div>
+                        <div class="member">
+                            <h3 class="member-name">Name 3</h3>
+                            <p class="member-role">Drums</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact">
+            <div class="container">
+                <h2 class="section-title">Contact</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="copyright">&copy; 2026 Looisbos. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="#" class="social-link">Twitter</a>
+                <a href="#" class="social-link">Instagram</a>
+                <a href="#" class="social-link">YouTube</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
