@@ -4,134 +4,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Looisbos - Official Website</title>
-    <meta name="description" content="Looisbos 公式ウェブサイト。最新ニュース、ライブ情報、バイオグラフィ、コンタクト。">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oswald:wght@400;700&display=swap"
-        rel="stylesheet">
+    <title>Looisbos - Official Website (XP Edition)</title>
+    <meta name="description" content="Looisbos 公式ウェブサイト。最新ニュース、ライブ情報、バイオグラフィ、コンタクト。90s Style.">
+    <!-- Retro formatted fonts fallback -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 
 <body>
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
+    <!-- <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div> -->
 
-    <header class="header">
-        <div class="logo">
-            <img src="logo.png" alt="Looisbos" class="logo-img-header">
-        </div>
-        <nav class="nav">
-            <ul class="nav-list">
-                <li><a href="#hero" class="nav-link">Home</a></li>
-                <li><a href="#news" class="nav-link">News</a></li>
-                <li><a href="#bio" class="nav-link">Bio</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </nav>
-        <button class="menu-toggle" aria-label="Toggle menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-    </header>
+    <!-- Desktop Icons (Social Links) -->
+    <div class="desktop-icons">
+        <a href="https://x.com/looisbos" target="_blank" class="desktop-icon">
+            <i class="fa-brands fa-x-twitter" style="color: #000;"></i>
+            <span>Twitter (X)</span>
+        </a>
+        <a href="https://www.instagram.com/looisbos/?hl=ja" target="_blank" class="desktop-icon">
+            <i class="fa-brands fa-instagram"
+                style="background: -webkit-linear-gradient(#405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+            <span>Instagram</span>
+        </a>
+        <a href="https://www.youtube.com/@looisbos_ch526" target="_blank" class="desktop-icon">
+            <i class="fa-brands fa-youtube" style="color: #ff0000;"></i>
+            <span>YouTube</span>
+        </a>
+        <a href="https://www.tiktok.com/@looisbos_band" target="_blank" class="desktop-icon">
+            <i class="fa-brands fa-tiktok" style="color: #000;"></i>
+            <span>TikTok</span>
+        </a>
+    </div>
 
-    <main>
-        <section id="hero" class="hero">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <img src="logo.png" alt="Looisbos" class="logo-img-hero">
-                </h1>
-                <p class="hero-subtitle">Resonating Through the Void</p>
-                <a href="#news" class="btn btn-primary">Latest News</a>
+    <main class="container">
+        <!-- Hero Window -->
+        <div id="hero" class="window hero-window">
+            <div class="title-bar">
+                <div class="title-bar-text">
+                    Looisbos.exe
+                </div>
+                <div class="title-bar-controls">
+                    <div class="window-btn" aria-label="Minimize">_</div>
+                    <div class="window-btn" aria-label="Maximize">□</div>
+                    <div class="window-btn" aria-label="Close">×</div>
+                </div>
             </div>
-            <div class="hero-overlay"></div>
-        </section>
+            <div class="window-content" style="text-align: center; background: #000;">
+                <div class="hero-img-container">
+                    <img src="artist.jpg" alt="Looisbos Artist Photo"
+                        style="width: 100%; height: auto; display: block; filter: grayscale(100%);">
+                </div>
+                <div style="margin-top: 20px; color: #fff; font-family: 'Times New Roman', serif;">
+                    <img src="logo.png" alt="Looisbos" class="logo-img-hero" style="filter: invert(1);">
+                    <p class="hero-subtitle" style="color: #ccc; margin-top: 10px;">Resonating Through the Void</p>
+                </div>
+            </div>
+        </div>
 
-        <section id="news" class="section news">
-            <div class="container">
-                <h2 class="section-title">News</h2>
+        <!-- Discography Window (Winamp Style) -->
+        <div id="disco" class="window">
+            <div class="title-bar" style="background: linear-gradient(90deg, #2b2b2b, #4a4a4a);">
+                <div class="title-bar-text" style="color: #0f0; font-family: monospace;">WINAMP - DISCOGRAPHY</div>
+                <div class="title-bar-controls">
+                    <div class="window-btn">_</div>
+                    <div class="window-btn">□</div>
+                    <div class="window-btn">×</div>
+                </div>
+            </div>
+            <div class="window-content"
+                style="background: #222; color: #0f0; font-family: monospace; border: 2px solid #555;">
+                <div style="height: 300px; overflow-y: auto; padding-right: 5px;">
+                    <!-- Release 1: Science Children -->
+                    <div
+                        style="display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed #555; padding-bottom: 15px;">
+                        <img src="ScienceChildren.jpg" alt="Science Children"
+                            style="width: 100px; height: 100px; border: 1px solid #555;">
+                        <div>
+                            <h3 style="margin: 0 0 5px 0; color: #0f0;">Science Children</h3>
+                            <p style="margin: 0; font-size: 0.8rem; color: #ccc;">Single / 2024.12.25</p>
+                            <br>
+                            <span style="font-size: 0.8rem; color: #aaa;">[Tracks]</span>
+                            <ul style="list-style: none; padding-left: 0; margin-top: 2px; font-size: 0.8rem;">
+                                <li>1. Science Children</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Release 2: rooms -->
+                    <div
+                        style="display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed #555; padding-bottom: 15px;">
+                        <img src="rooms.jpg" alt="rooms" style="width: 100px; height: 100px; border: 1px solid #555;">
+                        <div>
+                            <h3 style="margin: 0 0 5px 0; color: #0f0;">rooms</h3>
+                            <p style="margin: 0; font-size: 0.8rem; color: #ccc;">EP / 2022.11.30</p>
+                            <br>
+                            <span style="font-size: 0.8rem; color: #aaa;">[Tracks]</span>
+                            <ul style="list-style: none; padding-left: 0; margin-top: 2px; font-size: 0.8rem;">
+                                <li>1. Thinking about</li>
+                                <li>2. Laundry</li>
+                                <li>3. If you can't understand each other</li>
+                                <li>4. Tell me</li>
+                                <li>5. It might be right</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Release 3: vase -->
+                    <div
+                        style="display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed #555; padding-bottom: 15px;">
+                        <img src="vase.jpeg" alt="vase" style="width: 100px; height: 100px; border: 1px solid #555;">
+                        <div>
+                            <h3 style="margin: 0 0 5px 0; color: #0f0;">vase</h3>
+                            <p style="margin: 0; font-size: 0.8rem; color: #ccc;">EP / 2021.04.21</p>
+                            <br>
+                            <span style="font-size: 0.8rem; color: #aaa;">[Tracks]</span>
+                            <ul style="list-style: none; padding-left: 0; margin-top: 2px; font-size: 0.8rem;">
+                                <li>1. amanda</li>
+                                <li>2. So busy</li>
+                                <li>3. Call your name</li>
+                                <li>4. Folding Umbrella</li>
+                                <li>5. Common Sense</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Release 4: chairs -->
+                    <div style="display: flex; gap: 15px; margin-bottom: 10px;">
+                        <img src="chairs.jpg" alt="chairs" style="width: 100px; height: 100px; border: 1px solid #555;">
+                        <div>
+                            <h3 style="margin: 0 0 5px 0; color: #0f0;">chairs</h3>
+                            <p style="margin: 0; font-size: 0.8rem; color: #ccc;">EP / 2019.10.1</p>
+                            <br>
+                            <span style="font-size: 0.8rem; color: #aaa;">[Tracks]</span>
+                            <ul style="list-style: none; padding-left: 0; margin-top: 2px; font-size: 0.8rem;">
+                                <li>1. The bus</li>
+                                <li>2. she said</li>
+                                <li>3. Nowhere</li>
+                                <li>4. papa</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Visualizer Placeholder -->
+                <div
+                    style="margin-top: 20px; height: 30px; background: #000; border: 1px inset #555; position: relative; overflow: hidden;">
+                    <div
+                        style="width: 100%; height: 100%; background: linear-gradient(90deg, transparent 50%, #0f0 50%); background-size: 20px 100%; opacity: 0.5;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- News Window -->
+        <div id="news" class="window">
+            <div class="title-bar">
+                <div class="title-bar-text">News - Notepad</div>
+                <div class="title-bar-controls">
+                    <div class="window-btn">_</div>
+                    <div class="window-btn">□</div>
+                    <div class="window-btn">×</div>
+                </div>
+            </div>
+            <div class="window-content">
+                <h2 class="section-title">Latest Updates</h2>
                 <div class="news-grid">
                     <article class="news-item">
-                        <span class="news-date">2026.02.08</span>
-                        <h3 class="news-title">New Single "Void" Released</h3>
-                        <p class="news-excerpt">待望のニューシングルが本日リリース。各ストリーミングサービスで配信中。</p>
-                    </article>
-                    <article class="news-item">
-                        <span class="news-date">2026.01.15</span>
-                        <h3 class="news-title">Live Tour 2026 Announced</h3>
-                        <p class="news-excerpt">全国5都市を巡るツアーが決定。チケット先行予約受付開始。</p>
-                    </article>
-                    <article class="news-item">
-                        <span class="news-date">2025.12.20</span>
-                        <h3 class="news-title">Official Site Renewal</h3>
-                        <p class="news-excerpt">公式サイトをリニューアルしました。</p>
+                        <span class="news-date">2026.03.29 (Sun)</span>
+                        <h3 class="news-title">下北沢LIVE HAUS "True Coming Dream Vol.9"</h3>
+                        <p class="news-excerpt">
+                            open:15:00 / start:15:30<br>
+                            adv:¥3800 / door:¥4300<br><br>
+                            [ACT]<br>
+                            Looisbos<br>
+                            カジヒデキ（3piece band set）🆕<br>
+                            Ferri-Chrome<br>
+                            Tam Yos Ten<br>
+                            Cycling In Marmalade<br><br>
+
+                            <img src="flyer_0329.jpg" alt="True Coming Dream Vol.9 Flyer"
+                                style="max-width: 50%; height: auto; margin: 10px 0; border: 1px solid #808080;"><br>
+
+                            <a href="https://livepocket.jp/e/1o1ac" target="_blank"
+                                style="color: blue; text-decoration: underline;">Ticket Reservation (LivePocket)</a>
+                            <br><small>※12/29(Mon) 12:00 Release</small>
+                        </p>
                     </article>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section id="bio" class="section bio">
-            <div class="container">
-                <h2 class="section-title">Biography</h2>
+        <!-- Biography Window -->
+        <div id="bio" class="window">
+            <div class="title-bar">
+                <div class="title-bar-text">System Properties - Biography</div>
+                <div class="title-bar-controls">
+                    <div class="window-btn">_</div>
+                    <div class="window-btn">□</div>
+                    <div class="window-btn">×</div>
+                </div>
+            </div>
+            <div class="window-content">
                 <div class="bio-content">
-                    <p class="bio-text">
-                        2020年結成。東京を拠点に活動するオルタナティブ・ロックバンド。<br>
-                        エモーショナルなメロディと轟音ギターサウンドが織りなす独自の音像は、<br>
-                        聴く者の感情を揺さぶる。
-                    </p>
+
+                    <div class="bio-text" style="text-align: left; margin-bottom: 2rem;">
+                        <strong>Looisbos</strong><br><br>
+                        We are "Looisbos".<br>
+                        We were born in different parts of Japan and met by chance at a university in a town called
+                        Hakusan in Tokyo.<br>
+                        It didn't take long for our love of tea to make us friends.<br>
+                        As we spent long hours together at our usual coffee shop after class, the tea in our hands
+                        somehow turned into a musical instrument.<br>
+                        Even now, we still converse about the various events of the day.<br><br>
+                        私たちは "Looisbos" です。<br>
+                        私たちは日本の別々の地域で生まれ、東京の白山という町にある大学で偶然出会いました。<br>
+                        紅茶が大好きな私たちが友達になるのに、そう時間はかかりません。<br>
+                        授業が終わった後、いつもの喫茶店で長い時間を一緒に過ごすうちに、手にした紅茶がいつの間にか楽器に変わっていました。<br>
+                        今でも、私たちはその日のさまざまな出来事について会話を交わすのです。
+                    </div>
+                    <div style="clear: both;"></div>
+
+                    <h3 style="border-bottom: 1px solid #808080; padding-bottom: 5px; margin-bottom: 15px;">Hardware
+                        Configuration (Members)</h3>
                     <div class="members">
                         <div class="member">
-                            <h3 class="member-name">Name 1</h3>
-                            <p class="member-role">Vocal & Guitar</p>
+                            <i class="fa-solid fa-drum" style="font-size: 2rem; margin-bottom: 10px; color: #555;"></i>
+                            <h3 class="member-name">Gatta</h3>
+                            <p class="member-role">Vocal & Drums</p>
                         </div>
                         <div class="member">
-                            <h3 class="member-name">Name 2</h3>
+                            <i class="fa-solid fa-guitar"
+                                style="font-size: 2rem; margin-bottom: 10px; color: #555;"></i>
+                            <h3 class="member-name">Yui</h3>
+                            <p class="member-role">Guitar & Vocal</p>
+                        </div>
+                        <div class="member">
+                            <i class="fa-solid fa-guitar"
+                                style="font-size: 2rem; margin-bottom: 10px; color: #555;"></i>
+                            <h3 class="member-name">Mazda</h3>
+                            <p class="member-role">Guitar</p>
+                        </div>
+                        <div class="member">
+                            <i class="fa-solid fa-guitar"
+                                style="font-size: 2rem; margin-bottom: 10px; color: #555;"></i>
+                            <h3 class="member-name">Mio</h3>
                             <p class="member-role">Bass</p>
-                        </div>
-                        <div class="member">
-                            <h3 class="member-name">Name 3</h3>
-                            <p class="member-role">Drums</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section id="contact" class="section contact">
-            <div class="container">
-                <h2 class="section-title">Contact</h2>
+        <!-- Contact Window -->
+        <div id="contact" class="window">
+            <div class="title-bar">
+                <div class="title-bar-text">Outlook Express - New Message</div>
+                <div class="title-bar-controls">
+                    <div class="window-btn">_</div>
+                    <div class="window-btn">□</div>
+                    <div class="window-btn">×</div>
+                </div>
+            </div>
+            <div class="window-content">
                 <form class="contact-form">
                     <div class="form-group">
-                        <label for="name">Name</label>
+                        <label for="name">To (Name):</label>
                         <input type="text" id="name" name="name" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email">From (Email):</label>
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="message">Message</label>
+                        <label for="message">Body:</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-submit">Send Message</button>
+                    <div style="text-align: right;">
+                        <button type="submit" class="btn btn-submit">Send(S)</button>
+                    </div>
                 </form>
             </div>
-        </section>
+        </div>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p class="copyright">&copy; 2026 Looisbos. All Rights Reserved.</p>
-            <div class="social-links">
-                <a href="#" class="social-link">Twitter</a>
-                <a href="#" class="social-link">Instagram</a>
-                <a href="#" class="social-link">YouTube</a>
+    <!-- Taskbar (Footer/Header) -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-btn" onclick="window.scrollTo(0,0)">
+                <img src="start_icon.png" alt="Start" style="height: 45px; margin-right: 5px;">
+                Start
             </div>
         </div>
-    </footer>
+        <nav class="nav">
+            <div class="nav-list">
+                <a href="#news" class="nav-link">News</a>
+                <a href="#disco" class="nav-link">Disco</a>
+                <a href="#bio" class="nav-link">Bio</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </nav>
+        <div
+            style="border: 2px solid #808080; border-bottom: 2px solid #fff; border-right: 2px solid #fff; padding: 2px 5px; font-size: 0.8rem; background: #c0c0c0;">
+            <span id="clock">12:00 PM</span>
+        </div>
+    </header>
 
     <script src="script.js"></script>
+    <script>
+        // Simple Clock for Taskbar
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            document.getElementById('clock').textContent = `${hours}:${minutes} ${ampm}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
 </body>
 
 </html>
