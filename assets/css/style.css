@@ -533,6 +533,26 @@ h3 {
         width: 150px !important;
         height: 150px !important;
     }
+
+    .news-item:active {
+        background: #eef;
+        outline: 1px dotted #000;
+    }
+
+    .nav-link:active {
+        background: #808080;
+        color: #fff;
+    }
+
+    /* Tracklist touch spacing */
+    .disco-item ul li {
+        padding: 5px 0;
+        border-bottom: 1px solid #333;
+    }
+
+    .disco-item ul li:last-child {
+        border-bottom: none;
+    }
 }
 
 /* Extra small devices */
