@@ -33,7 +33,7 @@ body {
     background-color: #008080;
     /* Classic Deal Blue Background */
     /* Optional: Bliss wallpaper fallback */
-    background-image: url('background.jpg');
+    background-image: url('../images/background.jpg');
     /* Sunset Grassland */
     background-color: #3a6ea5;
     /* XP Default Blue fallback */
