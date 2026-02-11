@@ -445,29 +445,104 @@ h3 {
 
 /* Responsive adjustments for the faux-taskbar */
 @media (max-width: 768px) {
+    body {
+        padding-bottom: 60px;
+        /* More space for larger mobile taskbar */
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .window {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .hero-window {
+        margin-top: 20px;
+    }
+
     .logo-img-hero {
         max-width: 90%;
-        max-height: 150px;
+        max-height: 120px;
     }
 
+    /* Desktop Icons on Mobile - Grid layout */
     .desktop-icons {
-        display: none;
-        /* Hide desktop icons on mobile */
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 30px;
+        padding-top: 10px;
     }
 
+    .desktop-icon {
+        width: 70px;
+    }
+
+    .desktop-icon i {
+        font-size: 2rem;
+    }
+
+    .desktop-icon span {
+        font-size: 0.75rem;
+    }
+
+    /* Mobile Taskbar */
     .header {
-        height: auto;
-        flex-wrap: wrap;
-        padding: 5px;
+        height: 50px;
+        padding: 0 5px;
+    }
+
+    .logo-btn {
+        height: 38px;
+        padding: 0 8px;
+        font-size: 0.8rem;
     }
 
     .nav-list {
-        width: 100%;
-        justify-content: space-around;
-        margin-top: 5px;
+        gap: 2px;
     }
 
-    .hero {
-        padding-top: 20px;
+    .nav-link {
+        padding: 8px 8px;
+        font-size: 0.75rem;
+    }
+
+    /* Members Grid */
+    .members {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .member-name {
+        font-size: 1rem;
+    }
+
+    /* Discography Adjustment (Internal elements) */
+    .disco-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .disco-item img {
+        width: 150px !important;
+        height: 150px !important;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .nav-link {
+        padding: 8px 5px;
+        font-size: 0.7rem;
+    }
+
+    .logo-btn {
+        padding: 0 5px;
     }
 }
