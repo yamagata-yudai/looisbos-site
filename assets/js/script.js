@@ -1,14 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Audio Initialization (Browser requires interaction)
-    const initAudio = () => {
-        if (window.systemAudio) {
-            window.systemAudio.init();
-            window.removeEventListener('click', initAudio);
-            window.removeEventListener('keydown', initAudio);
-        }
-    };
-    window.addEventListener('click', initAudio);
-    window.addEventListener('keydown', initAudio);
 
     // Startup Sequence Logic with Skip Functionality
     const startupOverlay = document.getElementById('startup-overlay');
@@ -21,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
             startupOverlay.style.opacity = '0';
             setTimeout(() => {
                 startupOverlay.style.display = 'none';
-                if (window.systemAudio) window.systemAudio.playStartup();
             }, 300);
         }
     };
@@ -85,14 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function bringToFront(win) {
         windows.forEach(w => w.classList.remove('window-active'));
         win.classList.add('window-active');
-        // We don't need highestZIndex anymore because .window-active has high z-index in CSS
-        // and they are all 100 by default. Last one added with .window-active wins? 
-        // Actually, CSS says .window-active is 1000 !important. If multiple have it, 
-        // the one later in DOM wins. So we should re-append to parent if we want true front.
         if (container && win.parentNode === container) {
             container.appendChild(win);
         }
-        if (window.systemAudio) window.systemAudio.playClick();
     }
 
     function absolutifyWindows() {
@@ -130,14 +114,16 @@ document.addEventListener('DOMContentLoaded', () => {
     windows.forEach(win => {
         const titleBar = win.querySelector('.title-bar');
 
-        // Bring to front on click
-        win.addEventListener('mousedown', () => {
+        // Bring to front on click (skip if clicking a link or button to avoid blocking navigation)
+        win.addEventListener('mousedown', (e) => {
+            if (e.target.closest('a, button, input, textarea, select')) return;
             absolutifyWindows();
             bringToFront(win);
         });
 
         // Dragging logic (mouse)
         titleBar.addEventListener('mousedown', (e) => {
+            if (e.target.closest('a, button')) return;
             absolutifyWindows();
             activeWindow = win;
             bringToFront(win);
@@ -150,6 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Dragging logic (touch)
         titleBar.addEventListener('touchstart', (e) => {
+            if (e.target.closest('a, button')) return;
             absolutifyWindows();
             const touch = e.touches[0];
             activeWindow = win;
@@ -335,14 +322,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const desktopIcons = document.querySelectorAll('.desktop-icon');
     desktopIcons.forEach(icon => {
         icon.addEventListener('dblclick', (e) => {
-            if (window.systemAudio) window.systemAudio.playClick();
             e.preventDefault();
             const href = icon.getAttribute('href');
-            if (href.startsWith('#')) {
+            if (href && href.startsWith('#')) {
                 const targetWindow = document.querySelector(href);
                 if (targetWindow) {
-                    highestZIndex++;
-                    targetWindow.style.zIndex = highestZIndex;
                     targetWindow.scrollIntoView({ behavior: 'smooth' });
                 }
             } else {
