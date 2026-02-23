@@ -36,7 +36,7 @@
                 <div class="xp-load-progress"></div>
             </div>
             <p style="color: #fff; margin-top: 20px; font-family: sans-serif; font-size: 0.8rem;">Copyright &copy;
-                Microsoft Corporation</p>
+                Looisbos Tea Room Records, Inc. All rights reserved.</p>
         </div>
     </div>
 
@@ -326,7 +326,7 @@
                 </div>
             </div>
             <div class="window-content">
-                <form class="contact-form" action="mailto:rooibossanova@gmail.com" method="POST" enctype="text/plain">
+                <form class="contact-form" id="contact-form" onsubmit="sendMail(event)">
                     <div class="form-group">
                         <label>To:</label>
                         <div
@@ -342,13 +342,30 @@
                         <label for="message">Body:</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
-                    <div style="text-align: right;">
+                    <div
+                        style="text-align: right; display: flex; align-items: center; justify-content: flex-end; gap: 10px;">
+                        <span id="form-status" style="font-size: 0.8rem; color: #008000; display: none;">✔
+                            メールアプリが開きます</span>
                         <button type="submit" class="btn btn-submit">Send(S)</button>
                     </div>
                 </form>
             </div>
         </div>
     </main>
+
+    <script>
+        function sendMail(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const subject = encodeURIComponent('Looisbos Website - Message from ' + email);
+            const body = encodeURIComponent('From: ' + email + '\n\n' + message);
+            const mailtoLink = 'mailto:rooibossanova@gmail.com?subject=' + subject + '&body=' + body;
+            const status = document.getElementById('form-status');
+            status.style.display = 'inline';
+            setTimeout(() => { window.location.href = mailtoLink; }, 200);
+        }
+    </script>
 
     <!-- Taskbar (Footer/Header) -->
     <header class="header">
