@@ -13,6 +13,33 @@
 </head>
 
 <body>
+    <!-- Screensaver Canvas -->
+    <canvas id="screensaver-canvas" class="screensaver-canvas"></canvas>
+
+    <!-- BIOS/Startup Sequence Overlay -->
+    <div id="startup-overlay" class="startup-overlay">
+        <div id="bios-screen" class="bios-screen">
+            <p>Antigravity BIOS V4.0, An Energy Star Ally</p>
+            <p>Copyright (C) 2026, Looisbos Corporation</p>
+            <br>
+            <p>Main Processor : Looisbos 526MHz</p>
+            <p>Memory Test : 65536K OK</p>
+            <br>
+            <p>Detecting Primary Master ... Looisbos-HDD-01</p>
+            <p>Detecting Primary Slave ... None</p>
+            <br>
+            <p>WAIT...</p>
+        </div>
+        <div id="xp-load-screen" class="xp-load-screen" style="display: none;">
+            <img src="assets/images/logo.png" alt="Looisbos Logo" class="xp-load-logo">
+            <div class="xp-load-bar">
+                <div class="xp-load-progress"></div>
+            </div>
+            <p style="color: #fff; margin-top: 20px; font-family: sans-serif; font-size: 0.8rem;">Copyright &copy;
+                Microsoft Corporation</p>
+        </div>
+    </div>
+
     <!-- <div class="cursor-dot"></div>
     <div class="cursor-outline"></div> -->
 
@@ -88,6 +115,9 @@
                             <ul style="list-style: none; padding-left: 0; margin-top: 2px; font-size: 0.8rem;">
                                 <li>1. Science Children</li>
                             </ul>
+                            <a href="https://friendship.lnk.to/SCft.JF_Looisbos" target="_blank"
+                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;">🎵
+                                Listen on Streaming</a>
                         </div>
                     </div>
 
@@ -108,6 +138,9 @@
                                 <li>4. Tell me</li>
                                 <li>5. It might be right</li>
                             </ul>
+                            <a href="https://friendship.lnk.to/rooms" target="_blank"
+                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;">🎵
+                                Listen on Streaming</a>
                         </div>
                     </div>
 
@@ -128,6 +161,9 @@
                                 <li>4. Folding Umbrella</li>
                                 <li>5. Common Sense</li>
                             </ul>
+                            <a href="https://friendship.lnk.to/vase" target="_blank"
+                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;">🎵
+                                Listen on Streaming</a>
                         </div>
                     </div>
 
@@ -146,16 +182,37 @@
                                 <li>3. Nowhere</li>
                                 <li>4. papa</li>
                             </ul>
+                            <a href="https://open.spotify.com/album/0ysMSQVm1O9gg19Tfoo4NC?si=NqH8O498SrGPX6p3P2FZ_g"
+                                target="_blank"
+                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;">🎵
+                                Listen on Spotify</a>
                         </div>
+                    </div>
+                </div>
+                <!-- Winamp Controls -->
+                <div class="winamp-controls"
+                    style="margin-top: 15px; background: #333; padding: 10px; border: 2px outset #555; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <button class="winamp-btn" id="prev-btn" title="Previous"><i
+                            class="fa-solid fa-backward-step"></i></button>
+                    <button class="winamp-btn" id="play-btn" title="Play"><i class="fa-solid fa-play"></i></button>
+                    <button class="winamp-btn" id="pause-btn" title="Pause" style="display: none;"><i
+                            class="fa-solid fa-pause"></i></button>
+                    <button class="winamp-btn" id="next-btn" title="Next"><i
+                            class="fa-solid fa-forward-step"></i></button>
+                    <div class="winamp-status"
+                        style="margin-left: 10px; font-size: 0.7rem; color: #0f0; flex-grow: 1; text-align: left; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                        Stopped
                     </div>
                 </div>
                 <!-- Visualizer Placeholder -->
                 <div
-                    style="margin-top: 20px; height: 30px; background: #000; border: 1px inset #555; position: relative; overflow: hidden;">
-                    <div
+                    style="margin-top: 10px; height: 30px; background: #000; border: 1px inset #555; position: relative; overflow: hidden;">
+                    <div id="visualizer-bar"
                         style="width: 100%; height: 100%; background: linear-gradient(90deg, transparent 50%, #0f0 50%); background-size: 20px 100%; opacity: 0.5;">
                     </div>
                 </div>
+                <!-- Hidden Audio Element -->
+                <audio id="winamp-audio" preload="none"></audio>
             </div>
         </div>
 
@@ -269,14 +326,17 @@
                 </div>
             </div>
             <div class="window-content">
-                <form class="contact-form">
+                <form class="contact-form" action="https://formspree.io/f/rooibossanova@gmail.com" method="POST">
                     <div class="form-group">
-                        <label for="name">To (Name):</label>
-                        <input type="text" id="name" name="name" required>
+                        <label>To:</label>
+                        <div
+                            style="padding: 5px; background: #eee; border: 1px inset #808080; color: #555; font-size: 0.9rem;">
+                            rooibossanova@gmail.com
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="email">From (Email):</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="_replyto" required>
                     </div>
                     <div class="form-group">
                         <label for="message">Body:</label>
@@ -327,6 +387,8 @@
         setInterval(updateClock, 1000);
         updateClock();
     </script>
+    <script src="assets/js/audio_manager.js"></script>
+    <script src="assets/js/screensaver.js"></script>
 </body>
 
 </html>
