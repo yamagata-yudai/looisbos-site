@@ -439,15 +439,54 @@
 
     <script src="assets/js/script.js"></script>
     <script>
+        // Startup Sequence logic
+        window.addEventListener('DOMContentLoaded', () => {
+            const bios = document.getElementById('bios-screen');
+            const xpLoad = document.getElementById('xp-load-screen');
+            const overlay = document.getElementById('startup-overlay');
+
+            // Simulate BIOS detection
+            setTimeout(() => {
+                if (bios) {
+                    bios.style.transition = 'opacity 0.5s ease';
+                    bios.style.opacity = '0';
+
+                    setTimeout(() => {
+                        bios.style.display = 'none';
+                        if (xpLoad) {
+                            xpLoad.style.display = 'flex';
+                            xpLoad.style.opacity = '0';
+                            xpLoad.style.transition = 'opacity 0.5s ease';
+                            xpLoad.offsetHeight; // force reflow
+                            xpLoad.style.opacity = '1';
+                        }
+
+                        // Simulate XP Loading
+                        setTimeout(() => {
+                            if (overlay) {
+                                overlay.style.transition = 'opacity 1s ease';
+                                overlay.style.opacity = '0';
+                                setTimeout(() => {
+                                    overlay.style.display = 'none';
+                                }, 1000);
+                            }
+                        }, 3000);
+                    }, 500);
+                }
+            }, 2500);
+        });
+
         // Simple Clock for Taskbar
         function updateClock() {
+            const clockEl = document.getElementById('clock');
+            if (!clockEl) return;
             const now = new Date();
             let hours = now.getHours();
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const ampm = hours >= 12 ? 'PM' : 'AM';
             hours = hours % 12;
             hours = hours ? hours : 12;
-            document.getElementById('clock').textContent = `${hours}:${minutes} ${ampm}`;
+            clockEl.textContent = `${hours}:${minutes} ${ampm}`;
         }
         setInterval(updateClock, 1000);
         updateClock();
