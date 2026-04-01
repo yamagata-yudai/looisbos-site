@@ -30,22 +30,32 @@ html {
 
 body {
     font-family: var(--font-primary);
-    background-color: #008080;
-    /* Classic Deal Blue Background */
-    /* Optional: Bliss wallpaper fallback */
-    background-image: url('../images/background.jpg');
-    /* Sunset Grassland */
     background-color: #3a6ea5;
     /* XP Default Blue fallback */
-    background-size: cover;
-    background-attachment: fixed;
     color: var(--win-text);
     line-height: 1.5;
     cursor: default;
-    /* Revert custom cursor for now, or use retro one later */
     padding-bottom: 50px;
     /* Space for taskbar */
     overflow-x: hidden;
+}
+
+/* Background adjustment for better readability and tone */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Reduced saturation and slightly increased brightness for "pastel/calm" effect */
+    filter: saturate(0.6) brightness(1.05) contrast(0.95);
+    z-index: -1;
+    pointer-events: none;
 }
 
 /* Screensaver Canvas */
