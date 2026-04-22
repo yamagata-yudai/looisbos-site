@@ -30,17 +30,15 @@ html {
 
 body {
     font-family: var(--font-primary);
-    background-color: #3a6ea5;
-    /* XP Default Blue fallback */
+    background-color: #000;
     color: var(--win-text);
     line-height: 1.5;
     cursor: default;
     padding-bottom: 50px;
-    /* Space for taskbar */
     overflow-x: hidden;
 }
 
-/* Background adjustment for better readability and tone */
+/* Background — Y2K: 背景写真を非表示、純黒に */
 body::before {
     content: "";
     position: fixed;
@@ -52,8 +50,7 @@ body::before {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    /* Reduced saturation and slightly increased brightness for "pastel/calm" effect */
-    filter: saturate(0.6) brightness(1.05) contrast(0.95);
+    opacity: 0;
     z-index: -1;
     pointer-events: none;
 }
@@ -167,20 +164,18 @@ body::before {
 .header {
     position: fixed;
     bottom: 0;
-    /* Taskbar moves to bottom */
     top: auto;
     left: 0;
     width: 100%;
-    height: 40px;
-    /* Reverted to 40px */
+    height: 42px;
     padding: 0 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 9999;
     background: #c0c0c0;
-    border-top: 2px solid #dfdfdf;
-    box-shadow: inset 0 1px 0 #fff;
+    border-top: 2px solid #fff;
+    box-shadow: 0 -2px 0 #666, 0 0 20px rgba(0, 240, 255, .25);
 }
 
 .logo {
@@ -188,31 +183,33 @@ body::before {
     align-items: center;
 }
 
-/* "Start" Button Style for Logo */
+/* "Start" Button Style — Y2K: XP Green */
 .logo-btn {
     display: flex;
     align-items: center;
-    gap: 5px;
-    background: #c0c0c0;
-    border-top: 2px solid #fff;
-    border-left: 2px solid #fff;
-    border-right: 2px solid #808080;
-    border-bottom: 2px solid #808080;
-    padding: 2px 10px;
-    height: 32px;
-    /* Reverted to 32px */
+    gap: 6px;
+    background: linear-gradient(180deg, #5a9e5a 0%, #2a7e2a 100%);
+    border-top: 2px solid #8aba8a;
+    border-left: 2px solid #8aba8a;
+    border-right: 2px solid #1a5e1a;
+    border-bottom: 2px solid #1a5e1a;
+    padding: 4px 16px;
+    height: 34px;
     font-weight: bold;
-    /* font-size removed */
     font-style: italic;
+    font-size: .9rem;
+    color: #fff;
+    text-shadow: 1px 1px 0 #000;
     cursor: pointer;
-    box-shadow: 1px 1px 0 #000;
+    border-radius: 2px 12px 12px 2px;
 }
 
 .logo-btn:active {
-    border-top: 2px solid #808080;
-    border-left: 2px solid #808080;
-    border-right: 2px solid #fff;
-    border-bottom: 2px solid #fff;
+    background: linear-gradient(180deg, #2a7e2a 0%, #1a5e1a 100%);
+    border-top-color: #1a5e1a;
+    border-left-color: #1a5e1a;
+    border-right-color: #8aba8a;
+    border-bottom-color: #8aba8a;
     transform: translateY(1px);
 }
 
@@ -718,4 +715,413 @@ h3 {
     .logo-btn {
         padding: 0 5px;
     }
+}
+
+/* ============================================================
+   Y2K ENHANCEMENTS
+   ============================================================ */
+
+/* 1. CRT Scanlines + Glitch */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 99999;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.07) 0px,
+        rgba(0, 0, 0, 0.07) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    animation: y2k-crt-glitch 9s infinite;
+}
+
+@keyframes y2k-crt-glitch {
+    0%, 94%, 100% { opacity: 1; transform: translateY(0); filter: none; }
+    95%            { opacity: .9; transform: translateY(-2px); }
+    96%            { opacity: 1;  transform: translateX(4px); filter: hue-rotate(20deg); }
+    97%            { opacity: .85; transform: translateX(-3px) scaleX(1.004); filter: none; }
+    98%            { opacity: 1;  transform: translateY(1px); }
+}
+
+/* 2. Background starfield canvas */
+.y2k-stars-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* 3. Custom cursor + sparkle */
+body,
+body * {
+    cursor: none;
+}
+
+#y2k-cursor {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #00f0ff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999999;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 6px #00f0ff, 0 0 16px #00f0ff;
+    transition: opacity .2s ease;
+}
+
+.y2k-spark {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999998;
+    transform: translate(-50%, -50%);
+    animation: y2k-spark-fade .55s ease-out forwards;
+}
+
+@keyframes y2k-spark-fade {
+    0%   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0); }
+}
+
+/* 4. News ticker */
+.y2k-ticker-wrap {
+    background: #000;
+    border-top: 2px solid #00f0ff;
+    border-bottom: 2px solid #00f0ff;
+    overflow: hidden;
+    padding: 5px 0;
+    box-shadow: 0 0 14px rgba(0, 240, 255, .45);
+    position: relative;
+    z-index: 200;
+}
+
+.y2k-ticker-label {
+    display: inline-block;
+    background: #00f0ff;
+    color: #000;
+    font-weight: bold;
+    font-size: .7rem;
+    padding: 1px 10px;
+    margin-right: 14px;
+    font-family: monospace;
+    letter-spacing: .1em;
+    vertical-align: middle;
+}
+
+.y2k-ticker-track {
+    display: inline-block;
+    white-space: nowrap;
+    animation: y2k-ticker 28s linear infinite;
+    font-size: .76rem;
+    color: #00f0ff;
+    font-family: monospace;
+    letter-spacing: .05em;
+}
+
+@keyframes y2k-ticker {
+    0%   { transform: translateX(100vw); }
+    100% { transform: translateX(-100%); }
+}
+
+/* 5. Title bar shimmer — override base and active */
+.title-bar,
+.window.window-active .title-bar {
+    background: linear-gradient(90deg, #000080, #1084d0, #00ccff, #1084d0, #000080);
+    background-size: 300% 100%;
+    animation: y2k-title-shimmer 5s linear infinite;
+}
+
+.window.window-active .title-bar {
+    animation-duration: 3s;
+}
+
+#disco .title-bar {
+    background: linear-gradient(90deg, #1a1a1a, #2a2a2a, #111);
+    animation: none;
+}
+
+@keyframes y2k-title-shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* 6. Hologram overlay on hero image */
+.hero-img-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-img-container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+        rgba(255, 0, 204, .05) 0%,
+        rgba(0, 240, 255, .09) 33%,
+        rgba(0, 255, 136, .05) 66%,
+        rgba(255, 215, 0, .05) 100%
+    );
+    animation: y2k-holo 5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes y2k-holo {
+    0%, 100% { opacity: .5; filter: none; }
+    50%       { opacity: 1;  filter: hue-rotate(30deg) brightness(1.04); }
+}
+
+/* 7. ジャケ写ホバー → レコード盤スライドアウト＋スピン */
+.jacket-wrap {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+}
+
+.jacket-wrap img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100px !important;
+    height: 100px !important;
+    border: 1px solid #555;
+    z-index: 2;
+    transform: translateX(0);
+    transition: transform .5s cubic-bezier(.25, .46, .45, .94);
+}
+
+.jacket-wrap:hover img {
+    transform: translateX(-14px);
+}
+
+/* レコード盤ホルダー（translate担当） */
+.vinyl-outer {
+    position: absolute;
+    top: 3px; left: 3px;
+    width: 94px; height: 94px;
+    z-index: 1;
+    transform: translateX(0);
+    transition: transform .5s cubic-bezier(.25, .46, .45, .94);
+}
+
+.jacket-wrap:hover .vinyl-outer {
+    transform: translateX(56px);
+}
+
+/* レコード盤本体（rotate担当） */
+.vinyl {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle,
+            #bbb 0%, #888 3%,
+            #111 3%, #111 5%,
+            #00aacc 5%, #007799 27%,
+            #111 27%, #111 29%
+        ),
+        repeating-radial-gradient(circle at center,
+            #080808 0%, #1c1c1c 1.5%, #080808 3%
+        );
+    box-shadow: 4px 2px 14px rgba(0, 0, 0, .9),
+                0 0 6px rgba(0, 200, 220, .2);
+    animation: vinyl-spin 3s linear infinite paused;
+}
+
+.jacket-wrap:hover .vinyl {
+    animation-play-state: running;
+}
+
+@keyframes vinyl-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* モバイルはサイズ拡大 */
+@media (max-width: 768px) {
+    .jacket-wrap {
+        width: 150px;
+        height: 150px;
+    }
+
+    .jacket-wrap img {
+        width: 150px !important;
+        height: 150px !important;
+    }
+
+    .vinyl-outer {
+        width: 142px;
+        height: 142px;
+        top: 4px; left: 4px;
+    }
+
+    .jacket-wrap:hover .vinyl-outer {
+        transform: translateX(80px);
+    }
+}
+
+/* 8. Visitor counter (placed in hero area) */
+.y2k-visitor {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: .48rem;
+    background: #000;
+    border: 2px solid #00f0ff;
+    padding: 4px 10px;
+    color: #00f0ff;
+    text-shadow: 0 0 6px #00f0ff;
+    box-shadow: 0 0 10px rgba(0, 240, 255, .35);
+    white-space: nowrap;
+    margin-top: 10px;
+}
+
+.y2k-visitor-count {
+    color: #ffff00;
+    text-shadow: 0 0 8px #ff0;
+}
+
+/* 9. Fake popup */
+.y2k-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 90000;
+    width: 340px;
+    max-width: calc(100vw - 40px);
+    background: #c0c0c0;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #666;
+    border-bottom: 2px solid #666;
+    box-shadow: 4px 4px 0 #000;
+    display: none;
+}
+
+.y2k-popup.visible { display: block; }
+
+.y2k-popup .title-bar {
+    background: linear-gradient(90deg, #800080, #cc00ff, #ff00cc, #cc00ff, #800080);
+    background-size: 200% 100%;
+    animation: y2k-popup-shimmer 1.8s linear infinite;
+    cursor: move;
+}
+
+@keyframes y2k-popup-shimmer {
+    0%   { background-position: 0% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.y2k-popup-body {
+    padding: 18px;
+    text-align: center;
+    background: #fff;
+    color: #000;
+    font-family: 'MS PGothic', 'Arial', sans-serif;
+}
+
+.y2k-popup-headline {
+    font-family: 'Press Start 2P', monospace;
+    font-size: .62rem;
+    color: #cc0000;
+    line-height: 2;
+    animation: blink 1s step-start infinite;
+    margin-bottom: 8px;
+}
+
+.y2k-popup-body p {
+    font-size: .8rem;
+    margin: 6px 0;
+    color: #333;
+}
+
+.y2k-popup-body img {
+    width: 88px;
+    height: 88px;
+    border: 2px solid #c0c0c0;
+    display: block;
+    margin: 8px auto;
+}
+
+.y2k-popup-btn {
+    padding: 5px 18px;
+    background: #c0c0c0;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #666;
+    border-bottom: 2px solid #666;
+    cursor: none;
+    font-family: monospace;
+    font-size: .78rem;
+    margin: 5px auto;
+    display: block;
+    width: fit-content;
+}
+
+.y2k-popup-btn:active {
+    border-top-color: #666;
+    border-left-color: #666;
+    border-right-color: #fff;
+    border-bottom-color: #fff;
+}
+
+/* 10. Chrome metallic hero subtitle */
+.hero-subtitle {
+    font-family: 'Press Start 2P', monospace !important;
+    font-size: .52rem !important;
+    letter-spacing: .2em;
+    background: linear-gradient(180deg, #fff 0%, #b8c8e0 40%, #6888b0 70%, #c8d8ec 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: y2k-chrome-pulse 3.5s ease-in-out infinite;
+    display: block;
+}
+
+@keyframes y2k-chrome-pulse {
+    0%, 100% { filter: drop-shadow(0 0 6px rgba(0, 240, 255, .4)); }
+    50%       { filter: drop-shadow(0 0 16px rgba(0, 240, 255, .9)) drop-shadow(0 0 28px rgba(0, 240, 255, .25)); }
+}
+
+/* Desktop icons — 常時シアングロー、ホバーで強調 */
+.desktop-icon i {
+    filter: drop-shadow(0 0 6px #00f0ff) drop-shadow(0 0 2px rgba(0,240,255,.6)) !important;
+}
+
+.desktop-icon:hover i {
+    filter: drop-shadow(0 0 14px #00f0ff) drop-shadow(0 0 6px #00f0ff) brightness(1.3) !important;
+}
+
+.desktop-icon span {
+    background: rgba(0, 0, 0, .5);
+    padding: 2px 4px;
+    color: #fff;
+    text-shadow: 0 0 6px #00f0ff;
+}
+
+.desktop-icon:hover span {
+    background: rgba(0, 0, 30, .75);
+    outline: 1px dotted #00f0ff;
+}
+
+/* タッチデバイス: ネイティブカーソルを復元、スターフィールド非表示 */
+@media (hover: none) and (pointer: coarse) {
+    body,
+    body * {
+        cursor: auto;
+    }
+
+    #y2k-cursor { display: none; }
+    .y2k-stars-bg { display: none; }
+}
+
+@media (max-width: 768px) {
+    .y2k-visitor { font-size: .42rem; }
 }

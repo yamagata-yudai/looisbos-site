@@ -13,6 +13,11 @@
 </head>
 
 <body>
+    <!-- Y2K: Custom cursor -->
+    <div id="y2k-cursor"></div>
+    <!-- Y2K: Background starfield -->
+    <canvas id="y2k-stars-bg" class="y2k-stars-bg"></canvas>
+
     <!-- Screensaver Canvas -->
     <canvas id="screensaver-canvas" class="screensaver-canvas"></canvas>
 
@@ -46,7 +51,7 @@
     <!-- Desktop Icons (Social Links) -->
     <div class="desktop-icons">
         <a href="https://x.com/looisbos" target="_blank" class="desktop-icon">
-            <i class="fa-brands fa-x-twitter" style="color: #000;"></i>
+            <i class="fa-brands fa-x-twitter" style="color: #fff;"></i>
             <span>Twitter (X)</span>
         </a>
         <a href="https://www.instagram.com/looisbos/?hl=ja" target="_blank" class="desktop-icon">
@@ -59,9 +64,22 @@
             <span>YouTube</span>
         </a>
         <a href="https://www.tiktok.com/@looisbos_band" target="_blank" class="desktop-icon">
-            <i class="fa-brands fa-tiktok" style="color: #000;"></i>
+            <i class="fa-brands fa-tiktok" style="color: #fff;"></i>
             <span>TikTok</span>
         </a>
+    </div>
+
+    <!-- Y2K: News ticker -->
+    <div class="y2k-ticker-wrap">
+        <span class="y2k-ticker-label">★ NEWS</span>
+        <span class="y2k-ticker-track">
+            【NEW RELEASE】"Lovin' Doo-be-doo" OUT NOW! &nbsp;★&nbsp;
+            4ヶ月連続リリース第1弾 &nbsp;★&nbsp;
+            下北沢LIVE HAUS "True Coming Dream Vol.9" &nbsp;★&nbsp;
+            Streaming &amp; Download available now &nbsp;★&nbsp;
+            Check the latest MV on YouTube &nbsp;★&nbsp;
+            【NEW RELEASE】"Lovin' Doo-be-doo" OUT NOW!
+        </span>
     </div>
 
     <main class="container">
@@ -84,7 +102,12 @@
                 </div>
                 <div style="margin-top: 20px; color: #fff; font-family: 'Times New Roman', serif;">
                     <img src="assets/images/logo.png" alt="Looisbos" class="logo-img-hero" style="filter: invert(1);">
-                    <p class="hero-subtitle" style="color: #ccc; margin-top: 10px;">Resonating Through the Void</p>
+                    <p class="hero-subtitle" style="margin-top: 10px;">Resonating Through the Void</p>
+                    <!-- Y2K: Visitor counter -->
+                    <div class="y2k-visitor">
+                        YOU ARE VISITOR&nbsp;
+                        <span class="y2k-visitor-count" id="y2k-visitor-count">0000001</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -105,8 +128,10 @@
                     <!-- Release 1: Lovin' Doo-be-doo -->
                     <div class="disco-item"
                         style="display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed #555; padding-bottom: 15px;">
-                        <img src="assets/images/lovin_doobiedo.jpg" alt="Lovin' Doo-be-doo"
-                            style="width: 100px; height: 100px; border: 1px solid #555;" loading="lazy">
+                        <div class="jacket-wrap">
+                            <div class="vinyl-outer"><div class="vinyl"></div></div>
+                            <img src="assets/images/lovin_doobiedo.jpg" alt="Lovin' Doo-be-doo" loading="lazy">
+                        </div>
                         <div>
                             <h3 style="margin: 0 0 5px 0; color: #0f0;">Lovin' Doo-be-doo</h3>
                             <p style="margin: 0; font-size: 0.8rem; color: #ccc;">Single / 2026.04.01</p>
@@ -124,8 +149,10 @@
                     <!-- Release 2: Science Children -->
                     <div class="disco-item"
                         style="display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed #555; padding-bottom: 15px;">
-                        <img src="assets/images/ScienceChildren.jpg" alt="Science Children"
-                            style="width: 100px; height: 100px; border: 1px solid #555;" loading="lazy">
+                        <div class="jacket-wrap">
+                            <div class="vinyl-outer"><div class="vinyl"></div></div>
+                            <img src="assets/images/ScienceChildren.jpg" alt="Science Children" loading="lazy">
+                        </div>
                         <div>
                             <h3 style="margin: 0 0 5px 0; color: #0f0;">Science Children</h3>
                             <p style="margin: 0; font-size: 0.8rem; color: #ccc;">Single / 2024.12.25</p>
@@ -143,8 +170,10 @@
                     <!-- Release 2: rooms -->
                     <div class="disco-item"
                         style="display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed #555; padding-bottom: 15px;">
-                        <img src="assets/images/rooms.jpg" alt="rooms"
-                            style="width: 100px; height: 100px; border: 1px solid #555;" loading="lazy">
+                        <div class="jacket-wrap">
+                            <div class="vinyl-outer"><div class="vinyl"></div></div>
+                            <img src="assets/images/rooms.jpg" alt="rooms" loading="lazy">
+                        </div>
                         <div>
                             <h3 style="margin: 0 0 5px 0; color: #0f0;">rooms</h3>
                             <p style="margin: 0; font-size: 0.8rem; color: #ccc;">EP / 2022.11.30</p>
@@ -166,8 +195,10 @@
                     <!-- Release 3: vase -->
                     <div class="disco-item"
                         style="display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed #555; padding-bottom: 15px;">
-                        <img src="assets/images/vase.jpeg" alt="vase"
-                            style="width: 100px; height: 100px; border: 1px solid #555;" loading="lazy">
+                        <div class="jacket-wrap">
+                            <div class="vinyl-outer"><div class="vinyl"></div></div>
+                            <img src="assets/images/vase.jpeg" alt="vase" loading="lazy">
+                        </div>
                         <div>
                             <h3 style="margin: 0 0 5px 0; color: #0f0;">vase</h3>
                             <p style="margin: 0; font-size: 0.8rem; color: #ccc;">EP / 2021.04.21</p>
@@ -188,8 +219,10 @@
 
                     <!-- Release 4: chairs -->
                     <div class="disco-item" style="display: flex; gap: 15px; margin-bottom: 10px;">
-                        <img src="assets/images/chairs.jpg" alt="chairs"
-                            style="width: 100px; height: 100px; border: 1px solid #555;" loading="lazy">
+                        <div class="jacket-wrap">
+                            <div class="vinyl-outer"><div class="vinyl"></div></div>
+                            <img src="assets/images/chairs.jpg" alt="chairs" loading="lazy">
+                        </div>
                         <div>
                             <h3 style="margin: 0 0 5px 0; color: #0f0;">chairs</h3>
                             <p style="margin: 0; font-size: 0.8rem; color: #ccc;">EP / 2019.10.1</p>
@@ -437,6 +470,27 @@
         </div>
     </header>
 
+    <!-- Y2K: Fake popup -->
+    <div id="y2k-popup" class="y2k-popup">
+        <div class="title-bar">
+            <span class="title-bar-text">⚡ Congratulations! ⚡</span>
+            <div class="title-bar-controls">
+                <div class="window-btn y2k-popup-close">×</div>
+            </div>
+        </div>
+        <div class="y2k-popup-body">
+            <p class="y2k-popup-headline">YOU ARE OUR<br>1,000,000th VISITOR!</p>
+            <p>新しいシングル<br><strong>"Lovin' Doo-be-doo"</strong><br>今すぐ聴いてください！</p>
+            <img src="assets/images/lovin_doobiedo.jpg" alt="Lovin' Doo-be-doo">
+            <a href="https://friendship.lnk.to/LovinDoo-be-doo_Looisbos" target="_blank">
+                <button class="y2k-popup-btn">🎵 Click Here to Listen!</button>
+            </a>
+            <button class="y2k-popup-btn y2k-popup-close" style="font-size:.68rem; color:#999; margin-top:2px;">
+                No thanks, I don't like music
+            </button>
+        </div>
+    </div>
+
     <script src="assets/js/script.js"></script>
     <script>
         // Startup Sequence logic
@@ -492,6 +546,7 @@
         updateClock();
     </script>
     <script src="assets/js/screensaver.js"></script>
+    <script src="assets/js/y2k.js"></script>
 </body>
 
 </html>
