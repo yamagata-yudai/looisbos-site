@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>チケット取り置き — Looisbos</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --sand:#F5E6C8;
+  --sand-deep:#E8D4A8;
+  --ocean:#2B7A9E;
+  --ocean-deep:#1B5A78;
+  --coral:#E8785A;
+  --coral-light:#FAECE7;
+  --error:#C0392B;
+  --error-light:#FDEDEC;
+  --sunset:#F2994A;
+  --sky:#D4EEF7;
+  --cream:#FFF9F0;
+  --text-dark:#2C1810;
+  --text-mid:#6B4F3A;
+}
+body{
+  font-family:'Zen Kaku Gothic New','Hiragino Kaku Gothic ProN',sans-serif;
+  background:var(--cream);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+.scene{
+  position:relative;
+  width:100%;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:0 1rem 3rem;
+}
+.sky-bg{
+  position:fixed;
+  top:0;left:0;right:0;
+  height:45vh;
+  background:linear-gradient(180deg,#87CEEB 0%,#B8E4F0 40%,#F5D5A0 75%,#F2994A 100%);
+  z-index:0;
+}
+.sun{
+  position:fixed;
+  top:18vh;
+  left:50%;
+  transform:translateX(-50%);
+  width:80px;height:80px;
+  border-radius:50%;
+  background:radial-gradient(circle,#FFE082,#F2994A);
+  box-shadow:0 0 60px rgba(242,153,74,0.5),0 0 120px rgba(242,153,74,0.2);
+  z-index:1;
+  animation:pulse 4s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 60px rgba(242,153,74,0.5),0 0 120px rgba(242,153,74,0.2)}
+  50%{box-shadow:0 0 80px rgba(242,153,74,0.6),0 0 160px rgba(242,153,74,0.3)}
+}
+.wave-container{
+  position:fixed;
+  top:38vh;left:0;right:0;
+  height:12vh;
+  z-index:1;
+  overflow:hidden;
+}
+.wave{
+  position:absolute;
+  width:200%;
+  height:100%;
+  bottom:0;
+}
+.wave svg{width:100%;height:100%}
+.wave-1{animation:drift 8s ease-in-out infinite;opacity:0.6}
+.wave-2{animation:drift 6s ease-in-out infinite reverse;opacity:0.4;bottom:-8px}
+@keyframes drift{
+  0%,100%{transform:translateX(0)}
+  50%{transform:translateX(-5%)}
+}
+.sand-bg{
+  position:fixed;
+  top:46vh;left:0;right:0;bottom:0;
+  background:linear-gradient(180deg,var(--sand) 0%,var(--sand-deep) 60%,#D4BC8A 100%);
+  z-index:0;
+}
+.card{
+  position:relative;
+  z-index:10;
+  margin-top:22vh;
+  width:100%;
+  max-width:440px;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(20px);
+  border-radius:24px;
+  border:1px solid rgba(255,255,255,0.6);
+  box-shadow:0 20px 60px rgba(43,25,16,0.12),0 4px 16px rgba(43,25,16,0.06);
+  padding:2.5rem 2rem 2rem;
+  animation:cardIn 0.8s ease-out;
+}
+@keyframes cardIn{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.band-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:var(--ocean);
+  color:#fff;
+  font-family:'Outfit',sans-serif;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  padding:5px 14px;
+  border-radius:20px;
+  margin-bottom:1rem;
+}
+.band-badge span{font-size:14px}
+h1{
+  font-family:'Outfit',sans-serif;
+  font-size:28px;
+  font-weight:700;
+  color:var(--text-dark);
+  line-height:1.2;
+  margin-bottom:4px;
+}
+.event-info{
+  color:var(--text-mid);
+  font-size:14px;
+  margin-bottom:1.8rem;
+  line-height:1.6;
+}
+.event-info .date{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  font-weight:700;
+  color:var(--coral);
+  font-family:'Outfit',sans-serif;
+  font-size:15px;
+}
+.event-info .venue{
+  display:block;
+  margin-top:2px;
+  font-size:13px;
+}
+.divider{
+  width:100%;
+  height:1px;
+  background:repeating-linear-gradient(90deg,var(--sand-deep) 0,var(--sand-deep) 6px,transparent 6px,transparent 12px);
+  margin-bottom:1.5rem;
+}
+.form-group{
+  margin-bottom:1.2rem;
+}
+label{
+  display:block;
+  font-size:12px;
+  font-weight:700;
+  color:var(--ocean-deep);
+  letter-spacing:0.06em;
+  margin-bottom:6px;
+  font-family:'Outfit',sans-serif;
+}
+input{
+  width:100%;
+  font-family:'Zen Kaku Gothic New',sans-serif;
+  font-size:15px;
+  color:var(--text-dark);
+  padding:12px 14px;
+  border:1.5px solid var(--sand-deep);
+  border-radius:12px;
+  background:#fff;
+  transition:border-color 0.2s,box-shadow 0.2s;
+  outline:none;
+  -webkit-appearance:none;
+  appearance:none;
+}
+input:focus{
+  border-color:var(--ocean);
+  box-shadow:0 0 0 3px rgba(43,122,158,0.12);
+}
+input::placeholder{color:#C4AD8A;font-size:13px}
+input.error{
+  border-color:var(--error);
+  background:var(--error-light);
+}
+input.error:focus{
+  box-shadow:0 0 0 3px rgba(192,57,43,0.12);
+}
+.error-msg{
+  display:none;
+  font-size:11px;
+  color:var(--error);
+  margin-top:5px;
+  font-family:'Outfit',sans-serif;
+  font-weight:500;
+}
+.error-msg.show{display:block}
+.ticket-selector{
+  display:flex;
+  align-items:center;
+  gap:0;
+  background:#fff;
+  border:1.5px solid var(--sand-deep);
+  border-radius:12px;
+  overflow:hidden;
+  transition:border-color 0.2s;
+}
+.ticket-selector:focus-within{
+  border-color:var(--ocean);
+  box-shadow:0 0 0 3px rgba(43,122,158,0.12);
+}
+.ticket-btn{
+  width:44px;height:44px;
+  border:none;
+  background:var(--sky);
+  color:var(--ocean-deep);
+  font-size:20px;
+  font-weight:600;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.15s;
+  font-family:'Outfit',sans-serif;
+}
+.ticket-btn:hover{background:var(--sand)}
+.ticket-btn:active{transform:scale(0.95)}
+.ticket-count{
+  flex:1;
+  text-align:center;
+  font-family:'Outfit',sans-serif;
+  font-size:22px;
+  font-weight:600;
+  color:var(--text-dark);
+  user-select:none;
+}
+.ticket-count small{
+  font-size:12px;
+  font-weight:400;
+  color:var(--text-mid);
+  margin-left:2px;
+}
+.submit-btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--coral) 0%,var(--sunset) 100%);
+  color:#fff;
+  font-family:'Outfit',sans-serif;
+  font-size:16px;
+  font-weight:600;
+  letter-spacing:0.04em;
+  cursor:pointer;
+  margin-top:0.8rem;
+  transition:transform 0.15s,box-shadow 0.15s,opacity 0.15s;
+  box-shadow:0 4px 16px rgba(232,120,90,0.3);
+}
+.submit-btn:hover:not(:disabled){
+  transform:translateY(-1px);
+  box-shadow:0 6px 24px rgba(232,120,90,0.4);
+}
+.submit-btn:active:not(:disabled){transform:translateY(0);box-shadow:0 2px 8px rgba(232,120,90,0.3)}
+.submit-btn:disabled{opacity:0.6;cursor:not-allowed}
+.footer-note{
+  text-align:center;
+  font-size:11px;
+  color:var(--text-mid);
+  margin-top:1rem;
+  opacity:0.7;
+  line-height:1.5;
+}
+.success-overlay{
+  display:none;
+  position:absolute;
+  inset:0;
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(10px);
+  border-radius:24px;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:2rem;
+  text-align:center;
+  z-index:20;
+  animation:fadeIn 0.4s ease;
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.success-overlay.show{display:flex}
+.success-icon{
+  font-size:48px;
+  margin-bottom:1rem;
+  animation:bounce 0.6s ease;
+}
+@keyframes bounce{
+  0%{transform:scale(0)}
+  50%{transform:scale(1.2)}
+  100%{transform:scale(1)}
+}
+.success-overlay h2{
+  font-family:'Outfit',sans-serif;
+  font-size:22px;
+  font-weight:700;
+  color:var(--text-dark);
+  margin-bottom:8px;
+}
+.success-overlay p{
+  color:var(--text-mid);
+  font-size:14px;
+  line-height:1.6;
+}
+.success-detail{
+  margin-top:1.2rem;
+  padding:1rem;
+  background:var(--sky);
+  border-radius:12px;
+  width:100%;
+  max-width:280px;
+  text-align:left;
+  font-size:13px;
+  color:var(--ocean-deep);
+  line-height:1.8;
+}
+.reset-btn{
+  margin-top:1.5rem;
+  padding:10px 24px;
+  border:1.5px solid var(--ocean);
+  background:transparent;
+  color:var(--ocean);
+  border-radius:10px;
+  font-family:'Outfit',sans-serif;
+  font-size:13px;
+  font-weight:500;
+  cursor:pointer;
+  transition:all 0.15s;
+}
+.reset-btn:hover{background:var(--ocean);color:#fff}
+@media(max-width:480px){
+  .card{padding:2rem 1.5rem 1.5rem;border-radius:20px}
+  h1{font-size:24px}
+  .sun{width:60px;height:60px;top:15vh}
+}
+@keyframes shake{
+  0%,100%{transform:translateX(0)}
+  20%,60%{transform:translateX(-6px)}
+  40%,80%{transform:translateX(6px)}
+}
+</style>
+</head>
+<body>
+<div class="scene">
+  <div class="sky-bg"></div>
+  <div class="sun"></div>
+  <div class="wave-container">
+    <div class="wave wave-1">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,40 C360,100 720,0 1080,60 C1260,90 1380,30 1440,50 L1440,120 L0,120Z" fill="#D4EEF7"/>
+      </svg>
+    </div>
+    <div class="wave wave-2">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0,60 C240,10 480,90 720,40 C960,0 1200,80 1440,30 L1440,120 L0,120Z" fill="#B8E4F0"/>
+      </svg>
+    </div>
+  </div>
+  <div class="sand-bg"></div>
+
+  <div class="card" id="formCard">
+    <div class="success-overlay" id="successOverlay">
+      <div class="success-icon">🏖️</div>
+      <h2>取り置き完了！</h2>
+      <p>当日会場の受付でお名前をお伝えください</p>
+      <div class="success-detail" id="successDetail"></div>
+      <button class="reset-btn" onclick="resetForm()">もう一件追加する</button>
+    </div>
+
+    <div class="band-badge"><span>🌴</span> GUEST LIST</div>
+    <h1>チケット取り置き</h1>
+    <div class="event-info">
+      <div style="font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;color:var(--text-dark);margin-bottom:6px;">Siesta Bis</div>
+      <span class="date">📅 2026.07.25（土）</span>
+      <span class="venue">📍 DAYDREAM KICHIJOJI</span>
+      <span class="venue" style="font-size:11px;color:var(--text-mid);line-height:1.7;">
+        〒180-0003 東京都武蔵野市吉祥寺南町1-1-4-6F<br>
+        京王井の頭 / JR線 吉祥寺駅南口（公園口）を出てすぐのバス通りを右へ。<br>
+        天下寿司6階（エレベーター5階）
+      </span>
+      <span class="venue" style="margin-top:4px;color:var(--text-mid);">OPEN 18:30 &nbsp;/&nbsp; START 19:00</span>
+      <span class="venue">charge ¥3,000（adv/door）</span>
+    </div>
+    <div class="divider"></div>
+
+    <div class="form-group">
+      <label>NAME</label>
+      <input type="text" id="nameInput" placeholder="お名前（フルネーム）" autocomplete="name">
+      <p class="error-msg" id="nameError">お名前を入力してください</p>
+    </div>
+
+    <div class="form-group">
+      <label>TICKETS</label>
+      <div class="ticket-selector">
+        <button class="ticket-btn" onclick="changeCount(-1)" aria-label="減らす">−</button>
+        <div class="ticket-count"><span id="ticketNum">1</span><small>枚</small></div>
+        <button class="ticket-btn" onclick="changeCount(1)" aria-label="増やす">+</button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>EMAIL</label>
+      <input type="email" id="emailInput" placeholder="メールアドレス" autocomplete="email" inputmode="email">
+      <p class="error-msg" id="emailError">正しいメールアドレスを入力してください</p>
+    </div>
+
+    <button class="submit-btn" id="submitBtn" onclick="submitForm()">取り置きを確定する ☀️</button>
+    <p class="footer-note">※ 取り置き後のキャンセルはDMにてご連絡ください</p>
+  </div>
+</div>
+
+<script>
+// TODO: GASをデプロイしたらこのURLを差し替えてください
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNKgfI7lJ098pkE4sHQ2ViRybl2ahtbFfWgVZxClEV6Gf-1sWtN-QO8zYwUBKFBCU/exec';
+
+let ticketCount = 1;
+
+function changeCount(delta) {
+  ticketCount = Math.max(1, Math.min(10, ticketCount + delta));
+  document.getElementById('ticketNum').textContent = ticketCount;
+}
+
+function isValidEmail(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+}
+
+function setFieldError(inputId, errorId, hasError) {
+  const input = document.getElementById(inputId);
+  const msg   = document.getElementById(errorId);
+  input.classList.toggle('error', hasError);
+  msg.classList.toggle('show', hasError);
+}
+
+function shakeField(id) {
+  const el = document.getElementById(id);
+  el.style.animation = 'none';
+  el.offsetHeight; // reflow
+  el.style.animation = 'shake 0.4s ease';
+  setTimeout(() => { el.style.animation = ''; }, 400);
+}
+
+function validate() {
+  const name  = document.getElementById('nameInput').value.trim();
+  const email = document.getElementById('emailInput').value.trim();
+
+  const nameInvalid  = name === '';
+  const emailInvalid = !isValidEmail(email);
+
+  setFieldError('nameInput',  'nameError',  nameInvalid);
+  setFieldError('emailInput', 'emailError', emailInvalid);
+
+  if (nameInvalid)  shakeField('nameInput');
+  if (emailInvalid) shakeField('emailInput');
+
+  return !nameInvalid && !emailInvalid;
+}
+
+// リアルタイムバリデーション（送信後に入力し直したとき）
+document.getElementById('nameInput').addEventListener('input', function() {
+  if (this.classList.contains('error')) {
+    setFieldError('nameInput', 'nameError', this.value.trim() === '');
+  }
+});
+document.getElementById('emailInput').addEventListener('input', function() {
+  if (this.classList.contains('error')) {
+    setFieldError('emailInput', 'emailError', !isValidEmail(this.value.trim()));
+  }
+});
+
+async function submitForm() {
+  if (!validate()) return;
+
+  const name  = document.getElementById('nameInput').value.trim();
+  const email = document.getElementById('emailInput').value.trim();
+
+  const submitBtn = document.getElementById('submitBtn');
+  submitBtn.disabled = true;
+  submitBtn.textContent = '送信中…';
+
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: new URLSearchParams({ name, tickets: ticketCount, email })
+    });
+
+    document.getElementById('successDetail').innerHTML =
+      `<strong>${name}</strong> 様<br>${ticketCount}枚 ／ ${email}`;
+    document.getElementById('successOverlay').classList.add('show');
+  } catch {
+    alert('送信に失敗しました。時間をおいて再度お試しください。');
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = '取り置きを確定する ☀️';
+  }
+}
+
+function resetForm() {
+  document.getElementById('successOverlay').classList.remove('show');
+  document.getElementById('nameInput').value = '';
+  document.getElementById('emailInput').value = '';
+  setFieldError('nameInput',  'nameError',  false);
+  setFieldError('emailInput', 'emailError', false);
+  ticketCount = 1;
+  document.getElementById('ticketNum').textContent = 1;
+}
+</script>
+</body>
+</html>
