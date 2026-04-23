@@ -1124,4 +1124,14 @@ body * {
 
 @media (max-width: 768px) {
     .y2k-visitor { font-size: .42rem; }
+
+    /* スマホ: ポップアップを確実に中央固定 */
+    .y2k-popup {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: calc(100vw - 32px) !important;
+        max-width: 340px;
+    }
 }
