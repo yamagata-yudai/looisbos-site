@@ -1008,15 +1008,8 @@ body * {
 .y2k-popup.visible { display: block; }
 
 .y2k-popup .title-bar {
-    background: linear-gradient(90deg, #800080, #cc00ff, #ff00cc, #cc00ff, #800080);
-    background-size: 200% 100%;
-    animation: y2k-popup-shimmer 1.8s linear infinite;
+    background: linear-gradient(90deg, var(--win-blue), var(--win-blue-grad));
     cursor: move;
-}
-
-@keyframes y2k-popup-shimmer {
-    0%   { background-position: 0% 0; }
-    100% { background-position: 200% 0; }
 }
 
 .y2k-popup-body {
@@ -1028,11 +1021,10 @@ body * {
 }
 
 .y2k-popup-headline {
-    font-family: 'Press Start 2P', monospace;
-    font-size: .62rem;
-    color: #cc0000;
-    line-height: 2;
-    animation: blink 1s step-start infinite;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000;
+    line-height: 1.6;
     margin-bottom: 8px;
 }
 
@@ -1043,9 +1035,9 @@ body * {
 }
 
 .y2k-popup-body img {
-    width: 88px;
-    height: 88px;
-    border: 2px solid #c0c0c0;
+    width: 100%;
+    height: auto;
+    border: 1px solid #808080;
     display: block;
     margin: 8px auto;
 }
