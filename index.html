@@ -126,6 +126,73 @@
             <div class="window-content"
                 style="background: #222; color: #0f0; font-family: monospace; border: 2px solid #555;">
                 <div style="height: 300px; overflow-y: auto; padding-right: 5px;">
+                    <!-- Release: Groceries (4th EP) -->
+                    <div class="disco-item"
+                        style="display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed #555; padding-bottom: 15px;">
+                        <div class="jacket-wrap">
+                            <div class="vinyl-outer"><div class="vinyl"></div></div>
+                            <img src="assets/images/groceries_jacket.jpg" alt="Groceries" loading="lazy">
+                        </div>
+                        <div>
+                            <h3 style="margin: 0 0 5px 0; color: #0f0;">Groceries</h3>
+                            <p style="margin: 0; font-size: 0.8rem; color: #ccc;">EP / 2026.07.01</p>
+                            <br>
+                            <span style="font-size: 0.8rem; color: #aaa;">[Tracks]</span>
+                            <ul style="list-style: none; padding-left: 0; margin-top: 2px; font-size: 0.8rem;">
+                                <li>1. The flow of our days has slipped away like sand</li>
+                                <li>2. Lovin' Doo-be-doo</li>
+                                <li>3. Sometimes (Remember My Past Self)</li>
+                                <li>4. Copy &amp; Paste</li>
+                                <li>5. Teenage</li>
+                            </ul>
+                            <a href="https://friendship.lnk.to/Groceries_Looisbos" target="_blank"
+                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;">🎵
+                                Listen on Streaming</a>
+                        </div>
+                    </div>
+
+                    <!-- Release: Teenage (Single) -->
+                    <div class="disco-item"
+                        style="display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed #555; padding-bottom: 15px;">
+                        <div class="jacket-wrap">
+                            <div class="vinyl-outer"><div class="vinyl"></div></div>
+                            <img src="assets/images/teenage.png" alt="Teenage" loading="lazy">
+                        </div>
+                        <div>
+                            <h3 style="margin: 0 0 5px 0; color: #0f0;">Teenage</h3>
+                            <p style="margin: 0; font-size: 0.8rem; color: #ccc;">Single / 2026.06.03</p>
+                            <br>
+                            <span style="font-size: 0.8rem; color: #aaa;">[Tracks]</span>
+                            <ul style="list-style: none; padding-left: 0; margin-top: 2px; font-size: 0.8rem;">
+                                <li>1. Teenage</li>
+                            </ul>
+                            <a href="https://friendship.lnk.to/Teenage_Looisbos" target="_blank"
+                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;">🎵
+                                Listen on Streaming</a>
+                        </div>
+                    </div>
+
+                    <!-- Release: Sometimes (Remember My Past Self) (Single) -->
+                    <div class="disco-item"
+                        style="display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed #555; padding-bottom: 15px;">
+                        <div class="jacket-wrap">
+                            <div class="vinyl-outer"><div class="vinyl"></div></div>
+                            <img src="assets/images/sometimes.jpg" alt="Sometimes (Remember My Past Self)" loading="lazy">
+                        </div>
+                        <div>
+                            <h3 style="margin: 0 0 5px 0; color: #0f0;">Sometimes (Remember My Past Self)</h3>
+                            <p style="margin: 0; font-size: 0.8rem; color: #ccc;">Single / 2026.05.10</p>
+                            <br>
+                            <span style="font-size: 0.8rem; color: #aaa;">[Tracks]</span>
+                            <ul style="list-style: none; padding-left: 0; margin-top: 2px; font-size: 0.8rem;">
+                                <li>1. Sometimes (Remember My Past Self)</li>
+                            </ul>
+                            <a href="https://friendship.lnk.to/Sometimes_Looisbos" target="_blank"
+                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;">🎵
+                                Listen on Streaming</a>
+                        </div>
+                    </div>
+
                     <!-- Release 1: Lovin' Doo-be-doo -->
                     <div class="disco-item"
                         style="display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed #555; padding-bottom: 15px;">
@@ -266,6 +333,65 @@
                 </div>
                 <!-- Hidden Audio Element -->
                 <audio id="winamp-audio" preload="none"></audio>
+            </div>
+        </div>
+
+        <!-- Live Schedule Window -->
+        <div id="live" class="window">
+            <div class="title-bar" style="background: linear-gradient(90deg, #7b0a0a, #b52a2a);">
+                <div class="title-bar-text">Scheduler - LIVE SCHEDULE</div>
+                <div class="title-bar-controls">
+                    <div class="window-btn">_</div>
+                    <div class="window-btn">□</div>
+                    <div class="window-btn">×</div>
+                </div>
+            </div>
+            <div class="window-content">
+                <h2 class="section-title">■ UPCOMING</h2>
+
+                <div class="live-card live-pickup">
+                    <div class="live-pin">★ PICK UP / ONE-MAN</div>
+                    <h3 class="live-title">Siesta Bis</h3>
+                    <p class="live-countdown" id="live-countdown"></p>
+                    <table class="live-meta">
+                        <tr><th>DATE</th><td>2026年7月25日(土)</td></tr>
+                        <tr><th>VENUE</th><td>吉祥寺DAYDREAM</td></tr>
+                        <tr><th>TIME</th><td>open 18:30 / start 19:00</td></tr>
+                        <tr><th>TICKET</th><td>¥3,000</td></tr>
+                    </table>
+                    <a href="https://looisbos.com/toritori.html" target="_blank" class="btn live-btn"
+                        style="display: inline-block; margin-top: 10px; padding: 6px 18px; font-weight: bold; text-decoration: none; color: #000; font-size: 14px;">🎟️
+                        チケット予約はこちら</a>
+                </div>
+
+                <div class="live-card">
+                    <h3 class="live-title">吉凶わからず、自主企画 "laundrynotes" 〜東京編〜</h3>
+                    <p class="live-sub">1st album「laundrynotes」release event</p>
+                    <table class="live-meta">
+                        <tr><th>DATE</th><td>2026年7月17日(金)</td></tr>
+                        <tr><th>TIME</th><td>open 18:30 / start 19:00</td></tr>
+                        <tr><th>TICKET</th><td>adv/door 2,500/3,000 ＋1D</td></tr>
+                        <tr><th>ACT</th><td>吉凶わからず、／ おどるアナグマ ／ キッサ・コッポラ ／ Looisbos ／ and more...!?</td></tr>
+                    </table>
+                    <p class="live-reserve">ご予約は各SNSのDMにて受付🙏
+                        <a href="https://x.com/looisbos" target="_blank">X (@looisbos)</a> /
+                        <a href="https://www.instagram.com/looisbos/?hl=ja" target="_blank">Instagram (@looisbos)</a>
+                    </p>
+                </div>
+
+                <h2 class="section-title" style="margin-top: 25px;">□ PAST</h2>
+
+                <div class="live-card live-past">
+                    <h3 class="live-title">下北沢LIVE HAUS "True Coming Dream Vol.9"</h3>
+                    <table class="live-meta">
+                        <tr><th>DATE</th><td>2026年3月29日(日)</td></tr>
+                        <tr><th>VENUE</th><td>下北沢LIVE HAUS</td></tr>
+                        <tr><th>TIME</th><td>open 15:00 / start 15:30</td></tr>
+                        <tr><th>TICKET</th><td>adv ¥3,800 / door ¥4,300</td></tr>
+                        <tr><th>ACT</th><td>Looisbos ／ カジヒデキ ／ Ferri-Chrome ／ Tam Yos Ten ／ Cycling In Marmalade</td></tr>
+                    </table>
+                    <p class="live-reserve">（終了しました）</p>
+                </div>
             </div>
         </div>
 
@@ -573,6 +699,7 @@
         <nav class="nav">
             <div class="nav-list">
                 <a href="#news" class="nav-link">News</a>
+                <a href="#live" class="nav-link">Live</a>
                 <a href="#disco" class="nav-link">Disco</a>
                 <a href="#bio" class="nav-link">Bio</a>
                 <a href="#contact" class="nav-link">Contact</a>
@@ -658,6 +785,22 @@
         }
         setInterval(updateClock, 1000);
         updateClock();
+
+        // Live countdown to Siesta Bis (2026-07-25)
+        (function () {
+            const el = document.getElementById('live-countdown');
+            if (!el) return;
+            const target = new Date('2026-07-25T19:00:00+09:00');
+            const now = new Date();
+            const days = Math.ceil((target - now) / 86400000);
+            if (days > 0) {
+                el.textContent = '開催まであと ' + days + ' 日';
+            } else if (days === 0) {
+                el.textContent = '★ 本日開催 ★';
+            } else {
+                el.textContent = 'ありがとうございました';
+            }
+        })();
     </script>
     <script src="assets/js/screensaver.js"></script>
     <script src="assets/js/y2k.js"></script>

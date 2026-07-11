@@ -1137,3 +1137,85 @@ body * {
         -webkit-overflow-scrolling: touch;
     }
 }
+
+/* Live Schedule */
+.live-card {
+    background: #fff;
+    border: 2px solid #808080;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+}
+
+.live-pickup {
+    border: 2px solid #b52a2a;
+    background: #fff7f7;
+    box-shadow: 3px 3px 0 #b52a2a;
+}
+
+.live-pin {
+    display: inline-block;
+    background: #b52a2a;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 2px 8px;
+    margin-bottom: 6px;
+}
+
+.live-title {
+    margin: 0 0 4px 0;
+    font-size: 1rem;
+}
+
+.live-sub {
+    margin: 0 0 6px 0;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+.live-countdown {
+    margin: 0 0 8px 0;
+    font-family: monospace;
+    font-weight: bold;
+    color: #b52a2a;
+    font-size: 0.9rem;
+}
+
+.live-meta {
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    width: 100%;
+}
+
+.live-meta th {
+    text-align: left;
+    vertical-align: top;
+    white-space: nowrap;
+    color: #555;
+    font-family: monospace;
+    font-weight: bold;
+    padding: 2px 12px 2px 0;
+    width: 1%;
+}
+
+.live-meta td {
+    vertical-align: top;
+    padding: 2px 0;
+}
+
+.live-reserve {
+    margin: 10px 0 0 0;
+    font-size: 0.82rem;
+}
+
+.live-reserve a {
+    color: blue;
+    text-decoration: underline;
+}
+
+.live-past {
+    opacity: 0.6;
+    filter: grayscale(1);
+}
