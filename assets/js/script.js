@@ -77,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (container && win.parentNode === container) {
             container.appendChild(win);
         }
+        if (typeof updateTaskbar === 'function') updateTaskbar();
     }
 
     function absolutifyWindows() {
@@ -181,6 +182,140 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mouseup', stopDragging);
     document.addEventListener('touchend', stopDragging);
 
+    // Window Manager (Desktop OS mode)
+    const desktopOS = window.matchMedia('(min-width: 769px)').matches;
+    const taskButtons = document.querySelector('.task-buttons');
+    const taskbarTitles = {
+        hero: 'Looisbos.exe',
+        disco: 'Winamp',
+        live: 'LIVE SCHEDULE',
+        news: 'news.txt',
+        bio: 'biography.sys',
+        contact: 'New Message'
+    };
+    const winState = {};
+    windows.forEach(win => {
+        winState[win.id] = { isOpen: true, isMinimized: false };
+    });
+
+    function updateTaskbar() {
+        if (!taskButtons || !desktopOS) return;
+        windows.forEach(win => {
+            const st = winState[win.id];
+            let btn = taskButtons.querySelector(`[data-window="${win.id}"]`);
+            if (!st.isOpen) {
+                if (btn) btn.remove();
+                return;
+            }
+            if (!btn) {
+                btn = document.createElement('button');
+                btn.className = 'task-btn';
+                btn.dataset.window = win.id;
+                btn.textContent = taskbarTitles[win.id] || win.id;
+                btn.addEventListener('click', () => {
+                    if (winState[win.id].isMinimized) {
+                        restoreWindow(win.id);
+                    } else if (win.classList.contains('window-active')) {
+                        minimizeWindow(win.id);
+                    } else {
+                        bringToFront(win);
+                        updateTaskbar();
+                    }
+                });
+                taskButtons.appendChild(btn);
+            }
+            btn.classList.toggle('task-btn-active',
+                win.classList.contains('window-active') && !st.isMinimized);
+        });
+    }
+
+    function openWindow(id) {
+        const win = document.getElementById(id);
+        if (!win || !winState[id]) return;
+        winState[id].isOpen = true;
+        winState[id].isMinimized = false;
+        win.classList.remove('win-closed', 'win-min');
+        bringToFront(win);
+        updateTaskbar();
+    }
+
+    function closeWindow(id) {
+        const win = document.getElementById(id);
+        if (!win || !winState[id]) return;
+        winState[id].isOpen = false;
+        win.classList.add('win-closed');
+        win.classList.remove('window-active', 'win-maximized');
+        updateTaskbar();
+    }
+
+    function minimizeWindow(id) {
+        const win = document.getElementById(id);
+        if (!win || !winState[id]) return;
+        winState[id].isMinimized = true;
+        win.classList.add('win-min');
+        win.classList.remove('window-active');
+        updateTaskbar();
+    }
+
+    function restoreWindow(id) {
+        const win = document.getElementById(id);
+        if (!win || !winState[id]) return;
+        winState[id].isMinimized = false;
+        win.classList.remove('win-min');
+        bringToFront(win);
+        updateTaskbar();
+    }
+
+    function toggleMaximize(id) {
+        const win = document.getElementById(id);
+        if (!win) return;
+        win.classList.toggle('win-maximized');
+        bringToFront(win);
+        updateTaskbar();
+    }
+
+    if (desktopOS) {
+        document.body.classList.add('desktop-os');
+
+        const cascade = {
+            hero: [110, 24],
+            live: [560, 60],
+            disco: [180, 90],
+            news: [260, 50],
+            bio: [340, 110],
+            contact: [420, 140]
+        };
+        const areaW = window.innerWidth;
+        windows.forEach(win => {
+            const pos = cascade[win.id] || [140, 80];
+            const winW = win.id === 'hero' ? 460 : 560;
+            const left = Math.max(10, Math.min(pos[0], areaW - winW - 30));
+            win.style.position = 'absolute';
+            win.style.left = left + 'px';
+            win.style.top = pos[1] + 'px';
+            win.style.margin = '0';
+        });
+        windowsAbsolutified = true;
+
+        windows.forEach(win => {
+            if (win.id !== 'hero' && win.id !== 'live') closeWindow(win.id);
+        });
+        bringToFront(document.getElementById('live'));
+        updateTaskbar();
+
+        windows.forEach(win => {
+            win.querySelectorAll('.window-btn[data-action]').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const action = btn.dataset.action;
+                    if (action === 'close') closeWindow(win.id);
+                    else if (action === 'minimize') minimizeWindow(win.id);
+                    else if (action === 'maximize') toggleMaximize(win.id);
+                });
+            });
+        });
+    }
+
     // Winamp Player Logic
     const audio = document.getElementById('winamp-audio');
     const playBtn = document.getElementById('play-btn');
@@ -275,6 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
+            if (document.body.classList.contains('desktop-os')) return;
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
 
@@ -318,13 +454,22 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.head.appendChild(style);
 
-    // Desktop Icon Double Click Logic
+    // Desktop Icon Click / Double Click Logic
     const desktopIcons = document.querySelectorAll('.desktop-icon');
     desktopIcons.forEach(icon => {
+        icon.addEventListener('click', (e) => {
+            if (!desktopOS || !icon.dataset.window) return;
+            e.preventDefault();
+            desktopIcons.forEach(i => i.classList.remove('icon-selected'));
+            icon.classList.add('icon-selected');
+        });
         icon.addEventListener('dblclick', (e) => {
             e.preventDefault();
             const href = icon.getAttribute('href');
-            if (href && href.startsWith('#')) {
+            if (desktopOS && icon.dataset.window) {
+                openWindow(icon.dataset.window);
+                icon.classList.remove('icon-selected');
+            } else if (href && href.startsWith('#')) {
                 const targetWindow = document.querySelector(href);
                 if (targetWindow) {
                     targetWindow.scrollIntoView({ behavior: 'smooth' });

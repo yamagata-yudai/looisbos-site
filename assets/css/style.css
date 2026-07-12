@@ -1405,3 +1405,106 @@ body * {
         justify-content: center;
     }
 }
+
+/* Desktop OS mode (>768px, enabled via body.desktop-os) */
+.task-buttons {
+    display: none;
+}
+
+body.desktop-os {
+    overflow: hidden;
+    padding-bottom: 0;
+}
+
+body.desktop-os .container {
+    position: fixed;
+    top: 36px;
+    left: 0;
+    right: 0;
+    bottom: 42px;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body.desktop-os .window {
+    margin: 0;
+    width: 560px;
+    max-width: calc(100vw - 40px);
+    max-height: calc(100% - 30px);
+    display: flex;
+    flex-direction: column;
+}
+
+body.desktop-os .window > .window-content {
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
+}
+
+body.desktop-os #hero {
+    width: 460px;
+}
+
+body.desktop-os .window.win-closed,
+body.desktop-os .window.win-min {
+    display: none;
+}
+
+body.desktop-os .window.win-maximized {
+    left: 10px !important;
+    top: 10px !important;
+    width: calc(100% - 20px) !important;
+    height: calc(100% - 20px);
+    max-height: none;
+}
+
+body.desktop-os .y2k-webring {
+    display: none;
+}
+
+body.desktop-os .nav-list {
+    display: none;
+}
+
+body.desktop-os .task-buttons {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    max-width: 60vw;
+}
+
+body.desktop-os .desktop-icons {
+    max-height: calc(100vh - 140px);
+    flex-wrap: wrap;
+    column-gap: 14px;
+}
+
+.task-btn {
+    font-family: var(--font-primary);
+    font-size: .75rem;
+    color: #000;
+    background: var(--win-gray);
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid var(--win-gray-dark);
+    border-bottom: 2px solid var(--win-gray-dark);
+    padding: 4px 12px;
+    cursor: pointer;
+    white-space: nowrap;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.task-btn-active {
+    border-color: var(--win-gray-dark) #fff #fff var(--win-gray-dark);
+    background: #e8e8e8;
+    font-weight: bold;
+}
+
+.desktop-icon.icon-selected span {
+    background: #000080;
+    color: #fff;
+}

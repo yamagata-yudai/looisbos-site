@@ -8,7 +8,7 @@
     <meta name="description" content="Looisbos 公式ウェブサイト。最新ニュース、ライブ情報、バイオグラフィ、コンタクト。90s Style.">
     <!-- Retro formatted fonts fallback -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css?v=20260712">
+    <link rel="stylesheet" href="assets/css/style.css?v=20260712b">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 
@@ -48,8 +48,28 @@
     <!-- <div class="cursor-dot"></div>
     <div class="cursor-outline"></div> -->
 
-    <!-- Desktop Icons (Social Links) -->
+    <!-- Desktop Icons (Apps & Social Links) -->
     <div class="desktop-icons">
+        <a href="#disco" class="desktop-icon app-icon" data-window="disco">
+            <i class="fa-solid fa-compact-disc" style="color: #7dd3fc;"></i>
+            <span>Discography.exe</span>
+        </a>
+        <a href="#live" class="desktop-icon app-icon" data-window="live">
+            <i class="fa-solid fa-calendar-days" style="color: #fca5a5;"></i>
+            <span>live_schedule</span>
+        </a>
+        <a href="#news" class="desktop-icon app-icon" data-window="news">
+            <i class="fa-solid fa-file-lines" style="color: #fde68a;"></i>
+            <span>news.txt</span>
+        </a>
+        <a href="#bio" class="desktop-icon app-icon" data-window="bio">
+            <i class="fa-solid fa-gears" style="color: #c0c0c0;"></i>
+            <span>biography.sys</span>
+        </a>
+        <a href="#contact" class="desktop-icon app-icon" data-window="contact">
+            <i class="fa-solid fa-envelope" style="color: #a5f3a5;"></i>
+            <span>mail.eml</span>
+        </a>
         <a href="https://x.com/looisbos" target="_blank" class="desktop-icon">
             <i class="fa-brands fa-x-twitter" style="color: #fff;"></i>
             <span>Twitter (X)</span>
@@ -91,9 +111,9 @@
                     Looisbos.exe
                 </div>
                 <div class="title-bar-controls">
-                    <div class="window-btn" aria-label="Minimize">_</div>
-                    <div class="window-btn" aria-label="Maximize">□</div>
-                    <div class="window-btn" aria-label="Close">×</div>
+                    <div class="window-btn" data-action="minimize" aria-label="Minimize">_</div>
+                    <div class="window-btn" data-action="maximize" aria-label="Maximize">□</div>
+                    <div class="window-btn" data-action="close" aria-label="Close">×</div>
                 </div>
             </div>
             <div class="window-content" style="text-align: center; background: #000;">
@@ -124,9 +144,9 @@
             <div class="title-bar" style="background: linear-gradient(90deg, #2b2b2b, #4a4a4a);">
                 <div class="title-bar-text" style="color: #0f0; font-family: monospace;">WINAMP - DISCOGRAPHY</div>
                 <div class="title-bar-controls">
-                    <div class="window-btn">_</div>
-                    <div class="window-btn">□</div>
-                    <div class="window-btn">×</div>
+                    <div class="window-btn" data-action="minimize">_</div>
+                    <div class="window-btn" data-action="maximize">□</div>
+                    <div class="window-btn" data-action="close">×</div>
                 </div>
             </div>
             <div class="window-content"
@@ -347,9 +367,9 @@
             <div class="title-bar" style="background: linear-gradient(90deg, #7b0a0a, #b52a2a);">
                 <div class="title-bar-text">Scheduler - LIVE SCHEDULE</div>
                 <div class="title-bar-controls">
-                    <div class="window-btn">_</div>
-                    <div class="window-btn">□</div>
-                    <div class="window-btn">×</div>
+                    <div class="window-btn" data-action="minimize">_</div>
+                    <div class="window-btn" data-action="maximize">□</div>
+                    <div class="window-btn" data-action="close">×</div>
                 </div>
             </div>
             <div class="window-content">
@@ -406,9 +426,9 @@
             <div class="title-bar">
                 <div class="title-bar-text">News - Notepad</div>
                 <div class="title-bar-controls">
-                    <div class="window-btn">_</div>
-                    <div class="window-btn">□</div>
-                    <div class="window-btn">×</div>
+                    <div class="window-btn" data-action="minimize">_</div>
+                    <div class="window-btn" data-action="maximize">□</div>
+                    <div class="window-btn" data-action="close">×</div>
                 </div>
             </div>
             <div class="window-content">
@@ -586,9 +606,9 @@
             <div class="title-bar">
                 <div class="title-bar-text">System Properties - Biography</div>
                 <div class="title-bar-controls">
-                    <div class="window-btn">_</div>
-                    <div class="window-btn">□</div>
-                    <div class="window-btn">×</div>
+                    <div class="window-btn" data-action="minimize">_</div>
+                    <div class="window-btn" data-action="maximize">□</div>
+                    <div class="window-btn" data-action="close">×</div>
                 </div>
             </div>
             <div class="window-content">
@@ -651,9 +671,9 @@
             <div class="title-bar">
                 <div class="title-bar-text">Outlook Express - New Message</div>
                 <div class="title-bar-controls">
-                    <div class="window-btn">_</div>
-                    <div class="window-btn">□</div>
-                    <div class="window-btn">×</div>
+                    <div class="window-btn" data-action="minimize">_</div>
+                    <div class="window-btn" data-action="maximize">□</div>
+                    <div class="window-btn" data-action="close">×</div>
                 </div>
             </div>
             <div class="window-content">
@@ -736,6 +756,7 @@
                 <a href="#bio" class="nav-link">Bio</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
+            <div class="task-buttons"></div>
         </nav>
         <div
             style="border: 2px solid #808080; border-bottom: 2px solid #fff; border-right: 2px solid #fff; padding: 2px 5px; font-size: 0.8rem; background: #c0c0c0;">
@@ -764,7 +785,7 @@
         </div>
     </div>
 
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js?v=20260712b"></script>
     <script>
         // Startup Sequence logic
         window.addEventListener('DOMContentLoaded', () => {
