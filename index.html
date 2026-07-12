@@ -8,7 +8,7 @@
     <meta name="description" content="Looisbos 公式ウェブサイト。最新ニュース、ライブ情報、バイオグラフィ、コンタクト。90s Style.">
     <!-- Retro formatted fonts fallback -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css?v=20260712b">
+    <link rel="stylesheet" href="assets/css/style.css?v=20260713">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 
@@ -123,7 +123,7 @@
                 </div>
                 <div style="margin-top: 20px; color: #fff; font-family: 'Times New Roman', serif;">
                     <img src="assets/images/logo.png" alt="Looisbos" class="logo-img-hero" style="filter: invert(1);">
-                    <p class="hero-subtitle" style="margin-top: 10px;">Resonating Through the Void</p>
+                    <p class="hero-subtitle" style="margin-top: 10px;">A Band from Tokyo, Japan 🍵</p>
                     <!-- Y2K: Visitor counter -->
                     <div class="y2k-visitor">
                         <div class="y2k-visitor-row">
@@ -743,7 +743,7 @@
     <!-- Taskbar (Footer/Header) -->
     <header class="header">
         <div class="logo">
-            <div class="logo-btn" onclick="window.scrollTo(0,0)">
+            <div class="logo-btn" id="start-btn">
                 <img src="assets/images/start_icon.png" alt="Start" style="height: 18px; margin-right: 5px;">
                 Start
             </div>
@@ -763,6 +763,50 @@
             <span id="clock">12:00 PM</span>
         </div>
     </header>
+
+    <!-- Start Menu -->
+    <div id="start-menu" class="start-menu">
+        <div class="start-menu-banner">Looisbos<span>XP</span></div>
+        <div class="start-menu-items">
+            <button class="start-menu-item" data-window="hero"><i class="fa-solid fa-house"></i>
+                Looisbos.exe</button>
+            <button class="start-menu-item" data-window="disco"><i class="fa-solid fa-compact-disc"></i>
+                Winamp (Discography)</button>
+            <button class="start-menu-item" data-window="live"><i class="fa-solid fa-calendar-days"></i>
+                LIVE SCHEDULE</button>
+            <button class="start-menu-item" data-window="news"><i class="fa-solid fa-file-lines"></i>
+                news.txt</button>
+            <button class="start-menu-item" data-window="bio"><i class="fa-solid fa-gears"></i>
+                biography.sys</button>
+            <button class="start-menu-item" data-window="contact"><i class="fa-solid fa-envelope"></i>
+                mail.eml</button>
+            <div class="start-menu-sep"></div>
+            <a class="start-menu-item" href="https://x.com/looisbos" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-x-twitter"></i> X (Twitter)</a>
+            <a class="start-menu-item" href="https://www.instagram.com/looisbos/?hl=ja" target="_blank"
+                rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a class="start-menu-item" href="https://www.youtube.com/@looisbos_ch526" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-youtube"></i> YouTube</a>
+            <a class="start-menu-item" href="https://www.tiktok.com/@looisbos_band" target="_blank" rel="noopener"><i
+                    class="fa-brands fa-tiktok"></i> TikTok</a>
+            <div class="start-menu-sep"></div>
+            <button class="start-menu-item" id="shutdown-item"><i class="fa-solid fa-power-off"></i>
+                Shut Down...</button>
+        </div>
+    </div>
+
+    <!-- Shutdown Screen -->
+    <div id="shutdown-screen" class="shutdown-screen">
+        <p class="shutdown-msg">It's now safe to close this tab.</p>
+        <button class="shutdown-restart" id="shutdown-restart">Restart</button>
+    </div>
+
+    <!-- Y2K: Tray balloon -->
+    <div id="y2k-balloon" class="y2k-balloon">
+        <div class="y2k-balloon-close">×</div>
+        <p class="y2k-balloon-title">🎵 New EP "Groceries" 配信中！</p>
+        <a href="https://friendship.lnk.to/Groceries_Looisbos" target="_blank" rel="noopener">▶ 聴いてみる</a>
+    </div>
 
     <!-- Y2K: Fake popup -->
     <div id="y2k-popup" class="y2k-popup">
@@ -785,7 +829,7 @@
         </div>
     </div>
 
-    <script src="assets/js/script.js?v=20260712b"></script>
+    <script src="assets/js/script.js?v=20260713"></script>
     <script>
         // Startup Sequence logic
         window.addEventListener('DOMContentLoaded', () => {
@@ -856,7 +900,7 @@
         })();
     </script>
     <script src="assets/js/screensaver.js"></script>
-    <script src="assets/js/y2k.js?v=20260712"></script>
+    <script src="assets/js/y2k.js?v=20260713"></script>
 </body>
 
 </html>

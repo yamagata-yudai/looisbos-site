@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initStarfield();
     initVisitorCounter();
     initPopup();
+    initBalloon();
 });
 
 /* ----------------------------------------------------------
@@ -235,4 +236,29 @@ function initPopup() {
 
         document.addEventListener('mouseup', () => { dragging = false; });
     }
+}
+
+/* ----------------------------------------------------------
+   11. Tray balloon — リリース通知
+   ---------------------------------------------------------- */
+function initBalloon() {
+    const balloon = document.getElementById('y2k-balloon');
+    if (!balloon) return;
+
+    let hideTimer = null;
+    const hide = () => {
+        balloon.classList.remove('show');
+        if (hideTimer) clearTimeout(hideTimer);
+    };
+
+    if (!sessionStorage.getItem('lb_balloon_shown')) {
+        setTimeout(() => {
+            balloon.classList.add('show');
+            sessionStorage.setItem('lb_balloon_shown', '1');
+            hideTimer = setTimeout(hide, 8000);
+        }, 12000);
+    }
+
+    const closeBtn = balloon.querySelector('.y2k-balloon-close');
+    if (closeBtn) closeBtn.addEventListener('click', hide);
 }

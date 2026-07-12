@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Dragging logic (mouse)
         titleBar.addEventListener('mousedown', (e) => {
-            if (e.target.closest('a, button')) return;
+            if (e.target.closest('a, button, .window-btn')) return;
             absolutifyWindows();
             activeWindow = win;
             bringToFront(win);
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Dragging logic (touch)
         titleBar.addEventListener('touchstart', (e) => {
-            if (e.target.closest('a, button')) return;
+            if (e.target.closest('a, button, .window-btn')) return;
             absolutifyWindows();
             const touch = e.touches[0];
             activeWindow = win;
@@ -314,6 +314,50 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
         });
+    }
+
+    // Start Menu & Shut Down
+    const startMenu = document.getElementById('start-menu');
+    const startBtn = document.getElementById('start-btn');
+    if (startMenu && startBtn) {
+        startBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            startMenu.classList.toggle('open');
+        });
+        document.addEventListener('click', (e) => {
+            if (!startMenu.contains(e.target)) startMenu.classList.remove('open');
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') startMenu.classList.remove('open');
+        });
+
+        startMenu.querySelectorAll('.start-menu-item[data-window]').forEach(item => {
+            item.addEventListener('click', () => {
+                const id = item.dataset.window;
+                startMenu.classList.remove('open');
+                if (desktopOS) {
+                    openWindow(id);
+                } else {
+                    const target = document.getElementById(id);
+                    if (target) target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        startMenu.querySelectorAll('a.start-menu-item').forEach(link => {
+            link.addEventListener('click', () => startMenu.classList.remove('open'));
+        });
+
+        const shutdownItem = document.getElementById('shutdown-item');
+        const shutdownScreen = document.getElementById('shutdown-screen');
+        if (shutdownItem && shutdownScreen) {
+            shutdownItem.addEventListener('click', () => {
+                startMenu.classList.remove('open');
+                shutdownScreen.classList.add('on');
+            });
+            const restartBtn = document.getElementById('shutdown-restart');
+            if (restartBtn) restartBtn.addEventListener('click', () => location.reload());
+        }
     }
 
     // Winamp Player Logic

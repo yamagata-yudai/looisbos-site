@@ -1418,7 +1418,7 @@ body.desktop-os {
 
 body.desktop-os .container {
     position: fixed;
-    top: 36px;
+    top: 64px;
     left: 0;
     right: 0;
     bottom: 42px;
@@ -1426,6 +1426,12 @@ body.desktop-os .container {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    z-index: 60;
+    pointer-events: none;
+}
+
+body.desktop-os .window {
+    pointer-events: auto;
 }
 
 body.desktop-os .window {
@@ -1476,7 +1482,8 @@ body.desktop-os .task-buttons {
 }
 
 body.desktop-os .desktop-icons {
-    max-height: calc(100vh - 140px);
+    top: 70px;
+    max-height: calc(100vh - 170px);
     flex-wrap: wrap;
     column-gap: 14px;
 }
@@ -1507,4 +1514,187 @@ body.desktop-os .desktop-icons {
 .desktop-icon.icon-selected span {
     background: #000080;
     color: #fff;
+}
+
+.window-btn {
+    cursor: pointer;
+}
+
+/* Start Menu */
+.start-menu {
+    position: fixed;
+    left: 6px;
+    bottom: 48px;
+    width: 250px;
+    background: var(--win-gray);
+    border-top: 2px solid var(--win-gray-light);
+    border-left: 2px solid var(--win-gray-light);
+    border-right: 2px solid var(--win-gray-dark);
+    border-bottom: 2px solid var(--win-gray-dark);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, .5);
+    z-index: 10000;
+    display: none;
+}
+
+.start-menu.open {
+    display: flex;
+}
+
+.start-menu-banner {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    background: linear-gradient(0deg, #1084d0, var(--win-blue));
+    color: #fff;
+    font-weight: bold;
+    font-style: italic;
+    padding: 12px 5px;
+    font-size: 1.05rem;
+    letter-spacing: .08em;
+}
+
+.start-menu-banner span {
+    color: #ffd700;
+}
+
+.start-menu-items {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+}
+
+.start-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 10px;
+    font-size: .85rem;
+    text-align: left;
+    background: none;
+    border: none;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: var(--font-primary);
+}
+
+.start-menu-item i {
+    width: 18px;
+    text-align: center;
+    color: var(--win-blue);
+}
+
+.start-menu-item:hover {
+    background: var(--win-blue);
+    color: #fff;
+}
+
+.start-menu-item:hover i {
+    color: #fff;
+}
+
+.start-menu-sep {
+    height: 1px;
+    background: var(--win-gray-dark);
+    border-bottom: 1px solid #fff;
+    margin: 3px 6px;
+}
+
+/* Shutdown Screen */
+.shutdown-screen {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 100000;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 26px;
+}
+
+.shutdown-screen.on {
+    display: flex;
+}
+
+.shutdown-msg {
+    color: #0f0;
+    font-family: monospace;
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.shutdown-restart {
+    background: var(--win-gray);
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid var(--win-gray-dark);
+    border-bottom: 2px solid var(--win-gray-dark);
+    padding: 6px 22px;
+    font-size: .85rem;
+    cursor: pointer;
+    font-family: var(--font-primary);
+}
+
+/* Tray Balloon */
+.y2k-balloon {
+    position: fixed;
+    right: 12px;
+    bottom: 56px;
+    width: 232px;
+    background: #ffffe1;
+    border: 1px solid #000;
+    border-radius: 6px;
+    padding: 10px 14px;
+    z-index: 9998;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+    font-size: .8rem;
+    display: none;
+}
+
+.y2k-balloon.show {
+    display: block;
+    animation: balloon-in .25s ease-out;
+}
+
+.y2k-balloon::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    right: 26px;
+    border: 10px solid transparent;
+    border-top-color: #ffffe1;
+    border-bottom: none;
+}
+
+.y2k-balloon-close {
+    position: absolute;
+    top: 4px;
+    right: 7px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: .8rem;
+}
+
+.y2k-balloon-title {
+    margin: 0 0 6px;
+    font-weight: bold;
+}
+
+.y2k-balloon a {
+    color: blue;
+    text-decoration: underline;
+}
+
+@keyframes balloon-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
 }
