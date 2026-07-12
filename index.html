@@ -8,7 +8,7 @@
     <meta name="description" content="Looisbos 公式ウェブサイト。最新ニュース、ライブ情報、バイオグラフィ、コンタクト。90s Style.">
     <!-- Retro formatted fonts fallback -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=20260712">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 
@@ -106,8 +106,14 @@
                     <p class="hero-subtitle" style="margin-top: 10px;">Resonating Through the Void</p>
                     <!-- Y2K: Visitor counter -->
                     <div class="y2k-visitor">
-                        YOU ARE VISITOR&nbsp;
-                        <span class="y2k-visitor-count" id="y2k-visitor-count">0000001</span>
+                        <div class="y2k-visitor-row">
+                            <span class="y2k-visitor-label">TODAY:</span>
+                            <span class="y2k-visitor-count" id="y2k-visitor-today">0000</span>
+                        </div>
+                        <div class="y2k-visitor-row">
+                            <span class="y2k-visitor-label">TOTAL:</span>
+                            <span class="y2k-visitor-count" id="y2k-visitor-count">0000001</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -156,7 +162,7 @@
                         style="display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed #555; padding-bottom: 15px;">
                         <div class="jacket-wrap">
                             <div class="vinyl-outer"><div class="vinyl"></div></div>
-                            <img src="assets/images/teenage.png" alt="Teenage" loading="lazy">
+                            <img src="assets/images/teenage.jpg" alt="Teenage" loading="lazy">
                         </div>
                         <div>
                             <h3 style="margin: 0 0 5px 0; color: #0f0;">Teenage</h3>
@@ -219,10 +225,10 @@
                         style="display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed #555; padding-bottom: 15px;">
                         <div class="jacket-wrap">
                             <div class="vinyl-outer"><div class="vinyl"></div></div>
-                            <img src="assets/images/ScienceChildren.jpg" alt="Science Children" loading="lazy">
+                            <img src="assets/images/ScienceChildren.jpg" alt="Science Children (feat. Jan flu)" loading="lazy">
                         </div>
                         <div>
-                            <h3 style="margin: 0 0 5px 0; color: #0f0;">Science Children</h3>
+                            <h3 style="margin: 0 0 5px 0; color: #0f0;">Science Children (feat. Jan flu)</h3>
                             <p style="margin: 0; font-size: 0.8rem; color: #ccc;">Single / 2024.12.25</p>
                             <br>
                             <span style="font-size: 0.8rem; color: #aaa;">[Tracks]</span>
@@ -479,7 +485,7 @@
                             ✴︎ ✴︎ ✴︎ release ✴︎ ✴︎ ✴︎<br><br>
                             "Teenage"<br>
                             配信スタートしました！<br><br>
-                            <img src="assets/images/teenage.png" alt="Teenage"
+                            <img src="assets/images/teenage.jpg" alt="Teenage"
                                 style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #808080;"><br>
                             [Streaming &amp; Download]<br>
                             <a href="https://friendship.lnk.to/Teenage_Looisbos" target="_blank"
@@ -632,6 +638,10 @@
                             <p class="member-role">Bass</p>
                         </div>
                     </div>
+                    <div class="y2k-underconstruction">
+                        <span class="y2k-underconstruction-text">🚧 UNDER CONSTRUCTION 🚧</span>
+                        <p class="y2k-underconstruction-sub">Photo Gallery — Coming Soon...</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -687,6 +697,28 @@
             setTimeout(() => { window.location.href = mailtoLink; }, 200);
         }
     </script>
+
+    <!-- Y2K: Webring footer -->
+    <footer class="y2k-webring" id="y2k-webring">
+        <div class="y2k-webring-badge">
+            <span>BEST VIEWED IN</span>
+            <strong>800×600</strong>
+            <span>/ IE 5.5</span>
+        </div>
+        <div class="y2k-webring-nav">
+            <a href="https://x.com/looisbos" target="_blank" rel="noopener" class="y2k-webring-link">« PREV</a>
+            <span class="y2k-webring-title">LOOISBOS WEB RING</span>
+            <a href="https://www.instagram.com/looisbos/?hl=ja" target="_blank" rel="noopener"
+                class="y2k-webring-link">RANDOM</a>
+            <a href="https://www.youtube.com/@looisbos_ch526" target="_blank" rel="noopener"
+                class="y2k-webring-link">NEXT »</a>
+        </div>
+        <a href="https://www.tiktok.com/@looisbos_band" target="_blank" rel="noopener" class="y2k-banner-88x31"
+            title="Looisbos Official Banner" aria-label="Looisbos Official Site Banner">
+            <span class="y2k-banner-text">LOOISBOS</span>
+            <span class="y2k-banner-sub">.com</span>
+        </a>
+    </footer>
 
     <!-- Taskbar (Footer/Header) -->
     <header class="header">
@@ -803,7 +835,7 @@
         })();
     </script>
     <script src="assets/js/screensaver.js"></script>
-    <script src="assets/js/y2k.js"></script>
+    <script src="assets/js/y2k.js?v=20260712"></script>
 </body>
 
 </html>

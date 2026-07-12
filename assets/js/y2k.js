@@ -173,6 +173,21 @@ function initVisitorCounter() {
     if (count > 9999999) count = 1;
     localStorage.setItem('lb_visits', String(count));
     el.textContent = String(count).padStart(7, '0');
+
+    const todayEl = document.getElementById('y2k-visitor-today');
+    if (!todayEl) return;
+    const now = new Date();
+    const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+    let todayCount;
+    if (localStorage.getItem('lb_visits_today_date') === todayStr) {
+        todayCount = parseInt(localStorage.getItem('lb_visits_today_count') || '0', 10) + 1;
+        if (isNaN(todayCount) || todayCount > 9999) todayCount = 1;
+    } else {
+        todayCount = 1;
+        localStorage.setItem('lb_visits_today_date', todayStr);
+    }
+    localStorage.setItem('lb_visits_today_count', String(todayCount));
+    todayEl.textContent = String(todayCount).padStart(4, '0');
 }
 
 /* ----------------------------------------------------------

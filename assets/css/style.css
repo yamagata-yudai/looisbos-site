@@ -350,6 +350,17 @@ h3 {
     border-bottom: 1px dotted #808080;
     text-align: left;
     /* Align left purely */
+    font-family: 'Impact', var(--font-heading), sans-serif;
+    font-weight: 900;
+    letter-spacing: .03em;
+    color: #808080;
+    background: linear-gradient(180deg, #ffffff 0%, #ffe14d 22%, #ff9d1e 48%, #ff3d7a 74%, #6a3dff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1.25px #000;
+    text-shadow: 2px 2px 0 #000, -1px -1px 0 rgba(255, 255, 255, .35), 3px 3px 0 rgba(0, 0, 0, .25), 4px 5px 6px rgba(0, 0, 0, .35);
+    padding-bottom: 6px;
 }
 
 .section-title::after {
@@ -968,8 +979,9 @@ body * {
 /* 8. Visitor counter (placed in hero area) */
 .y2k-visitor {
     display: inline-flex;
-    align-items: center;
-    gap: 6px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
     font-family: 'Press Start 2P', monospace;
     font-size: .48rem;
     background: #000;
@@ -985,6 +997,17 @@ body * {
 .y2k-visitor-count {
     color: #ffff00;
     text-shadow: 0 0 8px #ff0;
+}
+
+.y2k-visitor-row {
+    display: flex;
+    gap: 6px;
+    align-items: baseline;
+    white-space: nowrap;
+}
+
+.y2k-visitor-label {
+    color: #00f0ff;
 }
 
 /* 9. Fake popup */
@@ -1218,4 +1241,167 @@ body * {
 .live-past {
     opacity: 0.6;
     filter: grayscale(1);
+}
+
+/* Y2K: Under Construction */
+.y2k-underconstruction {
+    margin-top: 25px;
+    padding: 14px;
+    text-align: center;
+    background: repeating-linear-gradient(45deg, #ffcc00, #ffcc00 12px, #000 12px, #000 24px);
+    border: 3px outset #ffcc00;
+}
+
+.y2k-underconstruction-text {
+    display: inline-block;
+    font-family: 'Press Start 2P', monospace;
+    font-size: .75rem;
+    color: #fff;
+    background: #000;
+    padding: 6px 14px;
+    border: 2px solid #ffcc00;
+    animation: blink .8s linear infinite;
+}
+
+.y2k-underconstruction-sub {
+    margin-top: 8px;
+    font-family: monospace;
+    font-size: .75rem;
+    color: #000;
+    background: #ffcc00;
+    display: inline-block;
+    padding: 2px 8px;
+}
+
+/* Y2K: Webring footer */
+.y2k-webring {
+    max-width: 900px;
+    margin: 40px auto 70px;
+    padding: 10px 16px;
+    background: var(--win-gray);
+    border-top: 2px solid var(--win-gray-light);
+    border-left: 2px solid var(--win-gray-light);
+    border-right: 2px solid var(--win-gray-dark);
+    border-bottom: 2px solid var(--win-gray-dark);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    position: relative;
+    z-index: 100;
+}
+
+.y2k-webring-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: monospace;
+    font-size: .68rem;
+    color: #000;
+    background: #fff;
+    border: 1px solid;
+    border-color: var(--win-gray-dark) var(--win-gray-light) var(--win-gray-light) var(--win-gray-dark);
+    padding: 3px 8px;
+    white-space: nowrap;
+}
+
+.y2k-webring-badge strong {
+    color: var(--win-blue);
+}
+
+.y2k-webring-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: monospace;
+    font-size: .7rem;
+}
+
+.y2k-webring-link {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    background: var(--win-gray);
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid var(--win-gray-dark);
+    border-bottom: 1px solid var(--win-gray-dark);
+    padding: 3px 8px;
+}
+
+.y2k-webring-link:active {
+    border-color: var(--win-gray-dark) #fff #fff var(--win-gray-dark);
+}
+
+.y2k-webring-title {
+    color: var(--win-blue);
+    font-weight: bold;
+    letter-spacing: .04em;
+}
+
+.y2k-banner-88x31 {
+    width: 88px;
+    height: 31px;
+    flex-shrink: 0;
+    text-decoration: none;
+    background: linear-gradient(180deg, var(--win-blue) 0%, var(--win-blue-grad) 50%, var(--win-blue) 100%);
+    border: 1px solid #000;
+    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, .4), inset -1px -1px 0 rgba(0, 0, 0, .5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    overflow: hidden;
+}
+
+.y2k-banner-text {
+    font-family: 'Press Start 2P', monospace;
+    font-size: .5rem;
+    color: #fff;
+    text-shadow: 0 0 4px #00f0ff;
+}
+
+.y2k-banner-sub {
+    font-family: 'Press Start 2P', monospace;
+    font-size: .38rem;
+    color: #ffff00;
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.3rem;
+        -webkit-text-stroke: 1px #000;
+        text-shadow: 1.5px 1.5px 0 #000, 2px 2px 0 rgba(0, 0, 0, .25);
+    }
+
+    .y2k-underconstruction {
+        padding: 10px;
+        margin-top: 18px;
+    }
+
+    .y2k-underconstruction-text {
+        font-size: .6rem;
+        padding: 5px 10px;
+    }
+
+    .y2k-underconstruction-sub {
+        font-size: .68rem;
+    }
+
+    .y2k-webring {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 25px auto 80px;
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .y2k-webring-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
