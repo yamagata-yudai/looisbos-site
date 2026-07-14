@@ -1698,3 +1698,230 @@ body.desktop-os .desktop-icons {
         transform: none;
     }
 }
+
+/* My Pictures (Explorer style) */
+.pictures-content {
+    display: flex;
+    gap: 0;
+    padding: 0;
+}
+
+.explorer-pane {
+    flex: 0 0 168px;
+    background: linear-gradient(180deg, #7aa1e6, #6375d6);
+    padding: 12px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.explorer-pane-box {
+    background: #f1f5fd;
+    border-radius: 4px;
+    overflow: hidden;
+    font-size: .78rem;
+}
+
+.explorer-pane-box h4 {
+    margin: 0;
+    padding: 5px 10px;
+    font-size: .78rem;
+    color: #215dc6;
+    background: linear-gradient(90deg, #fff, #cbdcf7);
+}
+
+.explorer-pane-box ul {
+    list-style: none;
+    margin: 0;
+    padding: 8px 10px;
+}
+
+.explorer-pane-box p {
+    margin: 0;
+    padding: 8px 10px;
+    color: #444;
+}
+
+.explorer-pane-box button {
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: var(--font-primary);
+    font-size: .78rem;
+    color: #215dc6;
+    cursor: pointer;
+    text-align: left;
+}
+
+.explorer-pane-box button:hover {
+    text-decoration: underline;
+    color: #4d8cf5;
+}
+
+.photo-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+    gap: 14px;
+    padding: 16px;
+    background: #fff;
+    align-content: start;
+}
+
+.photo-thumb {
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    font-family: var(--font-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.photo-thumb img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border: 1px solid #999;
+    padding: 3px;
+    background: #fff;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, .25);
+}
+
+.photo-thumb span {
+    font-size: .68rem;
+    color: #000;
+    word-break: break-all;
+    text-align: center;
+    line-height: 1.3;
+    padding: 1px 3px;
+}
+
+.photo-thumb:hover img {
+    border-color: #316ac5;
+}
+
+.photo-thumb:hover span {
+    background: #316ac5;
+    color: #fff;
+}
+
+.bio-gallery-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: .85rem;
+    color: #215dc6;
+    background: #f1f5fd;
+    border: 1px solid #a8c3ef;
+    text-decoration: none;
+}
+
+.bio-gallery-link:hover {
+    text-decoration: underline;
+    background: #e3edfc;
+}
+
+/* Photo Viewer (Windows Picture and Fax Viewer) */
+.photo-viewer {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .55);
+    z-index: 20000;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.photo-viewer.open {
+    display: flex;
+}
+
+.photo-viewer-box {
+    background: var(--win-gray);
+    border-top: 2px solid var(--win-gray-light);
+    border-left: 2px solid var(--win-gray-light);
+    border-right: 2px solid var(--win-gray-dark);
+    border-bottom: 2px solid var(--win-gray-dark);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, .6);
+    padding: 2px;
+    width: min(760px, 96vw);
+    display: flex;
+    flex-direction: column;
+}
+
+.photo-viewer-box .title-bar {
+    background: linear-gradient(90deg, var(--win-blue), var(--win-blue-grad));
+}
+
+.photo-viewer-stage {
+    background: #ece9d8;
+    border: 2px solid;
+    border-color: #808080 #dfdfdf #dfdfdf #808080;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    height: min(62vh, 560px);
+}
+
+.photo-viewer-stage img {
+    max-width: 100%;
+    max-height: 100%;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .3);
+}
+
+.photo-viewer-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 7px 10px;
+}
+
+.photo-viewer-toolbar button {
+    font-size: 1rem;
+    width: 34px;
+    height: 26px;
+    background: var(--win-gray);
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-right: 2px solid var(--win-gray-dark);
+    border-bottom: 2px solid var(--win-gray-dark);
+    cursor: pointer;
+}
+
+.photo-viewer-toolbar button:active {
+    border-color: var(--win-gray-dark) #fff #fff var(--win-gray-dark);
+}
+
+#viewer-caption {
+    font-size: .75rem;
+    min-width: 200px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .explorer-pane {
+        display: none;
+    }
+
+    .photo-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .photo-viewer-stage {
+        height: 52vh;
+    }
+
+    #viewer-caption {
+        min-width: 0;
+        flex: 1;
+    }
+}

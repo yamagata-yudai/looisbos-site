@@ -70,6 +70,10 @@
             <i class="fa-solid fa-envelope" style="color: #a5f3a5;"></i>
             <span>mail.eml</span>
         </a>
+        <a href="#pictures" class="desktop-icon app-icon" data-window="pictures">
+            <i class="fa-solid fa-images" style="color: #fcd34d;"></i>
+            <span>My Pictures</span>
+        </a>
         <a href="https://x.com/looisbos" target="_blank" class="desktop-icon">
             <i class="fa-brands fa-x-twitter" style="color: #fff;"></i>
             <span>Twitter (X)</span>
@@ -658,10 +662,9 @@
                             <p class="member-role">Bass</p>
                         </div>
                     </div>
-                    <div class="y2k-underconstruction">
-                        <span class="y2k-underconstruction-text">🚧 UNDER CONSTRUCTION 🚧</span>
-                        <p class="y2k-underconstruction-sub">Photo Gallery — Coming Soon...</p>
-                    </div>
+                    <a href="#pictures" class="bio-gallery-link open-window-link" data-window="pictures">
+                        <i class="fa-solid fa-images"></i> Photo Gallery を開く（My Pictures）
+                    </a>
                 </div>
             </div>
         </div>
@@ -700,6 +703,66 @@
                         <button type="submit" class="btn btn-submit">Send(S)</button>
                     </div>
                 </form>
+            </div>
+        </div>
+
+        <!-- My Pictures Window (Explorer Style) -->
+        <div id="pictures" class="window">
+            <div class="title-bar">
+                <div class="title-bar-text">My Pictures</div>
+                <div class="title-bar-controls">
+                    <div class="window-btn" data-action="minimize">_</div>
+                    <div class="window-btn" data-action="maximize">□</div>
+                    <div class="window-btn" data-action="close">×</div>
+                </div>
+            </div>
+            <div class="window-content pictures-content">
+                <div class="explorer-pane">
+                    <div class="explorer-pane-box">
+                        <h4>画像のタスク</h4>
+                        <ul>
+                            <li><button id="slideshow-btn"><i class="fa-solid fa-play"></i> スライド ショーを表示する</button></li>
+                        </ul>
+                    </div>
+                    <div class="explorer-pane-box">
+                        <h4>詳細</h4>
+                        <p>My Pictures<br>8 個のオブジェクト<br>2021 – 2026</p>
+                    </div>
+                </div>
+                <div class="photo-grid">
+                    <button class="photo-thumb" data-full="assets/images/photos/photo_01.jpg" data-name="movie_night_2021.jpg">
+                        <img src="assets/images/photos/thumb_01.jpg" alt="3Dメガネで映画パーティー (2021)" loading="lazy">
+                        <span>movie_night_2021.jpg</span>
+                    </button>
+                    <button class="photo-thumb" data-full="assets/images/photos/photo_02.jpg" data-name="lamp_session_2021.jpg">
+                        <img src="assets/images/photos/thumb_02.jpg" alt="ランプを囲む4人 (2021)" loading="lazy">
+                        <span>lamp_session_2021.jpg</span>
+                    </button>
+                    <button class="photo-thumb" data-full="assets/images/photos/photo_03.jpg" data-name="tennis_club_2022.jpg">
+                        <img src="assets/images/photos/thumb_03.jpg" alt="テニスコートにて (2022)" loading="lazy">
+                        <span>tennis_club_2022.jpg</span>
+                    </button>
+                    <button class="photo-thumb" data-full="assets/images/photos/photo_04.jpg" data-name="graduation_2022.jpg">
+                        <img src="assets/images/photos/thumb_04.jpg" alt="卒業ガウン (2022)" loading="lazy">
+                        <span>graduation_2022.jpg</span>
+                    </button>
+                    <button class="photo-thumb" data-full="assets/images/photos/photo_05.jpg" data-name="graduation_bench_2022.jpg">
+                        <img src="assets/images/photos/thumb_05.jpg" alt="卒業ガウンでベンチに座る4人 (2022)" loading="lazy">
+                        <span>graduation_bench_2022.jpg</span>
+                    </button>
+                    <button class="photo-thumb" data-full="assets/images/photos/photo_06.jpg" data-name="pampas_grass_2024.jpg">
+                        <img src="assets/images/photos/thumb_06.jpg" alt="ススキ野原にて (2024)" loading="lazy">
+                        <span>pampas_grass_2024.jpg</span>
+                    </button>
+                    <button class="photo-thumb" data-full="assets/images/photos/photo_07.jpg" data-name="offshot_2025.jpg">
+                        <img src="assets/images/photos/thumb_07.jpg" alt="ジャケ撮影オフショット (2025)" loading="lazy">
+                        <span>offshot_2025.jpg</span>
+                    </button>
+                    <button class="photo-thumb" data-full="assets/images/photos/photo_08.jpg" data-name="artist_photo_2026.jpg">
+                        <img src="assets/images/photos/thumb_08.jpg" alt="アーティスト写真 (2026)" loading="lazy">
+                        <span>artist_photo_2026.jpg</span>
+                    </button>
+                </div>
             </div>
         </div>
     </main>
@@ -778,6 +841,8 @@
                 news.txt</button>
             <button class="start-menu-item" data-window="bio"><i class="fa-solid fa-gears"></i>
                 biography.sys</button>
+            <button class="start-menu-item" data-window="pictures"><i class="fa-solid fa-images"></i>
+                My Pictures</button>
             <button class="start-menu-item" data-window="contact"><i class="fa-solid fa-envelope"></i>
                 mail.eml</button>
             <div class="start-menu-sep"></div>
@@ -792,6 +857,26 @@
             <div class="start-menu-sep"></div>
             <button class="start-menu-item" id="shutdown-item"><i class="fa-solid fa-power-off"></i>
                 Shut Down...</button>
+        </div>
+    </div>
+
+    <!-- Photo Viewer (Windows Picture and Fax Viewer Style) -->
+    <div id="photo-viewer" class="photo-viewer">
+        <div class="photo-viewer-box">
+            <div class="title-bar">
+                <div class="title-bar-text"><i class="fa-regular fa-image"></i> Windows Picture and Fax Viewer</div>
+                <div class="title-bar-controls">
+                    <div class="window-btn" id="viewer-close-btn">×</div>
+                </div>
+            </div>
+            <div class="photo-viewer-stage">
+                <img id="viewer-img" src="" alt="">
+            </div>
+            <div class="photo-viewer-toolbar">
+                <button id="viewer-prev" aria-label="Previous"><i class="fa-solid fa-caret-left"></i></button>
+                <span id="viewer-caption"></span>
+                <button id="viewer-next" aria-label="Next"><i class="fa-solid fa-caret-right"></i></button>
+            </div>
         </div>
     </div>
 

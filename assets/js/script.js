@@ -191,7 +191,8 @@ document.addEventListener('DOMContentLoaded', () => {
         live: 'LIVE SCHEDULE',
         news: 'news.txt',
         bio: 'biography.sys',
-        contact: 'New Message'
+        contact: 'New Message',
+        pictures: 'My Pictures'
     };
     const winState = {};
     windows.forEach(win => {
@@ -283,7 +284,8 @@ document.addEventListener('DOMContentLoaded', () => {
             disco: [180, 90],
             news: [260, 50],
             bio: [340, 110],
-            contact: [420, 140]
+            contact: [420, 140],
+            pictures: [500, 40]
         };
         const areaW = window.innerWidth;
         windows.forEach(win => {
@@ -529,5 +531,80 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
         // No e.preventDefault() here so Formspree can receive the POST request
         // Unless we want to use AJAX, but standard POST is easier for now.
+    }
+
+    document.querySelectorAll('.open-window-link').forEach(el => {
+        el.addEventListener('click', (e) => {
+            e.preventDefault();
+            const id = el.dataset.window;
+            if (desktopOS) {
+                openWindow(id);
+            } else {
+                const target = document.getElementById(id);
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Photo Viewer (Windows Picture and Fax Viewer)
+    const photoViewer = document.getElementById('photo-viewer');
+    const viewerImg = document.getElementById('viewer-img');
+    const viewerCaption = document.getElementById('viewer-caption');
+    const photoThumbs = Array.from(document.querySelectorAll('.photo-thumb'));
+    let viewerIndex = 0;
+    let slideshowTimer = null;
+
+    function showPhoto(index) {
+        viewerIndex = (index + photoThumbs.length) % photoThumbs.length;
+        const thumb = photoThumbs[viewerIndex];
+        viewerImg.src = thumb.dataset.full;
+        viewerImg.alt = thumb.querySelector('img').alt;
+        viewerCaption.textContent = `${viewerIndex + 1} / ${photoThumbs.length} — ${thumb.dataset.name}`;
+    }
+
+    function openViewer(index) {
+        showPhoto(index);
+        photoViewer.classList.add('open');
+    }
+
+    function closeViewer() {
+        photoViewer.classList.remove('open');
+        stopSlideshow();
+    }
+
+    function stopSlideshow() {
+        if (slideshowTimer) {
+            clearInterval(slideshowTimer);
+            slideshowTimer = null;
+        }
+    }
+
+    if (photoViewer && photoThumbs.length) {
+        photoThumbs.forEach((thumb, i) => {
+            thumb.addEventListener('click', () => openViewer(i));
+        });
+
+        document.getElementById('viewer-close-btn').addEventListener('click', closeViewer);
+        document.getElementById('viewer-prev').addEventListener('click', () => { stopSlideshow(); showPhoto(viewerIndex - 1); });
+        document.getElementById('viewer-next').addEventListener('click', () => { stopSlideshow(); showPhoto(viewerIndex + 1); });
+
+        photoViewer.addEventListener('click', (e) => {
+            if (e.target === photoViewer) closeViewer();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!photoViewer.classList.contains('open')) return;
+            if (e.key === 'Escape') closeViewer();
+            else if (e.key === 'ArrowLeft') { stopSlideshow(); showPhoto(viewerIndex - 1); }
+            else if (e.key === 'ArrowRight') { stopSlideshow(); showPhoto(viewerIndex + 1); }
+        });
+
+        const slideshowBtn = document.getElementById('slideshow-btn');
+        if (slideshowBtn) {
+            slideshowBtn.addEventListener('click', () => {
+                openViewer(0);
+                slideshowTimer = setInterval(() => showPhoto(viewerIndex + 1), 3500);
+            });
+        }
     }
 });
