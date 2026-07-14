@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Bring to front on click (skip if clicking a link or button to avoid blocking navigation)
         win.addEventListener('mousedown', (e) => {
-            if (e.target.closest('a, button, input, textarea, select')) return;
+            if (e.target.closest('a, button, input, textarea, select, .window-btn')) return;
             absolutifyWindows();
             bringToFront(win);
         });
