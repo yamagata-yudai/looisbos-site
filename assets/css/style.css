@@ -1925,3 +1925,124 @@ body.desktop-os .desktop-icons {
         flex: 1;
     }
 }
+
+/* Bee Assistant (Office Assistant style) */
+.bee-assistant {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 58px;
+    z-index: 9000;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity .4s ease, transform .4s ease;
+    pointer-events: none;
+}
+
+body.desktop-os .bee-assistant {
+    display: flex;
+}
+
+.bee-assistant.bee-visible {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+}
+
+.bee-sprite {
+    width: 140px;
+    height: auto;
+    cursor: pointer;
+    animation: bee-float 3.2s ease-in-out infinite;
+    filter: drop-shadow(3px 6px 6px rgba(0, 0, 0, .45));
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.bee-sprite.bee-hop {
+    animation: bee-hop .5s ease;
+}
+
+@keyframes bee-float {
+    0%, 100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(2deg);
+    }
+}
+
+@keyframes bee-hop {
+    0% {
+        transform: translateY(0) rotate(-2deg);
+    }
+
+    35% {
+        transform: translateY(-26px) rotate(4deg) scale(1.05);
+    }
+
+    65% {
+        transform: translateY(2px) rotate(-3deg) scale(.97);
+    }
+
+    100% {
+        transform: translateY(0) rotate(-2deg);
+    }
+}
+
+.bee-balloon {
+    position: relative;
+    max-width: 240px;
+    background: #ffffe1;
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 10px 24px 10px 12px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, .35);
+    font-size: .78rem;
+    line-height: 1.5;
+    color: #000;
+}
+
+.bee-balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 46px;
+    border-width: 10px 12px 0 0;
+    border-style: solid;
+    border-color: #ffffe1 transparent transparent transparent;
+}
+
+.bee-balloon::before {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    right: 45px;
+    border-width: 11px 13px 0 0;
+    border-style: solid;
+    border-color: #000 transparent transparent transparent;
+}
+
+.bee-balloon p {
+    margin: 0;
+    min-height: 2.4em;
+}
+
+.bee-balloon-close {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    font-size: .8rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #444;
+    padding: 2px;
+}
+
+.bee-balloon-close:hover {
+    color: #000;
+}

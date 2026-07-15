@@ -843,6 +843,8 @@
                 biography.sys</button>
             <button class="start-menu-item" data-window="pictures"><i class="fa-solid fa-images"></i>
                 My Pictures</button>
+            <button class="start-menu-item" id="assistant-item"><i class="fa-solid fa-mug-hot"></i>
+                Assistant</button>
             <button class="start-menu-item" data-window="contact"><i class="fa-solid fa-envelope"></i>
                 mail.eml</button>
             <div class="start-menu-sep"></div>
@@ -858,6 +860,15 @@
             <button class="start-menu-item" id="shutdown-item"><i class="fa-solid fa-power-off"></i>
                 Shut Down...</button>
         </div>
+    </div>
+
+    <!-- Bee Assistant (Office Assistant Style) -->
+    <div id="bee-assistant" class="bee-assistant">
+        <div class="bee-balloon" id="bee-balloon">
+            <div class="bee-balloon-close" id="bee-balloon-close">×</div>
+            <p id="bee-balloon-text"></p>
+        </div>
+        <img src="assets/images/assistant_bee.png" alt="Looisbos Assistant" id="bee-sprite" class="bee-sprite">
     </div>
 
     <!-- Photo Viewer (Windows Picture and Fax Viewer Style) -->
@@ -986,6 +997,7 @@
     </script>
     <script src="assets/js/screensaver.js"></script>
     <script src="assets/js/y2k.js?v=20260713"></script>
+    <script src="assets/js/assistant.js"></script>
 </body>
 
 </html>
