@@ -8,7 +8,7 @@
     <meta name="description" content="Looisbos 公式ウェブサイト。最新ニュース、ライブ情報、バイオグラフィ、コンタクト。90s Style.">
     <!-- Retro formatted fonts fallback -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css?v=20260713">
+    <link rel="stylesheet" href="assets/css/style.css?v=20260716">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 
@@ -862,6 +862,28 @@
         </div>
     </div>
 
+    <!-- Keitai Mode (Mobile Only) -->
+    <div id="keitai-bar" class="keitai-bar">
+        <span class="keitai-signal"><i></i><i></i><i></i></span>
+        <span class="keitai-carrier">LOOISBOS</span>
+        <span class="keitai-bar-right">
+            <span class="keitai-batt"><i></i><i></i><i></i></span>
+            <span id="keitai-clock">--:--</span>
+        </span>
+    </div>
+    <div id="keitai-mail" class="keitai-mail">
+        <span class="keitai-mail-icon">📩</span>
+        <span class="keitai-mail-text"><strong>新着メール 1件</strong><br><span>『Groceries』配信開始のお知らせ</span></span>
+        <span class="keitai-mail-close">×</span>
+    </div>
+    <div id="keitai-pull" class="keitai-pull">↓ 引っ張って再起動</div>
+    <div id="keitai-standby" class="keitai-standby">
+        <img src="assets/images/logo.png" alt="Looisbos" class="keitai-standby-logo">
+        <div class="keitai-standby-clock" id="keitai-standby-clock">--:--</div>
+        <div class="keitai-standby-date" id="keitai-standby-date"></div>
+        <div class="keitai-standby-hint">画面をタップしてください</div>
+    </div>
+
     <!-- Bee Assistant (Office Assistant Style) -->
     <div id="bee-assistant" class="bee-assistant">
         <div class="bee-balloon" id="bee-balloon">
@@ -995,9 +1017,10 @@
             }
         })();
     </script>
-    <script src="assets/js/screensaver.js"></script>
+    <script src="assets/js/screensaver.js?v=20260716"></script>
     <script src="assets/js/y2k.js?v=20260713"></script>
-    <script src="assets/js/assistant.js"></script>
+    <script src="assets/js/assistant.js?v=20260716"></script>
+    <script src="assets/js/keitai.js?v=20260716"></script>
 </body>
 
 </html>

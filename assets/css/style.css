@@ -1928,7 +1928,7 @@ body.desktop-os .desktop-icons {
 
 /* Bee Assistant (Office Assistant style) */
 .bee-assistant {
-    display: none;
+    display: flex;
     position: fixed;
     right: 20px;
     bottom: 58px;
@@ -1940,10 +1940,6 @@ body.desktop-os .desktop-icons {
     transform: translateY(40px);
     transition: opacity .4s ease, transform .4s ease;
     pointer-events: none;
-}
-
-body.desktop-os .bee-assistant {
-    display: flex;
 }
 
 .bee-assistant.bee-visible {
@@ -2045,4 +2041,265 @@ body.desktop-os .bee-assistant {
 
 .bee-balloon-close:hover {
     color: #000;
+}
+
+/* Keitai mode (mobile) */
+.keitai-bar,
+.keitai-mail,
+.keitai-pull,
+.keitai-standby {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    body.keitai {
+        padding-top: 30px;
+        overscroll-behavior-y: none;
+    }
+
+    .keitai-bar {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 30px;
+        align-items: center;
+        gap: 10px;
+        padding: 0 12px;
+        background: rgba(2, 12, 22, .94);
+        border-bottom: 1px solid rgba(0, 240, 255, .5);
+        font-family: 'MS Gothic', monospace;
+        color: #aef;
+        font-size: .72rem;
+        letter-spacing: 1px;
+        z-index: 9998;
+    }
+
+    .keitai-signal {
+        display: flex;
+        align-items: flex-end;
+        gap: 2px;
+    }
+
+    .keitai-signal i {
+        width: 4px;
+        background: #7df;
+        display: block;
+        box-shadow: 0 0 4px rgba(0, 240, 255, .7);
+    }
+
+    .keitai-signal i:nth-child(1) { height: 5px; }
+    .keitai-signal i:nth-child(2) { height: 8px; }
+    .keitai-signal i:nth-child(3) { height: 11px; }
+
+    .keitai-carrier {
+        font-weight: bold;
+        color: #dff;
+        text-shadow: 0 0 6px rgba(0, 240, 255, .8);
+    }
+
+    .keitai-bar-right {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .keitai-batt {
+        display: flex;
+        gap: 1px;
+        border: 1px solid #7df;
+        padding: 1px;
+        position: relative;
+        margin-right: 3px;
+    }
+
+    .keitai-batt::after {
+        content: '';
+        position: absolute;
+        right: -4px;
+        top: 3px;
+        width: 3px;
+        height: 6px;
+        background: #7df;
+    }
+
+    .keitai-batt i {
+        width: 4px;
+        height: 8px;
+        background: #7df;
+        display: block;
+    }
+
+    .keitai-mail {
+        display: flex;
+        position: fixed;
+        top: 34px;
+        left: 10px;
+        right: 10px;
+        align-items: center;
+        gap: 10px;
+        background: #ffffe1;
+        border: 1px solid #000;
+        border-radius: 6px;
+        padding: 9px 12px;
+        box-shadow: 2px 3px 8px rgba(0, 0, 0, .4);
+        z-index: 9997;
+        font-size: .78rem;
+        color: #000;
+        line-height: 1.4;
+        transform: translateY(-140%);
+        transition: transform .35s ease;
+    }
+
+    .keitai-mail.show {
+        transform: none;
+    }
+
+    .keitai-mail-icon {
+        font-size: 1.3rem;
+    }
+
+    .keitai-mail-text span {
+        color: #215dc6;
+        font-size: .72rem;
+    }
+
+    .keitai-mail-close {
+        margin-left: auto;
+        padding: 4px 6px;
+        color: #555;
+    }
+
+    .keitai-pull {
+        display: block;
+        position: fixed;
+        top: 36px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-family: 'MS Gothic', monospace;
+        font-size: .75rem;
+        color: #8ef;
+        text-shadow: 0 0 8px rgba(0, 240, 255, .6);
+        opacity: 0;
+        z-index: 9996;
+        pointer-events: none;
+    }
+
+    .keitai-pull.ready {
+        color: #ffd700;
+        text-shadow: 0 0 8px rgba(255, 215, 0, .7);
+    }
+
+    .keitai-standby {
+        display: flex;
+        position: fixed;
+        inset: 0;
+        z-index: 30000;
+        background: radial-gradient(ellipse at 50% 30%, #0a2436 0%, #020a12 70%);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .6s ease;
+    }
+
+    .keitai-standby.on {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .keitai-standby-logo {
+        width: 110px;
+        filter: invert(1) drop-shadow(0 0 12px rgba(0, 240, 255, .7));
+        opacity: .9;
+    }
+
+    .keitai-standby-clock {
+        font-family: 'MS Gothic', monospace;
+        font-size: 4rem;
+        color: #cff;
+        text-shadow: 0 0 20px rgba(0, 240, 255, .8);
+        letter-spacing: 4px;
+    }
+
+    .keitai-standby-date {
+        font-family: 'MS Gothic', monospace;
+        color: #8ac;
+        font-size: .95rem;
+        letter-spacing: 2px;
+    }
+
+    .keitai-standby-hint {
+        margin-top: 26px;
+        color: #567;
+        font-size: .75rem;
+        animation: blink 1.6s infinite;
+    }
+
+    .keitai-app {
+        position: fixed !important;
+        top: 30px !important;
+        left: 0 !important;
+        right: 0;
+        bottom: 60px;
+        width: auto !important;
+        margin: 0 !important;
+        z-index: 8000;
+        display: flex;
+        flex-direction: column;
+        transform: translateX(102%);
+        transition: transform .3s ease;
+    }
+
+    .keitai-app > .window-content {
+        flex: 1;
+        overflow-y: auto;
+        min-height: 0;
+    }
+
+    .keitai-app.keitai-app-in {
+        transform: none;
+    }
+
+    body.keitai-app-open {
+        overflow: hidden;
+    }
+
+    .y2k-balloon {
+        display: none !important;
+    }
+
+    #clock {
+        white-space: nowrap;
+        font-size: .72rem;
+    }
+
+    .bee-assistant {
+        right: 10px;
+        bottom: 72px;
+        z-index: 8500;
+    }
+
+    .bee-sprite {
+        width: 82px;
+    }
+
+    .bee-balloon {
+        max-width: 200px;
+        font-size: .72rem;
+        padding: 8px 20px 8px 10px;
+    }
+
+    .bee-balloon::after {
+        right: 28px;
+    }
+
+    .bee-balloon::before {
+        right: 27px;
+    }
 }

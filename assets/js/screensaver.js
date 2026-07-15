@@ -221,5 +221,6 @@ class Screensaver {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    if (!document.body.classList.contains('desktop-os')) return;
     window.systemScreensaver = new Screensaver('screensaver-canvas', 3);
 });

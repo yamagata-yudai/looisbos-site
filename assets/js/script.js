@@ -117,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Bring to front on click (skip if clicking a link or button to avoid blocking navigation)
         win.addEventListener('mousedown', (e) => {
+            if (!desktopOS) return;
             if (e.target.closest('a, button, input, textarea, select, .window-btn')) return;
             absolutifyWindows();
             bringToFront(win);
@@ -124,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Dragging logic (mouse)
         titleBar.addEventListener('mousedown', (e) => {
+            if (!desktopOS) return;
             if (e.target.closest('a, button, .window-btn')) return;
             absolutifyWindows();
             activeWindow = win;
@@ -137,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Dragging logic (touch)
         titleBar.addEventListener('touchstart', (e) => {
+            if (!desktopOS) return;
             if (e.target.closest('a, button, .window-btn')) return;
             absolutifyWindows();
             const touch = e.touches[0];

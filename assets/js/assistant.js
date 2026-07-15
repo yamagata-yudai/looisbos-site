@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    if (!document.body.classList.contains('desktop-os')) return;
-
     const assistant = document.getElementById('bee-assistant');
     const balloon = document.getElementById('bee-balloon');
     const balloonText = document.getElementById('bee-balloon-text');
