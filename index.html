@@ -8,7 +8,7 @@
     <meta name="description" content="Looisbos 公式ウェブサイト。最新ニュース、ライブ情報、バイオグラフィ、コンタクト。90s Style.">
     <!-- Retro formatted fonts fallback -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css?v=20260716">
+    <link rel="stylesheet" href="assets/css/style.css?v=20260716c">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 
@@ -90,6 +90,14 @@
         <a href="https://www.tiktok.com/@looisbos_band" target="_blank" class="desktop-icon">
             <i class="fa-brands fa-tiktok" style="color: #fff;"></i>
             <span>TikTok</span>
+        </a>
+        <a href="#trash" class="desktop-icon app-icon" data-window="trash">
+            <i class="fa-solid fa-trash-can" style="color: #b8d4e8;"></i>
+            <span>ごみ箱</span>
+        </a>
+        <a href="#sweeper" class="desktop-icon app-icon" data-window="sweeper">
+            <i class="fa-solid fa-leaf" style="color: #8fd18f;"></i>
+            <span>Rooibosweeper.exe</span>
         </a>
     </div>
 
@@ -706,6 +714,75 @@
             </div>
         </div>
 
+        <!-- Recycle Bin Window -->
+        <div id="trash" class="window">
+            <div class="title-bar">
+                <div class="title-bar-text"><i class="fa-solid fa-trash-can"></i> ごみ箱</div>
+                <div class="title-bar-controls">
+                    <div class="window-btn" data-action="minimize">_</div>
+                    <div class="window-btn" data-action="maximize">□</div>
+                    <div class="window-btn" data-action="close">×</div>
+                </div>
+            </div>
+            <div class="window-content trash-content">
+                <div class="trash-toolbar">
+                    <button id="trash-empty-btn" class="trash-empty-btn">🗑 ごみ箱を空にする</button>
+                    <span id="trash-status" class="trash-status"></span>
+                </div>
+                <div class="trash-list-head">
+                    <span>名前</span><span>サイズ</span><span>削除日</span>
+                </div>
+                <div class="trash-list" id="trash-list">
+                    <button class="trash-item" data-msg="'The bus.band' は復元できません。このファイルは既に『chairs』としてリリースされています。">
+                        <span><i class="fa-solid fa-guitar"></i> The bus.band</span>
+                        <span>212 MB</span><span>2019/08/07</span>
+                    </button>
+                    <button class="trash-item" data-msg="'バンド名候補メモ.txt' は開けません。「Looisbos」以外の候補は封印されました。">
+                        <span><i class="fa-solid fa-file-lines"></i> バンド名候補メモ.txt</span>
+                        <span>2 KB</span><span>2019/04/02</span>
+                    </button>
+                    <button class="trash-item" data-msg="'アルバート.band' は復元できません。アルバートが誰なのかは、もう誰も覚えていません。">
+                        <span><i class="fa-solid fa-guitar"></i> アルバート.band</span>
+                        <span>187 MB</span><span>2020/11/03</span>
+                    </button>
+                    <button class="trash-item" data-msg="'喫煙所仮.band' は復元できません。「仮」のまま2年が経過しています。">
+                        <span><i class="fa-solid fa-guitar"></i> 喫煙所仮.band</span>
+                        <span>324 MB</span><span>2024/06/21</span>
+                    </button>
+                    <button class="trash-item" data-msg="'新曲_仮2_修正_final_これで本当に最終.band' は復元できません。なお『最終』は5回目です。">
+                        <span><i class="fa-solid fa-guitar"></i> 新曲_仮2_修正_final_これで本当に最終.band</span>
+                        <span>398 MB</span><span>2026/04/30</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rooibosweeper Window -->
+        <div id="sweeper" class="window">
+            <div class="title-bar">
+                <div class="title-bar-text"><i class="fa-solid fa-leaf"></i> Rooibosweeper</div>
+                <div class="title-bar-controls">
+                    <div class="window-btn" data-action="minimize">_</div>
+                    <div class="window-btn" data-action="maximize">□</div>
+                    <div class="window-btn" data-action="close">×</div>
+                </div>
+            </div>
+            <div class="window-content sweeper-content">
+                <div class="sweeper-panel">
+                    <div class="sweeper-status-row">
+                        <span class="sweeper-led" id="sweeper-mines">010</span>
+                        <button class="sweeper-face" id="sweeper-face">🙂</button>
+                        <span class="sweeper-led" id="sweeper-timer">000</span>
+                    </div>
+                    <div class="sweeper-board" id="sweeper-board"></div>
+                    <div class="sweeper-footer">
+                        <button class="sweeper-flag-toggle" id="sweeper-flag-toggle">🍵 フラグモード: OFF</button>
+                        <span class="sweeper-msg" id="sweeper-msg">茶葉🍂を踏まずに畑を開拓しよう</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- My Pictures Window (Explorer Style) -->
         <div id="pictures" class="window">
             <div class="title-bar">
@@ -821,11 +898,27 @@
             </div>
             <div class="task-buttons"></div>
         </nav>
-        <div
-            style="border: 2px solid #808080; border-bottom: 2px solid #fff; border-right: 2px solid #fff; padding: 2px 5px; font-size: 0.8rem; background: #c0c0c0;">
+        <div class="tray-clock-group"
+            style="border: 2px solid #808080; border-bottom: 2px solid #fff; border-right: 2px solid #fff; padding: 2px 5px; font-size: 0.8rem; background: #c0c0c0; display: flex; align-items: center; gap: 8px;">
+            <span class="tray-icons">
+                <button class="tray-icon" id="tray-volume" title="音量">🔊</button>
+                <button class="tray-icon" id="tray-tea" title="茶葉の在庫">🍵</button>
+            </span>
             <span id="clock">12:00 PM</span>
         </div>
     </header>
+
+    <!-- Tray Popups -->
+    <div id="tray-volume-panel" class="tray-panel">
+        <p class="tray-panel-title">音量</p>
+        <input type="range" id="tray-volume-slider" min="0" max="100" value="60">
+        <p class="tray-panel-text" id="tray-volume-label">ライブハウスの後方くらい</p>
+    </div>
+    <div id="tray-tea-panel" class="tray-panel">
+        <p class="tray-panel-title">茶葉の在庫</p>
+        <p class="tray-panel-text" id="tray-tea-stock">☕☕☕</p>
+        <button class="tray-tea-drink" id="tray-tea-drink">1杯いれる</button>
+    </div>
 
     <!-- Start Menu -->
     <div id="start-menu" class="start-menu">
@@ -884,6 +977,14 @@
         <div class="keitai-standby-hint">画面をタップしてください</div>
     </div>
 
+    <!-- Sticky Notes (Desktop Only) -->
+    <div class="sticky-note sticky-note-yellow" style="right: 190px; top: 60px; --tilt: -3deg;">
+        7/25 ワンマン<br><strong>"Siesta Bis"</strong> 🎫<br>セトリ最終確認！！
+    </div>
+    <div class="sticky-note sticky-note-blue" style="right: 30px; top: 150px; --tilt: 2.5deg;">
+        新曲デモ<br>そろそろ出す…<br><span class="sticky-note-small">(先週も書いた)</span>
+    </div>
+
     <!-- Bee Assistant (Office Assistant Style) -->
     <div id="bee-assistant" class="bee-assistant">
         <div class="bee-balloon" id="bee-balloon">
@@ -891,6 +992,25 @@
             <p id="bee-balloon-text"></p>
         </div>
         <img src="assets/images/assistant_bee.png" alt="Looisbos Assistant" id="bee-sprite" class="bee-sprite">
+    </div>
+
+    <!-- Trash Error Dialog -->
+    <div id="trash-dialog" class="trash-dialog">
+        <div class="trash-dialog-box">
+            <div class="title-bar">
+                <div class="title-bar-text">ごみ箱</div>
+                <div class="title-bar-controls">
+                    <div class="window-btn" id="trash-dialog-x">×</div>
+                </div>
+            </div>
+            <div class="trash-dialog-body">
+                <span class="trash-dialog-icon">⚠️</span>
+                <p id="trash-dialog-msg"></p>
+            </div>
+            <div class="trash-dialog-footer">
+                <button id="trash-dialog-ok">OK</button>
+            </div>
+        </div>
     </div>
 
     <!-- Photo Viewer (Windows Picture and Fax Viewer Style) -->
@@ -947,7 +1067,7 @@
         </div>
     </div>
 
-    <script src="assets/js/script.js?v=20260713b"></script>
+    <script src="assets/js/script.js?v=20260716c"></script>
     <script>
         // Startup Sequence logic
         window.addEventListener('DOMContentLoaded', () => {
@@ -1019,8 +1139,9 @@
     </script>
     <script src="assets/js/screensaver.js?v=20260716"></script>
     <script src="assets/js/y2k.js?v=20260713"></script>
-    <script src="assets/js/assistant.js?v=20260716"></script>
+    <script src="assets/js/assistant.js?v=20260716b"></script>
     <script src="assets/js/keitai.js?v=20260716"></script>
+    <script src="assets/js/sweeper.js?v=20260716"></script>
 </body>
 
 </html>

@@ -26,6 +26,56 @@ document.addEventListener('DOMContentLoaded', () => {
     let typeTimer = null;
     let cycleTimer = null;
 
+    const desktop = document.body.classList.contains('desktop-os');
+    const WANDER_DELAY_MIN = 180000;
+    const WANDER_DELAY_RANGE = 120000;
+    let wanderTimer = null;
+    let wanderRaf = null;
+    let wandering = false;
+
+    function scheduleWander() {
+        if (!desktop) return;
+        clearTimeout(wanderTimer);
+        wanderTimer = setTimeout(startWander, WANDER_DELAY_MIN + Math.random() * WANDER_DELAY_RANGE);
+    }
+
+    function stopWander(reschedule) {
+        wandering = false;
+        cancelAnimationFrame(wanderRaf);
+        assistant.classList.remove('bee-walking');
+        sprite.classList.remove('bee-face-right');
+        assistant.style.transform = '';
+        if (reschedule) scheduleWander();
+    }
+
+    function startWander() {
+        if (!assistant.classList.contains('bee-visible')) {
+            scheduleWander();
+            return;
+        }
+        wandering = true;
+        assistant.classList.add('bee-walking');
+        const range = Math.max(window.innerWidth - 280, 200);
+        const duration = 7000;
+        const t0 = performance.now();
+        const step = (now) => {
+            if (!wandering) return;
+            const p = (now - t0) / duration;
+            if (p >= 1) {
+                stopWander(true);
+                return;
+            }
+            const q = p < .5 ? p * 2 : (1 - p) * 2;
+            const ease = q * q * (3 - 2 * q);
+            const x = -range * ease;
+            const y = -Math.sin(p * Math.PI * 6) * 24 - Math.sin(p * Math.PI) * 46;
+            sprite.classList.toggle('bee-face-right', p >= .5);
+            assistant.style.transform = `translate(${x}px, ${y}px)`;
+            wanderRaf = requestAnimationFrame(step);
+        };
+        wanderRaf = requestAnimationFrame(step);
+    }
+
     function typeLine(text) {
         clearInterval(typeTimer);
         balloonText.textContent = '';
@@ -64,15 +114,19 @@ document.addEventListener('DOMContentLoaded', () => {
         typeLine(lines[0]);
         lineIndex = 0;
         startCycle();
+        scheduleWander();
     }
 
     function dismiss() {
         assistant.classList.remove('bee-visible');
         clearInterval(cycleTimer);
         clearInterval(typeTimer);
+        stopWander(false);
+        clearTimeout(wanderTimer);
     }
 
     sprite.addEventListener('click', () => {
+        if (wandering) stopWander(true);
         hop();
         nextLine();
         startCycle();

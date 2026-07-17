@@ -195,7 +195,9 @@ document.addEventListener('DOMContentLoaded', () => {
         news: 'news.txt',
         bio: 'biography.sys',
         contact: 'New Message',
-        pictures: 'My Pictures'
+        pictures: 'My Pictures',
+        trash: 'ごみ箱',
+        sweeper: 'Rooibosweeper'
     };
     const winState = {};
     windows.forEach(win => {
@@ -288,7 +290,9 @@ document.addEventListener('DOMContentLoaded', () => {
             news: [260, 50],
             bio: [340, 110],
             contact: [420, 140],
-            pictures: [500, 40]
+            pictures: [500, 40],
+            trash: [600, 130],
+            sweeper: [740, 90]
         };
         const areaW = window.innerWidth;
         windows.forEach(win => {
@@ -535,6 +539,117 @@ document.addEventListener('DOMContentLoaded', () => {
         // No e.preventDefault() here so Formspree can receive the POST request
         // Unless we want to use AJAX, but standard POST is easier for now.
     }
+
+    const trashDialog = document.getElementById('trash-dialog');
+    const trashDialogMsg = document.getElementById('trash-dialog-msg');
+    if (trashDialog) {
+        const closeDialog = () => trashDialog.classList.remove('open');
+        document.querySelectorAll('.trash-item').forEach(item => {
+            item.addEventListener('click', () => {
+                trashDialogMsg.textContent = item.dataset.msg;
+                trashDialog.classList.add('open');
+            });
+        });
+        document.getElementById('trash-dialog-ok').addEventListener('click', closeDialog);
+        document.getElementById('trash-dialog-x').addEventListener('click', closeDialog);
+        trashDialog.addEventListener('click', (e) => {
+            if (e.target === trashDialog) closeDialog();
+        });
+
+        const emptyBtn = document.getElementById('trash-empty-btn');
+        const trashStatus = document.getElementById('trash-status');
+        const trashList = document.getElementById('trash-list');
+        let emptying = false;
+        if (emptyBtn) {
+            emptyBtn.addEventListener('click', () => {
+                if (emptying) return;
+                emptying = true;
+                trashStatus.textContent = '削除しています…';
+                trashList.classList.add('trash-emptying');
+                setTimeout(() => {
+                    trashStatus.textContent = '……やっぱり戻しておこう。';
+                    trashList.classList.remove('trash-emptying');
+                    setTimeout(() => {
+                        trashStatus.textContent = '';
+                        emptying = false;
+                    }, 3500);
+                }, 2600);
+            });
+        }
+    }
+
+    const trayPanels = {
+        'tray-volume': document.getElementById('tray-volume-panel'),
+        'tray-tea': document.getElementById('tray-tea-panel')
+    };
+    Object.entries(trayPanels).forEach(([btnId, panel]) => {
+        const btn = document.getElementById(btnId);
+        if (!btn || !panel) return;
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const wasOpen = panel.classList.contains('open');
+            Object.values(trayPanels).forEach(p => p && p.classList.remove('open'));
+            if (!wasOpen) panel.classList.add('open');
+        });
+    });
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.tray-panel')) {
+            Object.values(trayPanels).forEach(p => p && p.classList.remove('open'));
+        }
+    });
+
+    const volSlider = document.getElementById('tray-volume-slider');
+    const volLabel = document.getElementById('tray-volume-label');
+    if (volSlider && volLabel) {
+        const volText = (v) =>
+            v == 0 ? 'ミュート（反省中）'
+            : v < 25 ? '深夜の宅録モード'
+            : v < 55 ? '喫茶店のBGMくらい'
+            : v < 85 ? 'ライブハウスの後方くらい'
+            : v < 100 ? '最前列'
+            : '近所から苦情が来るやつ';
+        volSlider.addEventListener('input', () => {
+            volLabel.textContent = volText(Number(volSlider.value));
+        });
+    }
+
+    const teaStockEl = document.getElementById('tray-tea-stock');
+    const teaBtn = document.getElementById('tray-tea-drink');
+    if (teaStockEl && teaBtn) {
+        let tea = parseInt(localStorage.getItem('lb_tea') || '3', 10);
+        if (isNaN(tea) || tea < 0 || tea > 3) tea = 3;
+        const renderTea = () => {
+            teaStockEl.textContent = tea > 0 ? '☕'.repeat(tea) + `　残り${tea}杯分` : '在庫切れ。次の物販で補充します…';
+            teaBtn.textContent = tea > 0 ? '1杯いれる' : '茶葉を補充する';
+        };
+        teaBtn.addEventListener('click', () => {
+            tea = tea > 0 ? tea - 1 : 3;
+            localStorage.setItem('lb_tea', String(tea));
+            renderTea();
+        });
+        renderTea();
+    }
+
+    document.querySelectorAll('.sticky-note').forEach(note => {
+        note.addEventListener('mousedown', (e) => {
+            if (!desktopOS) return;
+            const rect = note.getBoundingClientRect();
+            const dx = e.clientX - rect.left;
+            const dy = e.clientY - rect.top;
+            note.style.right = 'auto';
+            const move = (ev) => {
+                note.style.left = (ev.clientX - dx) + 'px';
+                note.style.top = (ev.clientY - dy) + 'px';
+            };
+            const up = () => {
+                document.removeEventListener('mousemove', move);
+                document.removeEventListener('mouseup', up);
+            };
+            document.addEventListener('mousemove', move);
+            document.addEventListener('mouseup', up);
+            e.preventDefault();
+        });
+    });
 
     document.querySelectorAll('.open-window-link').forEach(el => {
         el.addEventListener('click', (e) => {
