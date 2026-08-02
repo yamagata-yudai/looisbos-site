@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'ウィンドウはタイトルバーを掴んで動かせるよ',
         '3分間なにもしないとスクリーンセーバーが始まるよ',
         '新EP『Groceries』ぜったい聴いてね！🎵',
-        '7/25(土)は初ワンマン "Siesta Bis" @吉祥寺DAYDREAM🎫',
+        '8/23(日)は福岡遠征！"Groceries" release tour @HIMITSU🎫',
         '"Teenage" のMVがYouTubeで公開中だよ！',
         'ルイボスティーはノンカフェイン。夜中でも安心🍵',
         'Looisbosの名前はルイボス（rooibos）が由来なんだ',
