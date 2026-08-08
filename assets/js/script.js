@@ -196,6 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
         bio: 'biography.sys',
         contact: 'New Message',
         pictures: 'My Pictures',
+        podcast: 'podcast.exe',
         trash: 'ごみ箱',
         sweeper: 'Rooibosweeper'
     };
@@ -291,6 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
             bio: [340, 110],
             contact: [420, 140],
             pictures: [500, 40],
+            podcast: [300, 60],
             trash: [600, 130],
             sweeper: [740, 90]
         };

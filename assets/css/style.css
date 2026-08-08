@@ -2537,6 +2537,114 @@ body.desktop-os .sticky-note {
     scale: -1 1;
 }
 
+/* Podcast */
+body.desktop-os #podcast {
+    width: 430px;
+}
+
+#podcast .title-bar {
+    background: linear-gradient(90deg, #1a1a1a, #2a2a2a, #111);
+    animation: none;
+}
+
+#podcast .title-bar-text {
+    color: #7ce38b;
+    font-family: monospace;
+}
+
+.podcast-content {
+    background: #222;
+    color: #ddd;
+    border: 2px solid #555;
+    padding: 14px;
+}
+
+.podcast-header {
+    border-bottom: 1px dashed #555;
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+}
+
+.podcast-title {
+    margin: 0 0 6px 0;
+    color: #7ce38b;
+    font-size: 1rem;
+}
+
+.podcast-desc {
+    margin: 0;
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: #bbb;
+    font-family: monospace;
+}
+
+.podcast-player {
+    background: #000;
+    border: 2px solid;
+    border-color: #555 #888 #888 #555;
+    padding: 4px;
+}
+
+.podcast-player iframe {
+    display: block;
+    border: 0;
+}
+
+.podcast-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.podcast-link {
+    flex: 1 1 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 7px 10px;
+    font-size: 0.75rem;
+    font-family: monospace;
+    text-decoration: none;
+    color: #fff;
+    background: #333;
+    border-top: 2px solid #777;
+    border-left: 2px solid #777;
+    border-right: 2px solid #111;
+    border-bottom: 2px solid #111;
+}
+
+.podcast-link:hover {
+    background: #3d3d3d;
+}
+
+.podcast-link:active {
+    border-color: #111 #111 #777 #777;
+    padding: 8px 9px 6px 11px;
+}
+
+.podcast-link-spotify i {
+    color: #1db954;
+}
+
+.podcast-link-apple i {
+    color: #d886ff;
+}
+
+.podcast-mail {
+    margin: 12px 0 0 0;
+    font-size: 0.7rem;
+    font-family: monospace;
+    color: #999;
+    text-align: center;
+}
+
+.podcast-mail a {
+    color: #7ce38b;
+}
+
 /* Rooibosweeper */
 body.desktop-os #sweeper {
     width: 330px;

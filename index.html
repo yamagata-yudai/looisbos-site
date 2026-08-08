@@ -6,9 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Looisbos - Official Website (XP Edition)</title>
     <meta name="description" content="Looisbos 公式ウェブサイト。最新ニュース、ライブ情報、バイオグラフィ、コンタクト。90s Style.">
+    <link rel="canonical" href="https://looisbos.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Looisbos">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:url" content="https://looisbos.com/">
+    <meta property="og:title" content="Looisbos — Official Website">
+    <meta property="og:description" content="Looisbos 公式ウェブサイト。最新ニュース、ライブ情報、バイオグラフィ、コンタクト。">
+    <meta property="og:image" content="https://looisbos.com/assets/images/og_default.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Looisbos アーティスト写真">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@looisbos">
     <!-- Retro formatted fonts fallback -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css?v=20260716c">
+    <link rel="stylesheet" href="assets/css/style.css?v=20260808a">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 
@@ -54,6 +67,10 @@
             <i class="fa-solid fa-compact-disc" style="color: #7dd3fc;"></i>
             <span>Discography.exe</span>
         </a>
+        <a href="groceries-comments.html" target="_blank" class="desktop-icon">
+            <i class="fa-solid fa-envelope-open-text" style="color: #fdba74;"></i>
+            <span>recommend.doc</span>
+        </a>
         <a href="#live" class="desktop-icon app-icon" data-window="live">
             <i class="fa-solid fa-calendar-days" style="color: #fca5a5;"></i>
             <span>live_schedule</span>
@@ -90,6 +107,10 @@
         <a href="https://www.tiktok.com/@looisbos_band" target="_blank" class="desktop-icon">
             <i class="fa-brands fa-tiktok" style="color: #fff;"></i>
             <span>TikTok</span>
+        </a>
+        <a href="#podcast" class="desktop-icon app-icon" data-window="podcast">
+            <i class="fa-solid fa-microphone-lines" style="color: #d8b4fe;"></i>
+            <span>podcast.exe</span>
         </a>
         <a href="#trash" class="desktop-icon app-icon" data-window="trash">
             <i class="fa-solid fa-trash-can" style="color: #b8d4e8;"></i>
@@ -185,6 +206,9 @@
                             <a href="https://friendship.lnk.to/Groceries_Looisbos" target="_blank"
                                 style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;">🎵
                                 Listen on Streaming</a>
+                            <a href="groceries-comments.html" target="_blank"
+                                style="display: inline-block; margin-top: 8px; margin-left: 6px; padding: 3px 10px; background: #b45309; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;">📮
+                                推薦コメント</a>
                         </div>
                     </div>
 
@@ -763,6 +787,45 @@
             </div>
         </div>
 
+        <!-- Podcast Window -->
+        <div id="podcast" class="window">
+            <div class="title-bar">
+                <div class="title-bar-text"><i class="fa-solid fa-microphone-lines"></i> podcast.exe - ゆっくりお茶でも
+                </div>
+                <div class="title-bar-controls">
+                    <div class="window-btn" data-action="minimize">_</div>
+                    <div class="window-btn" data-action="maximize">□</div>
+                    <div class="window-btn" data-action="close">×</div>
+                </div>
+            </div>
+            <div class="window-content podcast-content">
+                <div class="podcast-header">
+                    <h3 class="podcast-title">ガッタマンとミクのゆっくりお茶でも</h3>
+                    <p class="podcast-desc">
+                        Looisbos の Dr.Vo. ヤマガタと the slow films の Gt.Vo. ミクが<br>
+                        ゆっくりお茶でもしながらトーク力を鍛えるゆるラジオ道場！
+                    </p>
+                </div>
+                <div class="podcast-player">
+                    <iframe src="https://open.spotify.com/embed/show/0W40wltDwFwO3mh0Ssj6c1?utm_source=generator&amp;theme=0"
+                        title="ゆっくりお茶でも - Spotify" width="100%" height="352" frameborder="0" loading="lazy"
+                        allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                </div>
+                <div class="podcast-links">
+                    <a href="https://open.spotify.com/show/0W40wltDwFwO3mh0Ssj6c1" target="_blank" rel="noopener"
+                        class="podcast-link podcast-link-spotify">
+                        <i class="fa-brands fa-spotify"></i> Spotify で聴く
+                    </a>
+                    <a href="https://podcasts.apple.com/jp/podcast/id1887855697" target="_blank" rel="noopener"
+                        class="podcast-link podcast-link-apple">
+                        <i class="fa-solid fa-podcast"></i> Apple Podcasts で聴く
+                    </a>
+                </div>
+                <p class="podcast-mail">お便り募集中 📩 yukuocha@gmail.com ／ X: <a
+                        href="https://x.com/yukuocha" target="_blank" rel="noopener">@yukuocha</a></p>
+            </div>
+        </div>
+
         <!-- Contact Window -->
         <div id="contact" class="window">
             <div class="title-bar">
@@ -1022,6 +1085,8 @@
                 biography.sys</button>
             <button class="start-menu-item" data-window="pictures"><i class="fa-solid fa-images"></i>
                 My Pictures</button>
+            <button class="start-menu-item" data-window="podcast"><i class="fa-solid fa-microphone-lines"></i>
+                podcast.exe</button>
             <button class="start-menu-item" id="assistant-item"><i class="fa-solid fa-mug-hot"></i>
                 Assistant</button>
             <button class="start-menu-item" data-window="contact"><i class="fa-solid fa-envelope"></i>
@@ -1132,7 +1197,7 @@
         <a href="https://friendship.lnk.to/Groceries_Looisbos" target="_blank" rel="noopener">▶ 聴いてみる</a>
     </div>
 
-    <script src="assets/js/script.js?v=20260716c"></script>
+    <script src="assets/js/script.js?v=20260808a"></script>
     <script>
         // Startup Sequence logic
         window.addEventListener('DOMContentLoaded', () => {
