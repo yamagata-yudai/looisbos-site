@@ -148,6 +148,22 @@ h1{
   margin-top:2px;
   font-size:13px;
 }
+.event-name{
+  font-family:'Outfit',sans-serif;
+  font-size:18px;
+  font-weight:700;
+  color:var(--text-dark);
+  margin-bottom:6px;
+}
+.event-access{
+  font-size:11px;
+  color:var(--text-mid);
+  line-height:1.7;
+}
+.event-time{
+  margin-top:4px;
+  color:var(--text-mid);
+}
 .divider{
   width:100%;
   height:1px;
@@ -378,19 +394,21 @@ input.error:focus{
       <button class="reset-btn" onclick="resetForm()">もう一件追加する</button>
     </div>
 
+    <div class="success-overlay" id="noticeOverlay">
+      <div class="success-icon" id="noticeIcon">🌙</div>
+      <h2 id="noticeTitle"></h2>
+      <p id="noticeText"></p>
+    </div>
+
     <div class="band-badge"><span>🌴</span> GUEST LIST</div>
     <h1>チケット取り置き</h1>
     <div class="event-info">
-      <div style="font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;color:var(--text-dark);margin-bottom:6px;">Siesta Bis</div>
-      <span class="date">📅 2026.07.25（土）</span>
-      <span class="venue">📍 DAYDREAM KICHIJOJI</span>
-      <span class="venue" style="font-size:11px;color:var(--text-mid);line-height:1.7;">
-        〒180-0003 東京都武蔵野市吉祥寺南町1-1-4-6F<br>
-        京王井の頭 / JR線 吉祥寺駅南口（公園口）を出てすぐのバス通りを右へ。<br>
-        天下寿司6階（エレベーター5階）
-      </span>
-      <span class="venue" style="margin-top:4px;color:var(--text-mid);">OPEN 18:30 &nbsp;/&nbsp; START 19:00</span>
-      <span class="venue">charge ¥3,000（adv/door）</span>
+      <div class="event-name" id="evName"></div>
+      <span class="date" id="evDate"></span>
+      <span class="venue" id="evVenue"></span>
+      <span class="venue event-access" id="evAccess"></span>
+      <span class="venue event-time" id="evTime"></span>
+      <span class="venue" id="evCharge"></span>
     </div>
     <div class="divider"></div>
 
@@ -421,10 +439,98 @@ input.error:focus{
 </div>
 
 <script>
-// TODO: GASをデプロイしたらこのURLを差し替えてください
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNKgfI7lJ098pkE4sHQ2ViRybl2ahtbFfWgVZxClEV6Gf-1sWtN-QO8zYwUBKFBCU/exec';
+// GASを再デプロイしてURLが変わったら、ここを差し替える
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz0V1udTmiPgn3jGGkmimaQLx02R75TPt61knmXtXvuL3gz5iCpLaLnQnD1jDPikqSmKw/exec';
 
+// ─────────────────────────────────────────────
+// イベント設定
+//   新しい公演が決まったら、いちばん上に1件足すだけ。
+//   受付を終了したら open を false にする。
+//   公演ごとのURL → toritori.html?event=＜キー＞
+//   キーはスプレッドシートのタブ名になる（英小文字・数字・ハイフンのみ）
+// ─────────────────────────────────────────────
+const EVENTS = {
+  'himitsu-0823': {
+    name: '"Groceries" release tour in HIMITSU',
+    date: '2026.08.23（日）',
+    venue: '福岡 HIMITSU',
+    access: '',
+    time: 'OPEN 18:30 &nbsp;/&nbsp; START 19:00',
+    charge: '¥2,500（+1D ¥600）',
+    open: true,
+  },
+  'siesta-bis': {
+    name: 'Siesta Bis',
+    date: '2026.07.25（土）',
+    venue: 'DAYDREAM KICHIJOJI',
+    access: '〒180-0003 東京都武蔵野市吉祥寺南町1-1-4-6F<br>'
+          + '京王井の頭 / JR線 吉祥寺駅南口（公園口）を出てすぐのバス通りを右へ。<br>'
+          + '天下寿司6階（エレベーター5階）',
+    time: 'OPEN 18:30 &nbsp;/&nbsp; START 19:00',
+    charge: '¥3,000（adv/door）',
+    open: false,
+  },
+};
+
+let currentEvent = null;
 let ticketCount = 1;
+
+function resolveEvent() {
+  const id = new URLSearchParams(location.search).get('event');
+  if (id) {
+    return EVENTS[id] ? { status: 'ok', id } : { status: 'notfound' };
+  }
+  const openId = Object.keys(EVENTS).find(key => EVENTS[key].open);
+  return openId ? { status: 'ok', id: openId } : { status: 'none' };
+}
+
+function setText(id, value) {
+  const el = document.getElementById(id);
+  el.innerHTML = value || '';
+  el.style.display = value ? '' : 'none';
+}
+
+function renderEvent(ev) {
+  setText('evName',   ev.name);
+  setText('evDate',   ev.date ? '📅 ' + ev.date : '');
+  setText('evVenue',  ev.venue ? '📍 ' + ev.venue : '');
+  setText('evAccess', ev.access);
+  setText('evTime',   ev.time);
+  setText('evCharge', ev.charge ? 'charge ' + ev.charge : '');
+  document.title = `チケット取り置き（${ev.name}） — Looisbos`;
+}
+
+function showNotice(icon, title, text) {
+  document.getElementById('noticeIcon').textContent  = icon;
+  document.getElementById('noticeTitle').textContent = title;
+  document.getElementById('noticeText').textContent  = text;
+  document.getElementById('noticeOverlay').classList.add('show');
+}
+
+function init() {
+  const resolved = resolveEvent();
+
+  if (resolved.status === 'notfound') {
+    showNotice('🔍', 'ページが見つかりません',
+      'お探しの公演の受付ページはありません。最新情報は各SNSをご確認ください。');
+    return;
+  }
+  if (resolved.status === 'none') {
+    showNotice('🌙', '現在受付中の公演はありません',
+      '次回のライブ情報は各SNSでお知らせします。');
+    return;
+  }
+
+  currentEvent = { id: resolved.id, ...EVENTS[resolved.id] };
+  renderEvent(currentEvent);
+
+  if (!currentEvent.open) {
+    showNotice('🙏', 'この公演の受付は終了しました',
+      'ご来場ありがとうございました。次回のライブ情報は各SNSでお知らせします。');
+  }
+}
+
+init();
 
 function changeCount(delta) {
   ticketCount = Math.max(1, Math.min(10, ticketCount + delta));
@@ -479,6 +585,7 @@ document.getElementById('emailInput').addEventListener('input', function() {
 });
 
 async function submitForm() {
+  if (!currentEvent || !currentEvent.open) return;
   if (!validate()) return;
 
   const name  = document.getElementById('nameInput').value.trim();
@@ -492,11 +599,24 @@ async function submitForm() {
     await fetch(SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
-      body: new URLSearchParams({ name, tickets: ticketCount, email })
+      body: new URLSearchParams({
+        name,
+        tickets: ticketCount,
+        email,
+        eventId:     currentEvent.id,
+        eventName:   currentEvent.name,
+        eventDate:   currentEvent.date,
+        eventVenue:  currentEvent.venue,
+        eventCharge: currentEvent.charge,
+      })
     });
 
-    document.getElementById('successDetail').innerHTML =
-      `<strong>${name}</strong> 様<br>${ticketCount}枚 ／ ${email}`;
+    const detail = document.getElementById('successDetail');
+    detail.textContent = '';
+    const strong = document.createElement('strong');
+    strong.textContent = name;
+    detail.append(strong, ' 様', document.createElement('br'),
+                  `${ticketCount}枚 ／ ${email}`);
     document.getElementById('successOverlay').classList.add('show');
   } catch {
     alert('送信に失敗しました。時間をおいて再度お試しください。');
