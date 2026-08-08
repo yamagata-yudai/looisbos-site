@@ -190,6 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskButtons = document.querySelector('.task-buttons');
     const taskbarTitles = {
         hero: 'Looisbos.exe',
+        mycomputer: 'マイ コンピュータ',
         disco: 'Winamp',
         live: 'LIVE SCHEDULE',
         news: 'news.txt',
@@ -286,6 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const cascade = {
             hero: [110, 24],
+            mycomputer: [220, 200],
             live: [560, 60],
             disco: [180, 90],
             news: [260, 50],
@@ -327,6 +329,66 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    document.querySelectorAll('.xp-tabs').forEach(tabs => {
+        const buttons = tabs.querySelectorAll('.xp-tab');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => {
+                    const on = b === btn;
+                    b.classList.toggle('xp-tab-active', on);
+                    b.setAttribute('aria-selected', String(on));
+                    const panel = document.getElementById(b.dataset.tab);
+                    if (panel) {
+                        panel.classList.toggle('xp-tab-panel-active', on);
+                        panel.hidden = !on;
+                    }
+                });
+            });
+        });
+    });
+
+    const newsToggles = {};
+    document.querySelectorAll('.news-item').forEach((item, index) => {
+        const date = item.querySelector('.news-date');
+        const title = item.querySelector('.news-title');
+        const body = item.querySelector('.news-excerpt');
+        if (!date || !title || !body) return;
+
+        const head = document.createElement('div');
+        head.className = 'news-head';
+        head.setAttribute('role', 'button');
+        head.setAttribute('tabindex', '0');
+        head.setAttribute('aria-expanded', 'false');
+
+        const mark = document.createElement('span');
+        mark.className = 'news-mark';
+        mark.textContent = '▶';
+
+        item.insertBefore(head, item.firstChild);
+        head.append(mark, date, title);
+
+        const setOpen = (open) => {
+            item.classList.toggle('news-open', open);
+            head.setAttribute('aria-expanded', String(open));
+            mark.textContent = open ? '▼' : '▶';
+        };
+        if (item.id) newsToggles[item.id] = setOpen;
+
+        head.addEventListener('click', () => {
+            const open = !item.classList.contains('news-open');
+            setOpen(open);
+            if (open && item.id) history.replaceState(null, '', '#' + item.id);
+        });
+        head.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                head.click();
+            }
+        });
+
+        if (index === 0) setOpen(true);
+    });
+
     function focusWindow(id) {
         const target = id && document.getElementById(id);
         if (!target || !winState[id]) return false;
@@ -339,8 +401,19 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
     }
 
+    function focusNewsItem(id) {
+        if (!newsToggles[id]) return false;
+        focusWindow('news');
+        newsToggles[id](true);
+        requestAnimationFrame(() => {
+            document.getElementById(id).scrollIntoView({ block: 'nearest', behavior: 'instant' });
+        });
+        return true;
+    }
+
     function focusWindowFromHash() {
-        return focusWindow(decodeURIComponent(location.hash).replace(/^#/, ''));
+        const id = decodeURIComponent(location.hash).replace(/^#/, '');
+        return focusNewsItem(id) || focusWindow(id);
     }
 
     focusWindowFromHash();

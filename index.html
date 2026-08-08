@@ -63,33 +63,25 @@
 
     <!-- Desktop Icons (Apps & Social Links) -->
     <div class="desktop-icons">
-        <a href="#disco" class="desktop-icon app-icon" data-window="disco">
-            <i class="fa-solid fa-compact-disc" style="color: #7dd3fc;"></i>
-            <span>Discography.exe</span>
-        </a>
-        <a href="groceries-comments.html" target="_blank" class="desktop-icon">
-            <i class="fa-solid fa-envelope-open-text" style="color: #fdba74;"></i>
-            <span>recommend.doc</span>
+        <a href="#mycomputer" class="desktop-icon app-icon" data-window="mycomputer">
+            <i class="fa-solid fa-desktop" style="color: #cbd5e1;"></i>
+            <span>マイ コンピュータ</span>
         </a>
         <a href="#live" class="desktop-icon app-icon" data-window="live">
             <i class="fa-solid fa-calendar-days" style="color: #fca5a5;"></i>
             <span>live_schedule</span>
         </a>
+        <a href="#disco" class="desktop-icon app-icon" data-window="disco">
+            <i class="fa-solid fa-compact-disc" style="color: #7dd3fc;"></i>
+            <span>Discography.exe</span>
+        </a>
         <a href="#news" class="desktop-icon app-icon" data-window="news">
             <i class="fa-solid fa-file-lines" style="color: #fde68a;"></i>
             <span>news.txt</span>
         </a>
-        <a href="#bio" class="desktop-icon app-icon" data-window="bio">
-            <i class="fa-solid fa-gears" style="color: #c0c0c0;"></i>
-            <span>biography.sys</span>
-        </a>
-        <a href="#contact" class="desktop-icon app-icon" data-window="contact">
-            <i class="fa-solid fa-envelope" style="color: #a5f3a5;"></i>
-            <span>mail.eml</span>
-        </a>
-        <a href="#pictures" class="desktop-icon app-icon" data-window="pictures">
-            <i class="fa-solid fa-images" style="color: #fcd34d;"></i>
-            <span>My Pictures</span>
+        <a href="groceries-comments.html" target="_blank" class="desktop-icon">
+            <i class="fa-solid fa-envelope-open-text" style="color: #fdba74;"></i>
+            <span>recommend.doc</span>
         </a>
         <a href="https://x.com/looisbos" target="_blank" class="desktop-icon">
             <i class="fa-brands fa-x-twitter" style="color: #fff;"></i>
@@ -107,18 +99,6 @@
         <a href="https://www.tiktok.com/@looisbos_band" target="_blank" class="desktop-icon">
             <i class="fa-brands fa-tiktok" style="color: #fff;"></i>
             <span>TikTok</span>
-        </a>
-        <a href="#podcast" class="desktop-icon app-icon" data-window="podcast">
-            <i class="fa-solid fa-microphone-lines" style="color: #d8b4fe;"></i>
-            <span>podcast.exe</span>
-        </a>
-        <a href="#trash" class="desktop-icon app-icon" data-window="trash">
-            <i class="fa-solid fa-trash-can" style="color: #b8d4e8;"></i>
-            <span>ごみ箱</span>
-        </a>
-        <a href="#sweeper" class="desktop-icon app-icon" data-window="sweeper">
-            <i class="fa-solid fa-leaf" style="color: #8fd18f;"></i>
-            <span>Rooibosweeper.exe</span>
         </a>
     </div>
 
@@ -167,6 +147,103 @@
                             <span class="y2k-visitor-count" id="y2k-visitor-count">0000001</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- My Computer Window (Site Index, Explorer Style) -->
+        <div id="mycomputer" class="window">
+            <div class="title-bar">
+                <div class="title-bar-text">マイ コンピュータ</div>
+                <div class="title-bar-controls">
+                    <div class="window-btn" data-action="minimize">_</div>
+                    <div class="window-btn" data-action="maximize">□</div>
+                    <div class="window-btn" data-action="close">×</div>
+                </div>
+            </div>
+            <div class="window-content mycomp-content">
+                <div class="mycomp-address">
+                    <span class="mycomp-address-label">アドレス</span>
+                    <span class="mycomp-address-box"><i class="fa-solid fa-desktop"></i> マイ コンピュータ</span>
+                </div>
+
+                <div class="mycomp-group">
+                    <h3 class="mycomp-group-title">音楽</h3>
+                    <ul class="mycomp-list">
+                        <li><a href="#disco" class="mycomp-row open-window-link" data-window="disco">
+                            <i class="fa-solid fa-compact-disc" style="color: #7dd3fc;"></i>
+                            <span class="mycomp-name">Discography.exe</span>
+                            <span class="mycomp-kind">8 作品</span>
+                            <span class="mycomp-date">2026.07.01</span></a></li>
+                        <li><a href="groceries-comments.html" class="mycomp-row" target="_blank" rel="noopener">
+                            <i class="fa-solid fa-envelope-open-text" style="color: #fdba74;"></i>
+                            <span class="mycomp-name">recommend.doc</span>
+                            <span class="mycomp-kind">推薦コメント</span>
+                            <span class="mycomp-date">2026.07.01</span></a></li>
+                        <li><a href="#podcast" class="mycomp-row open-window-link" data-window="podcast">
+                            <i class="fa-solid fa-microphone-lines" style="color: #d8b4fe;"></i>
+                            <span class="mycomp-name">podcast.exe</span>
+                            <span class="mycomp-kind">Spotify</span>
+                            <span class="mycomp-date">配信中</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="mycomp-group">
+                    <h3 class="mycomp-group-title">ライブ</h3>
+                    <ul class="mycomp-list">
+                        <li><a href="#live" class="mycomp-row open-window-link" data-window="live">
+                            <i class="fa-solid fa-calendar-days" style="color: #fca5a5;"></i>
+                            <span class="mycomp-name">live_schedule</span>
+                            <span class="mycomp-kind">次回 福岡HIMITSU</span>
+                            <span class="mycomp-date">2026.08.23</span></a></li>
+                        <li><a href="toritori.html?event=himitsu-0823" class="mycomp-row" target="_blank" rel="noopener">
+                            <i class="fa-solid fa-ticket" style="color: #fde68a;"></i>
+                            <span class="mycomp-name">チケット取り置き</span>
+                            <span class="mycomp-kind">受付中</span>
+                            <span class="mycomp-date">8/23 公演</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="mycomp-group">
+                    <h3 class="mycomp-group-title">読みもの</h3>
+                    <ul class="mycomp-list">
+                        <li><a href="#news" class="mycomp-row open-window-link" data-window="news">
+                            <i class="fa-solid fa-file-lines" style="color: #fde68a;"></i>
+                            <span class="mycomp-name">news.txt</span>
+                            <span class="mycomp-kind">10 件</span>
+                            <span class="mycomp-date">2026.08.02</span></a></li>
+                        <li><a href="#bio" class="mycomp-row open-window-link" data-window="bio">
+                            <i class="fa-solid fa-gears" style="color: #c0c0c0;"></i>
+                            <span class="mycomp-name">biography.sys</span>
+                            <span class="mycomp-kind">メンバー紹介</span>
+                            <span class="mycomp-date">—</span></a></li>
+                        <li><a href="#pictures" class="mycomp-row open-window-link" data-window="pictures">
+                            <i class="fa-solid fa-images" style="color: #fcd34d;"></i>
+                            <span class="mycomp-name">My Pictures</span>
+                            <span class="mycomp-kind">8 枚</span>
+                            <span class="mycomp-date">2021–2026</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="mycomp-group">
+                    <h3 class="mycomp-group-title">その他</h3>
+                    <ul class="mycomp-list">
+                        <li><a href="#contact" class="mycomp-row open-window-link" data-window="contact">
+                            <i class="fa-solid fa-envelope" style="color: #a5f3a5;"></i>
+                            <span class="mycomp-name">mail.eml</span>
+                            <span class="mycomp-kind">お問い合わせ</span>
+                            <span class="mycomp-date">—</span></a></li>
+                        <li><a href="#sweeper" class="mycomp-row open-window-link" data-window="sweeper">
+                            <i class="fa-solid fa-leaf" style="color: #8fd18f;"></i>
+                            <span class="mycomp-name">Rooibosweeper.exe</span>
+                            <span class="mycomp-kind">ゲーム</span>
+                            <span class="mycomp-date">—</span></a></li>
+                        <li><a href="#trash" class="mycomp-row open-window-link" data-window="trash">
+                            <i class="fa-solid fa-trash-can" style="color: #b8d4e8;"></i>
+                            <span class="mycomp-name">ごみ箱</span>
+                            <span class="mycomp-kind">ボツ供養</span>
+                            <span class="mycomp-date">—</span></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -408,7 +485,14 @@
                 </div>
             </div>
             <div class="window-content">
-                <h2 class="section-title">■ UPCOMING</h2>
+                <div class="xp-tabs" role="tablist">
+                    <button class="xp-tab xp-tab-active" role="tab" aria-selected="true"
+                        aria-controls="live-upcoming" data-tab="live-upcoming">■ UPCOMING</button>
+                    <button class="xp-tab" role="tab" aria-selected="false"
+                        aria-controls="live-past" data-tab="live-past">□ PAST (3)</button>
+                </div>
+
+                <div class="xp-tab-panel xp-tab-panel-active" id="live-upcoming" role="tabpanel">
 
                 <div class="live-card live-pickup">
                     <div class="live-pin">★ PICK UP / 福岡遠征</div>
@@ -429,7 +513,9 @@
                     </p>
                 </div>
 
-                <h2 class="section-title" style="margin-top: 25px;">□ PAST</h2>
+                </div>
+
+                <div class="xp-tab-panel" id="live-past" role="tabpanel" hidden>
 
                 <div class="live-card live-past">
                     <h3 class="live-title">Siesta Bis</h3>
@@ -465,6 +551,8 @@
                     </table>
                     <p class="live-reserve">（終了しました）</p>
                 </div>
+
+                </div>
             </div>
         </div>
 
@@ -481,7 +569,7 @@
             <div class="window-content">
                 <h2 class="section-title">Latest Updates</h2>
                 <div class="news-grid">
-                    <article class="news-item">
+                    <article class="news-item" id="news-20260802">
                         <span class="news-date">2026.08.02 (Sun)</span>
                         <h3 class="news-title">🆕福岡遠征決定！"Groceries" release tour in HIMITSU</h3>
                         <div class="news-excerpt">
@@ -511,7 +599,7 @@
                                 style="color: blue; text-decoration: underline;">Instagram (@looisbos)</a>
                         </div>
                     </article>
-                    <article class="news-item">
+                    <article class="news-item" id="news-20260726">
                         <span class="news-date">2026.07.26 (Sun)</span>
                         <h3 class="news-title">【御礼】初ワンマンライブ "Siesta Bis" 終演しました</h3>
                         <div class="news-excerpt">
@@ -556,7 +644,7 @@
                             </ul>
                         </div>
                     </article>
-                    <article class="news-item">
+                    <article class="news-item" id="news-20260717">
                         <span class="news-date">2026.07.17 (Fri)</span>
                         <h3 class="news-title">吉凶わからず、自主企画 "laundrynotes" 〜東京編〜</h3>
                         <div class="news-excerpt">
@@ -580,7 +668,7 @@
                                 style="color: blue; text-decoration: underline;">Instagram (@looisbos)</a>
                         </div>
                     </article>
-                    <article class="news-item">
+                    <article class="news-item" id="news-20260701">
                         <span class="news-date">2026.07.01 (Wed)</span>
                         <h3 class="news-title">【NEW RELEASE】4th EP "Groceries" 配信スタート！</h3>
                         <div class="news-excerpt">
@@ -602,7 +690,7 @@
                                 style="color: blue; text-decoration: underline;">▶ コメントを読む（Comments Gallery）</a>
                         </div>
                     </article>
-                    <article class="news-item">
+                    <article class="news-item" id="news-20260604">
                         <span class="news-date">2026.06.04 (Thu)</span>
                         <h3 class="news-title">【MV】"Teenage" Music Video 公開！</h3>
                         <div class="news-excerpt">
@@ -620,7 +708,7 @@
                             direction, camera &amp; edit：Pale Fruit
                         </div>
                     </article>
-                    <article class="news-item">
+                    <article class="news-item" id="news-20260603">
                         <span class="news-date">2026.06.03 (Wed)</span>
                         <h3 class="news-title">【NEW RELEASE】"Teenage" 配信開始！</h3>
                         <div class="news-excerpt">
@@ -634,7 +722,7 @@
                                 style="color: blue; text-decoration: underline;">https://friendship.lnk.to/Teenage_Looisbos</a>
                         </div>
                     </article>
-                    <article class="news-item">
+                    <article class="news-item" id="news-20260510">
                         <span class="news-date">2026.05.10 (Sun)</span>
                         <h3 class="news-title">【LIVE】Looisbos 初ワンマンライブ "Siesta Bis" 決定！</h3>
                         <div class="news-excerpt">
@@ -653,7 +741,7 @@
                             </a>
                         </div>
                     </article>
-                    <article class="news-item">
+                    <article class="news-item" id="news-20260510-2">
                         <span class="news-date">2026.05.10 (Sun)</span>
                         <h3 class="news-title">【NEW RELEASE】"Sometimes (Remember My Past Self)" 配信開始！</h3>
                         <div class="news-excerpt">
@@ -669,7 +757,7 @@
                                 style="color: blue; text-decoration: underline;">https://friendship.lnk.to/Sometimes_Looisbos</a>
                         </div>
                     </article>
-                    <article class="news-item">
+                    <article class="news-item" id="news-20260401">
                         <span class="news-date">2026.04.01 (Wed)</span>
                         <h3 class="news-title">【NEW RELEASE】"Lovin' Doo-be-doo" out now!</h3>
                         <div class="news-excerpt">
@@ -698,7 +786,7 @@
                             direction, camera & edit：Pale Fruit
                         </div>
                     </article>
-                    <article class="news-item">
+                    <article class="news-item" id="news-20260329">
                         <span class="news-date">2026.03.29 (Sun)</span>
                         <h3 class="news-title">下北沢LIVE HAUS "True Coming Dream Vol.9"</h3>
                         <p class="news-excerpt">
@@ -1039,6 +1127,9 @@
         </div>
         <nav class="nav">
             <div class="nav-list">
+                <a href="#mycomputer" class="nav-link nav-link-index open-window-link" data-window="mycomputer"
+                    title="マイ コンピュータ"><i class="fa-solid fa-desktop"></i> <span class="nav-link-label">マイ
+                        コンピュータ</span></a>
                 <a href="#news" class="nav-link open-window-link" data-window="news">News</a>
                 <a href="#live" class="nav-link open-window-link" data-window="live">Live</a>
                 <a href="#disco" class="nav-link open-window-link" data-window="disco">Disco</a>
@@ -1075,6 +1166,8 @@
         <div class="start-menu-items">
             <button class="start-menu-item" data-window="hero"><i class="fa-solid fa-house"></i>
                 Looisbos.exe</button>
+            <button class="start-menu-item" data-window="mycomputer"><i class="fa-solid fa-desktop"></i>
+                マイ コンピュータ</button>
             <button class="start-menu-item" data-window="disco"><i class="fa-solid fa-compact-disc"></i>
                 Winamp (Discography)</button>
             <button class="start-menu-item" data-window="live"><i class="fa-solid fa-calendar-days"></i>
@@ -1091,6 +1184,10 @@
                 Assistant</button>
             <button class="start-menu-item" data-window="contact"><i class="fa-solid fa-envelope"></i>
                 mail.eml</button>
+            <button class="start-menu-item" data-window="sweeper"><i class="fa-solid fa-leaf"></i>
+                Rooibosweeper.exe</button>
+            <button class="start-menu-item" data-window="trash"><i class="fa-solid fa-trash-can"></i>
+                ごみ箱</button>
             <div class="start-menu-sep"></div>
             <a class="start-menu-item" href="https://x.com/looisbos" target="_blank" rel="noopener"><i
                     class="fa-brands fa-x-twitter"></i> X (Twitter)</a>
