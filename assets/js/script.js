@@ -327,6 +327,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function focusWindow(id) {
+        const target = id && document.getElementById(id);
+        if (!target || !winState[id]) return false;
+        if (desktopOS) {
+            openWindow(id);
+        } else {
+            const top = target.getBoundingClientRect().top + window.scrollY - 48;
+            window.scrollTo({ top: Math.max(top, 0), behavior: 'instant' });
+        }
+        return true;
+    }
+
+    function focusWindowFromHash() {
+        return focusWindow(decodeURIComponent(location.hash).replace(/^#/, ''));
+    }
+
+    focusWindowFromHash();
+    window.addEventListener('hashchange', focusWindowFromHash);
+    if (!desktopOS) window.addEventListener('load', focusWindowFromHash);
+
     // Start Menu & Shut Down
     const startMenu = document.getElementById('start-menu');
     const startBtn = document.getElementById('start-btn');
@@ -456,8 +476,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close menu when clicking a link
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            nav.classList.remove('active');
-            menuToggle.classList.remove('active');
+            if (nav) nav.classList.remove('active');
+            if (menuToggle) menuToggle.classList.remove('active');
         });
     });
 
@@ -657,12 +677,7 @@ document.addEventListener('DOMContentLoaded', () => {
         el.addEventListener('click', (e) => {
             e.preventDefault();
             const id = el.dataset.window;
-            if (desktopOS) {
-                openWindow(id);
-            } else {
-                const target = document.getElementById(id);
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
-            }
+            if (focusWindow(id)) history.replaceState(null, '', '#' + id);
         });
     });
 

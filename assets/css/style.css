@@ -840,6 +840,24 @@ body * {
     100% { transform: translateX(-100%); }
 }
 
+.y2k-ticker-link {
+    color: #00f0ff;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.y2k-ticker-link:hover,
+.y2k-ticker-link:focus-visible {
+    color: #000;
+    background: #00f0ff;
+    text-decoration: none;
+}
+
+.y2k-ticker-wrap:hover .y2k-ticker-track,
+.y2k-ticker-wrap:focus-within .y2k-ticker-track {
+    animation-play-state: paused;
+}
+
 /* 5. Title bar shimmer — override base and active */
 .title-bar,
 .window.window-active .title-bar {
@@ -1470,15 +1488,31 @@ body.desktop-os .y2k-webring {
     display: none;
 }
 
+/* Quick Launch: always-visible entry points, left of the task buttons */
+body.desktop-os .nav {
+    display: flex;
+    align-items: center;
+}
+
 body.desktop-os .nav-list {
-    display: none;
+    display: flex;
+    gap: 2px;
+    padding-right: 8px;
+    margin-right: 8px;
+    border-right: 2px solid #808080;
+    box-shadow: 1px 0 0 #fff;
+}
+
+body.desktop-os .nav-link {
+    padding: 3px 10px;
+    font-size: 0.78rem;
 }
 
 body.desktop-os .task-buttons {
     display: flex;
     gap: 4px;
     overflow-x: auto;
-    max-width: 60vw;
+    max-width: 45vw;
 }
 
 body.desktop-os .desktop-icons {
