@@ -1272,85 +1272,129 @@ body * {
     padding-top: 14px;
 }
 
-/* My Computer (site index) */
+/* My Computer (site index, Explorer style) */
+.mycomp-content {
+    padding: 0;
+}
+
 .mycomp-address {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 14px;
-    font-size: 0.8rem;
+    padding: 6px 8px;
+    font-size: 0.78rem;
+    background: #ece9d8;
+    border-bottom: 1px solid #b5b0a1;
 }
 
 .mycomp-address-box {
     flex: 1;
     background: #fff;
     padding: 3px 8px;
-    border-top: 2px solid #808080;
-    border-left: 2px solid #808080;
-    border-right: 2px solid #fff;
-    border-bottom: 2px solid #fff;
+    border: 1px solid #7f9db9;
 }
 
-.mycomp-group {
-    margin-bottom: 16px;
+.mycomp-body {
+    display: flex;
+    gap: 0;
+}
+
+.mycomp-main {
+    flex: 1;
+    padding: 14px 16px 18px;
+    background: linear-gradient(180deg, #fdfdff 0%, #eef3fc 100%);
+}
+
+.mycomp-group + .mycomp-group {
+    margin-top: 18px;
 }
 
 .mycomp-group-title {
-    font-size: 0.9rem;
-    color: #000080;
-    border-bottom: 1px dotted #808080;
+    font-size: 0.82rem;
+    font-weight: bold;
+    color: #215dc6;
+    margin: 0 0 8px;
     padding-bottom: 3px;
-    margin-bottom: 6px;
+    border-bottom: 1px solid;
+    border-image: linear-gradient(90deg, #7ba7e3, rgba(123, 167, 227, 0)) 1;
 }
 
-.mycomp-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.mycomp-row {
+.mycomp-tiles {
     display: grid;
-    grid-template-columns: 20px 1fr auto auto;
-    align-items: center;
-    gap: 10px;
-    padding: 5px 6px;
+    grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+    gap: 4px;
+}
+
+.mycomp-tile {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 8px;
+    align-content: center;
+    padding: 7px 8px;
+    border-radius: 3px;
     text-decoration: none;
-    color: #000;
+    border: 1px solid transparent;
+}
+
+.mycomp-tile i {
+    grid-row: 1 / 3;
+    align-self: center;
+    justify-self: center;
+    font-size: 1.6rem;
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, .25));
+}
+
+.mycomp-tile-name {
+    align-self: end;
     font-size: 0.85rem;
+    color: #10254a;
 }
 
-.mycomp-row:hover,
-.mycomp-row:focus-visible {
-    background: #000080;
-    color: #fff;
+.mycomp-tile-sub {
+    align-self: start;
+    font-size: 0.7rem;
+    color: #6b7a90;
+    line-height: 1.4;
 }
 
-.mycomp-name {
+.mycomp-tile:hover,
+.mycomp-tile:focus-visible {
+    background: linear-gradient(180deg, #e8f0fd, #cfe0f8);
+    border-color: #7ba7e3;
+    outline: none;
+}
+
+.mycomp-tile:hover .mycomp-tile-name {
     text-decoration: underline;
 }
 
-.mycomp-kind,
-.mycomp-date {
-    font-size: 0.75rem;
-    color: #505050;
-    white-space: nowrap;
+.mycomp-tile-hot .mycomp-tile-sub {
+    color: #b52a2a;
+    font-weight: bold;
 }
 
-.mycomp-row:hover .mycomp-kind,
-.mycomp-row:hover .mycomp-date,
-.mycomp-row:focus-visible .mycomp-kind,
-.mycomp-row:focus-visible .mycomp-date {
-    color: #cfd8ff;
+.explorer-pane-box li + li {
+    margin-top: 6px;
 }
 
-@media (max-width: 480px) {
-    .mycomp-row {
-        grid-template-columns: 20px 1fr auto;
+.explorer-pane-box a {
+    color: #215dc6;
+    text-decoration: none;
+}
+
+.explorer-pane-box a:hover {
+    text-decoration: underline;
+    color: #4d8cf5;
+}
+
+@media (max-width: 768px) {
+    .mycomp-main {
+        padding: 12px;
     }
 
-    .mycomp-kind {
-        display: none;
+    .mycomp-tiles {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1624,6 +1668,10 @@ body.desktop-os .window {
     max-height: calc(100% - 30px);
     display: flex;
     flex-direction: column;
+}
+
+body.desktop-os #mycomputer {
+    width: 680px;
 }
 
 body.desktop-os .window > .window-content {
