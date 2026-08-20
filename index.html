@@ -19,9 +19,11 @@
     <meta property="og:image:alt" content="Looisbos アーティスト写真">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@looisbos">
+    <link rel="icon" href="assets/icons/favicon.ico" sizes="16x16 32x32">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon-180.png">
     <!-- Retro formatted fonts fallback -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css?v=20260820b">
+    <link rel="stylesheet" href="assets/css/style.css?v=20260821a">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 
@@ -64,23 +66,23 @@
     <!-- Desktop Icons (Apps & Social Links) -->
     <div class="desktop-icons">
         <a href="#mycomputer" class="desktop-icon app-icon" data-window="mycomputer">
-            <i class="fa-solid fa-desktop" style="color: #cbd5e1;"></i>
+            <span class="ico ico-lg ico-mycomputer" aria-hidden="true"></span>
             <span>マイ コンピュータ</span>
         </a>
         <a href="#live" class="desktop-icon app-icon" data-window="live">
-            <i class="fa-solid fa-calendar-days" style="color: #fca5a5;"></i>
+            <span class="ico ico-lg ico-live" aria-hidden="true"></span>
             <span>live_schedule</span>
         </a>
         <a href="#disco" class="desktop-icon app-icon" data-window="disco">
-            <i class="fa-solid fa-compact-disc" style="color: #7dd3fc;"></i>
+            <span class="ico ico-lg ico-disco" aria-hidden="true"></span>
             <span>Discography.exe</span>
         </a>
         <a href="#news" class="desktop-icon app-icon" data-window="news">
-            <i class="fa-solid fa-file-lines" style="color: #fde68a;"></i>
+            <span class="ico ico-lg ico-news" aria-hidden="true"></span>
             <span>news.txt</span>
         </a>
         <a href="groceries-comments.html" target="_blank" class="desktop-icon">
-            <i class="fa-solid fa-envelope-open-text" style="color: #fdba74;"></i>
+            <span class="ico ico-lg ico-mail" aria-hidden="true"></span>
             <span>recommend.doc</span>
         </a>
         <a href="https://x.com/looisbos" target="_blank" class="desktop-icon">
@@ -155,7 +157,7 @@
         <!-- My Computer Window (Site Index, Explorer Style) -->
         <div id="mycomputer" class="window">
             <div class="title-bar">
-                <div class="title-bar-text">マイ コンピュータ</div>
+                <div class="title-bar-text"><span class="ico ico-mycomputer" aria-hidden="true"></span> マイ コンピュータ</div>
                 <div class="title-bar-controls">
                     <div class="window-btn" data-action="minimize">_</div>
                     <div class="window-btn" data-action="maximize">□</div>
@@ -165,7 +167,7 @@
             <div class="window-content mycomp-content">
                 <div class="mycomp-address">
                     <span class="mycomp-address-label">アドレス</span>
-                    <span class="mycomp-address-box"><i class="fa-solid fa-desktop"></i> マイ コンピュータ</span>
+                    <span class="mycomp-address-box"><span class="ico ico-mycomputer" aria-hidden="true"></span> マイ コンピュータ</span>
                 </div>
                 <div class="mycomp-body">
                     <div class="explorer-pane">
@@ -189,17 +191,17 @@
                             <h3 class="mycomp-group-title">音楽</h3>
                             <div class="mycomp-tiles">
                                 <a href="#disco" class="mycomp-tile open-window-link" data-window="disco">
-                                    <i class="fa-solid fa-compact-disc" style="color: #38bdf8;"></i>
+                                    <span class="ico ico-lg ico-disco" aria-hidden="true"></span>
                                     <span class="mycomp-tile-name">Discography.exe</span>
                                     <span class="mycomp-tile-sub">8 作品 ・ 2026.07.01</span>
                                 </a>
                                 <a href="groceries-comments.html" class="mycomp-tile" target="_blank" rel="noopener">
-                                    <i class="fa-solid fa-envelope-open-text" style="color: #f97316;"></i>
+                                    <span class="ico ico-lg ico-mail" aria-hidden="true"></span>
                                     <span class="mycomp-tile-name">recommend.doc</span>
                                     <span class="mycomp-tile-sub">推薦コメント ・ 2026.07.01</span>
                                 </a>
                                 <a href="#podcast" class="mycomp-tile open-window-link" data-window="podcast">
-                                    <i class="fa-solid fa-microphone-lines" style="color: #a855f7;"></i>
+                                    <span class="ico ico-lg ico-podcast" aria-hidden="true"></span>
                                     <span class="mycomp-tile-name">podcast.exe</span>
                                     <span class="mycomp-tile-sub">Spotify ・ 配信中</span>
                                 </a>
@@ -210,13 +212,13 @@
                             <h3 class="mycomp-group-title">ライブ</h3>
                             <div class="mycomp-tiles">
                                 <a href="#live" class="mycomp-tile mycomp-tile-hot open-window-link" data-window="live">
-                                    <i class="fa-solid fa-calendar-days" style="color: #ef4444;"></i>
+                                    <span class="ico ico-lg ico-live" aria-hidden="true"></span>
                                     <span class="mycomp-tile-name">live_schedule</span>
                                     <span class="mycomp-tile-sub">次回 2026.08.23 福岡</span>
                                 </a>
                                 <a href="toritori.html?event=himitsu-0823" class="mycomp-tile mycomp-tile-hot"
                                     target="_blank" rel="noopener">
-                                    <i class="fa-solid fa-ticket" style="color: #eab308;"></i>
+                                    <span class="ico ico-lg ico-ticket" aria-hidden="true"></span>
                                     <span class="mycomp-tile-name">チケット取り置き</span>
                                     <span class="mycomp-tile-sub">受付中 ・ 8/23・9/6</span>
                                 </a>
@@ -227,17 +229,17 @@
                             <h3 class="mycomp-group-title">読みもの</h3>
                             <div class="mycomp-tiles">
                                 <a href="#news" class="mycomp-tile open-window-link" data-window="news">
-                                    <i class="fa-solid fa-file-lines" style="color: #f59e0b;"></i>
+                                    <span class="ico ico-lg ico-news" aria-hidden="true"></span>
                                     <span class="mycomp-tile-name">news.txt</span>
                                     <span class="mycomp-tile-sub">11 件 ・ 2026.08.14</span>
                                 </a>
                                 <a href="#bio" class="mycomp-tile open-window-link" data-window="bio">
-                                    <i class="fa-solid fa-gears" style="color: #94a3b8;"></i>
+                                    <span class="ico ico-lg ico-bio" aria-hidden="true"></span>
                                     <span class="mycomp-tile-name">biography.sys</span>
                                     <span class="mycomp-tile-sub">メンバー紹介</span>
                                 </a>
                                 <a href="#pictures" class="mycomp-tile open-window-link" data-window="pictures">
-                                    <i class="fa-solid fa-images" style="color: #f59e0b;"></i>
+                                    <span class="ico ico-lg ico-pictures" aria-hidden="true"></span>
                                     <span class="mycomp-tile-name">My Pictures</span>
                                     <span class="mycomp-tile-sub">8 枚 ・ 2021–2026</span>
                                 </a>
@@ -248,17 +250,17 @@
                             <h3 class="mycomp-group-title">その他</h3>
                             <div class="mycomp-tiles">
                                 <a href="#contact" class="mycomp-tile open-window-link" data-window="contact">
-                                    <i class="fa-solid fa-envelope" style="color: #22c55e;"></i>
+                                    <span class="ico ico-lg ico-mail" aria-hidden="true"></span>
                                     <span class="mycomp-tile-name">mail.eml</span>
                                     <span class="mycomp-tile-sub">お問い合わせ</span>
                                 </a>
                                 <a href="#sweeper" class="mycomp-tile open-window-link" data-window="sweeper">
-                                    <i class="fa-solid fa-leaf" style="color: #4ade80;"></i>
+                                    <span class="ico ico-lg ico-sweeper" aria-hidden="true"></span>
                                     <span class="mycomp-tile-name">Rooibosweeper.exe</span>
                                     <span class="mycomp-tile-sub">ゲーム</span>
                                 </a>
                                 <a href="#trash" class="mycomp-tile open-window-link" data-window="trash">
-                                    <i class="fa-solid fa-trash-can" style="color: #93c5fd;"></i>
+                                    <span class="ico ico-lg ico-trash" aria-hidden="true"></span>
                                     <span class="mycomp-tile-name">ごみ箱</span>
                                     <span class="mycomp-tile-sub">ボツ供養</span>
                                 </a>
@@ -272,7 +274,7 @@
         <!-- Discography Window (Winamp Style) -->
         <div id="disco" class="window">
             <div class="title-bar" style="background: linear-gradient(90deg, #2b2b2b, #4a4a4a);">
-                <div class="title-bar-text" style="color: #0f0; font-family: monospace;">WINAMP - DISCOGRAPHY</div>
+                <div class="title-bar-text" style="color: #0f0; font-family: monospace;"><span class="ico ico-disco" aria-hidden="true"></span> WINAMP - DISCOGRAPHY</div>
                 <div class="title-bar-controls">
                     <div class="window-btn" data-action="minimize">_</div>
                     <div class="window-btn" data-action="maximize">□</div>
@@ -301,11 +303,11 @@
                                 <li>4. Copy &amp; Paste</li>
                                 <li>5. Teenage</li>
                             </ul>
-                            <a href="https://friendship.lnk.to/Groceries_Looisbos" target="_blank"
-                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;">🎵
+                            <a href="https://friendship.lnk.to/Groceries_Looisbos" target="_blank" class="disco-link"
+                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;"><span class="ico ico-disco" aria-hidden="true"></span>
                                 Listen on Streaming</a>
-                            <a href="groceries-comments.html" target="_blank"
-                                style="display: inline-block; margin-top: 8px; margin-left: 6px; padding: 3px 10px; background: #b45309; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;">📮
+                            <a href="groceries-comments.html" target="_blank" class="disco-link"
+                                style="display: inline-block; margin-top: 8px; margin-left: 6px; padding: 3px 10px; background: #b45309; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;"><span class="ico ico-mail" aria-hidden="true"></span>
                                 推薦コメント</a>
                         </div>
                     </div>
@@ -325,8 +327,8 @@
                             <ul style="list-style: none; padding-left: 0; margin-top: 2px; font-size: 0.8rem;">
                                 <li>1. Teenage</li>
                             </ul>
-                            <a href="https://friendship.lnk.to/Teenage_Looisbos" target="_blank"
-                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;">🎵
+                            <a href="https://friendship.lnk.to/Teenage_Looisbos" target="_blank" class="disco-link"
+                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;"><span class="ico ico-disco" aria-hidden="true"></span>
                                 Listen on Streaming</a>
                         </div>
                     </div>
@@ -346,8 +348,8 @@
                             <ul style="list-style: none; padding-left: 0; margin-top: 2px; font-size: 0.8rem;">
                                 <li>1. Sometimes (Remember My Past Self)</li>
                             </ul>
-                            <a href="https://friendship.lnk.to/Sometimes_Looisbos" target="_blank"
-                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;">🎵
+                            <a href="https://friendship.lnk.to/Sometimes_Looisbos" target="_blank" class="disco-link"
+                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;"><span class="ico ico-disco" aria-hidden="true"></span>
                                 Listen on Streaming</a>
                         </div>
                     </div>
@@ -367,8 +369,8 @@
                             <ul style="list-style: none; padding-left: 0; margin-top: 2px; font-size: 0.8rem;">
                                 <li>1. Lovin' Doo-be-doo</li>
                             </ul>
-                            <a href="https://friendship.lnk.to/LovinDoo-be-doo_Looisbos" target="_blank"
-                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;">🎵
+                            <a href="https://friendship.lnk.to/LovinDoo-be-doo_Looisbos" target="_blank" class="disco-link"
+                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;"><span class="ico ico-disco" aria-hidden="true"></span>
                                 Listen on Streaming</a>
                         </div>
                     </div>
@@ -388,8 +390,8 @@
                             <ul style="list-style: none; padding-left: 0; margin-top: 2px; font-size: 0.8rem;">
                                 <li>1. Science Children</li>
                             </ul>
-                            <a href="https://friendship.lnk.to/SCft.JF_Looisbos" target="_blank"
-                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;">🎵
+                            <a href="https://friendship.lnk.to/SCft.JF_Looisbos" target="_blank" class="disco-link"
+                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;"><span class="ico ico-disco" aria-hidden="true"></span>
                                 Listen on Streaming</a>
                         </div>
                     </div>
@@ -413,8 +415,8 @@
                                 <li>4. Tell me</li>
                                 <li>5. It might be right</li>
                             </ul>
-                            <a href="https://friendship.lnk.to/rooms" target="_blank"
-                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;">🎵
+                            <a href="https://friendship.lnk.to/rooms" target="_blank" class="disco-link"
+                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;"><span class="ico ico-disco" aria-hidden="true"></span>
                                 Listen on Streaming</a>
                         </div>
                     </div>
@@ -438,8 +440,8 @@
                                 <li>4. Folding Umbrella</li>
                                 <li>5. Common Sense</li>
                             </ul>
-                            <a href="https://friendship.lnk.to/vase" target="_blank"
-                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;">🎵
+                            <a href="https://friendship.lnk.to/vase" target="_blank" class="disco-link"
+                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;"><span class="ico ico-disco" aria-hidden="true"></span>
                                 Listen on Streaming</a>
                         </div>
                     </div>
@@ -462,8 +464,8 @@
                                 <li>4. papa</li>
                             </ul>
                             <a href="https://open.spotify.com/album/0ysMSQVm1O9gg19Tfoo4NC?si=NqH8O498SrGPX6p3P2FZ_g"
-                                target="_blank"
-                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;">🎵
+                                target="_blank" class="disco-link"
+                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;"><span class="ico ico-disco" aria-hidden="true"></span>
                                 Listen on Spotify</a>
                         </div>
                     </div>
@@ -498,7 +500,7 @@
         <!-- Live Schedule Window -->
         <div id="live" class="window">
             <div class="title-bar" style="background: linear-gradient(90deg, #7b0a0a, #b52a2a);">
-                <div class="title-bar-text">Scheduler - LIVE SCHEDULE</div>
+                <div class="title-bar-text"><span class="ico ico-live" aria-hidden="true"></span> Scheduler - LIVE SCHEDULE</div>
                 <div class="title-bar-controls">
                     <div class="window-btn" data-action="minimize">_</div>
                     <div class="window-btn" data-action="maximize">□</div>
@@ -517,7 +519,7 @@
 
                 <div class="live-card live-pickup">
                     <div class="live-pin">★ PICK UP / 福岡遠征</div>
-                    <h3 class="live-title">"Groceries" release tour in HIMITSU</h3>
+                    <h3 class="live-title"><span class="ico ico-live" aria-hidden="true"></span>"Groceries" release tour in HIMITSU</h3>
                     <table class="live-meta">
                         <tr><th>DATE</th><td>2026年8月23日(日)</td></tr>
                         <tr><th>VENUE</th><td>福岡 HIMITSU</td></tr>
@@ -526,7 +528,7 @@
                         <tr><th>ACT</th><td>Looisbos ／ micemohee ／ 蜃気楼シングシング ／ 山本海バンド</td></tr>
                     </table>
                     <a href="https://looisbos.com/toritori.html?event=himitsu-0823" target="_blank" class="btn live-btn"
-                        style="display: inline-block; margin-top: 10px; padding: 6px 18px; font-weight: bold; text-decoration: none; color: #000; font-size: 14px;">🎟️
+                        style="display: inline-block; margin-top: 10px; padding: 6px 18px; font-weight: bold; text-decoration: none; color: #000; font-size: 14px;"><span class="ico ico-live" aria-hidden="true"></span>
                         チケット取り置きはこちら</a>
                     <p class="live-reserve">各SNSのDMでも受付中🙏
                         <a href="https://x.com/looisbos" target="_blank">X (@looisbos)</a> /
@@ -536,7 +538,7 @@
 
 
                 <div class="live-card">
-                    <h3 class="live-title">NINE SPICES 19th Anniversary</h3>
+                    <h3 class="live-title"><span class="ico ico-live" aria-hidden="true"></span>NINE SPICES 19th Anniversary</h3>
                     <p class="live-sub">☀ DAY TIME 公演（昼開場）</p>
                     <table class="live-meta">
                         <tr><th>DATE</th><td>2026年9月6日(日)</td></tr>
@@ -546,7 +548,7 @@
                         <tr><th>ACT</th><td>Spinning Plums ／ 鉄骨渡り ／ Looisbos</td></tr>
                     </table>
                     <a href="https://looisbos.com/toritori.html?event=ninespices-0906" target="_blank" class="btn live-btn"
-                        style="display: inline-block; margin-top: 10px; padding: 6px 18px; font-weight: bold; text-decoration: none; color: #000; font-size: 14px;">🎟️
+                        style="display: inline-block; margin-top: 10px; padding: 6px 18px; font-weight: bold; text-decoration: none; color: #000; font-size: 14px;"><span class="ico ico-live" aria-hidden="true"></span>
                         チケット取り置きはこちら</a>
                     <p class="live-reserve">各SNSのDMでも受付中🙏
                         <a href="https://x.com/looisbos" target="_blank">X (@looisbos)</a> /
@@ -557,8 +559,8 @@
 
                 <div class="xp-tab-panel" id="live-past" role="tabpanel" hidden>
 
-                <div class="live-card live-past">
-                    <h3 class="live-title">Siesta Bis</h3>
+                <div class="live-card live-past is-past">
+                    <h3 class="live-title"><span class="ico ico-live" aria-hidden="true"></span>Siesta Bis</h3>
                     <table class="live-meta">
                         <tr><th>DATE</th><td>2026年7月25日(土)</td></tr>
                         <tr><th>VENUE</th><td>吉祥寺DAYDREAM</td></tr>
@@ -568,8 +570,8 @@
                     <p class="live-reserve">（終了しました。ご来場ありがとうございました🙏）</p>
                 </div>
 
-                <div class="live-card live-past">
-                    <h3 class="live-title">吉凶わからず、自主企画 "laundrynotes" 〜東京編〜</h3>
+                <div class="live-card live-past is-past">
+                    <h3 class="live-title"><span class="ico ico-live" aria-hidden="true"></span>吉凶わからず、自主企画 "laundrynotes" 〜東京編〜</h3>
                     <p class="live-sub">1st album「laundrynotes」release event</p>
                     <table class="live-meta">
                         <tr><th>DATE</th><td>2026年7月17日(金)</td></tr>
@@ -580,8 +582,8 @@
                     <p class="live-reserve">（終了しました）</p>
                 </div>
 
-                <div class="live-card live-past">
-                    <h3 class="live-title">下北沢LIVE HAUS "True Coming Dream Vol.9"</h3>
+                <div class="live-card live-past is-past">
+                    <h3 class="live-title"><span class="ico ico-live" aria-hidden="true"></span>下北沢LIVE HAUS "True Coming Dream Vol.9"</h3>
                     <table class="live-meta">
                         <tr><th>DATE</th><td>2026年3月29日(日)</td></tr>
                         <tr><th>VENUE</th><td>下北沢LIVE HAUS</td></tr>
@@ -599,7 +601,7 @@
         <!-- News Window -->
         <div id="news" class="window">
             <div class="title-bar">
-                <div class="title-bar-text">News - Notepad</div>
+                <div class="title-bar-text"><span class="ico ico-news" aria-hidden="true"></span> News - Notepad</div>
                 <div class="title-bar-controls">
                     <div class="window-btn" data-action="minimize">_</div>
                     <div class="window-btn" data-action="maximize">□</div>
@@ -611,7 +613,7 @@
                 <div class="news-grid">
                     <article class="news-item" id="news-20260814">
                         <span class="news-date">2026.08.14 (Fri)</span>
-                        <h3 class="news-title">🆕【LIVE】9/6 新宿NINE SPICES 19周年イベント出演決定！</h3>
+                        <h3 class="news-title"><span class="ico ico-news" aria-hidden="true"></span>【LIVE】9/6 新宿NINE SPICES 19周年イベント出演決定！</h3>
                         <div class="news-excerpt">
                             9月のイベントも決まりましたよー！<br><br>
                             新宿NINE SPICES の19周年記念イベントに出演します🎊<br>
@@ -630,7 +632,7 @@
 
                             <a href="https://looisbos.com/toritori.html?event=ninespices-0906" target="_blank"
                                 class="btn" style="display: inline-block; margin-top: 8px; padding: 6px 18px; font-weight: bold; text-decoration: none; color: #000; font-size: 14px;">
-                                🎟️ チケット取り置きはこちら
+                                <span class="ico ico-live" aria-hidden="true"></span> チケット取り置きはこちら
                             </a><br><br>
 
                             各SNSのDMでも受け付けます🙏<br>
@@ -642,7 +644,7 @@
                     </article>
                     <article class="news-item" id="news-20260802">
                         <span class="news-date">2026.08.02 (Sun)</span>
-                        <h3 class="news-title">🆕福岡遠征決定！"Groceries" release tour in HIMITSU</h3>
+                        <h3 class="news-title"><span class="ico ico-news" aria-hidden="true"></span>福岡遠征決定！"Groceries" release tour in HIMITSU</h3>
                         <div class="news-excerpt">
                             福岡遠征決定.ᐟ.ᐟ.ᐟ<br><br>
                             Looisbos 4th EP "Groceries" release tour in HIMITSU<br><br>
@@ -660,7 +662,7 @@
 
                             <a href="https://looisbos.com/toritori.html?event=himitsu-0823" target="_blank"
                                 class="btn" style="display: inline-block; margin-top: 8px; padding: 6px 18px; font-weight: bold; text-decoration: none; color: #000; font-size: 14px;">
-                                🎟️ チケット取り置きはこちら
+                                <span class="ico ico-live" aria-hidden="true"></span> チケット取り置きはこちら
                             </a><br><br>
 
                             各SNSのDMでも受け付けます🙏<br>
@@ -808,7 +810,7 @@
                             ticket ¥3,000<br><br>
                             <a href="https://looisbos.com/toritori.html?event=siesta-bis" target="_blank"
                                 class="btn" style="display: inline-block; margin-top: 8px; padding: 6px 18px; font-weight: bold; text-decoration: none; color: #000; font-size: 14px;">
-                                🎟️ チケット予約はこちら
+                                <span class="ico ico-live" aria-hidden="true"></span> チケット予約はこちら
                             </a>
                         </div>
                     </article>
@@ -885,7 +887,7 @@
         <!-- Biography Window -->
         <div id="bio" class="window">
             <div class="title-bar">
-                <div class="title-bar-text">System Properties - Biography</div>
+                <div class="title-bar-text"><span class="ico ico-bio" aria-hidden="true"></span> System Properties - Biography</div>
                 <div class="title-bar-controls">
                     <div class="window-btn" data-action="minimize">_</div>
                     <div class="window-btn" data-action="maximize">□</div>
@@ -940,7 +942,7 @@
                         </div>
                     </div>
                     <a href="#pictures" class="bio-gallery-link open-window-link" data-window="pictures">
-                        <i class="fa-solid fa-images"></i> Photo Gallery を開く（My Pictures）
+                        <span class="ico ico-pictures" aria-hidden="true"></span> Photo Gallery を開く（My Pictures）
                     </a>
                 </div>
             </div>
@@ -949,7 +951,7 @@
         <!-- Podcast Window -->
         <div id="podcast" class="window">
             <div class="title-bar">
-                <div class="title-bar-text"><i class="fa-solid fa-microphone-lines"></i> podcast.exe - ゆっくりお茶でも
+                <div class="title-bar-text"><span class="ico ico-podcast" aria-hidden="true"></span> podcast.exe - ゆっくりお茶でも
                 </div>
                 <div class="title-bar-controls">
                     <div class="window-btn" data-action="minimize">_</div>
@@ -988,7 +990,7 @@
         <!-- Contact Window -->
         <div id="contact" class="window">
             <div class="title-bar">
-                <div class="title-bar-text">Outlook Express - New Message</div>
+                <div class="title-bar-text"><span class="ico ico-mail" aria-hidden="true"></span> Outlook Express - New Message</div>
                 <div class="title-bar-controls">
                     <div class="window-btn" data-action="minimize">_</div>
                     <div class="window-btn" data-action="maximize">□</div>
@@ -1025,7 +1027,7 @@
         <!-- Recycle Bin Window -->
         <div id="trash" class="window">
             <div class="title-bar">
-                <div class="title-bar-text"><i class="fa-solid fa-trash-can"></i> ごみ箱</div>
+                <div class="title-bar-text"><span class="ico ico-trash" aria-hidden="true"></span> ごみ箱</div>
                 <div class="title-bar-controls">
                     <div class="window-btn" data-action="minimize">_</div>
                     <div class="window-btn" data-action="maximize">□</div>
@@ -1034,7 +1036,7 @@
             </div>
             <div class="window-content trash-content">
                 <div class="trash-toolbar">
-                    <button id="trash-empty-btn" class="trash-empty-btn">🗑 ごみ箱を空にする</button>
+                    <button id="trash-empty-btn" class="trash-empty-btn"><span class="ico ico-trash" aria-hidden="true"></span> ごみ箱を空にする</button>
                     <span id="trash-status" class="trash-status"></span>
                 </div>
                 <div class="trash-list-head">
@@ -1046,7 +1048,7 @@
                         <span>212 MB</span><span>2019/08/07</span>
                     </button>
                     <button class="trash-item" data-msg="'バンド名候補メモ.txt' は開けません。「Looisbos」以外の候補は封印されました。">
-                        <span><i class="fa-solid fa-file-lines"></i> バンド名候補メモ.txt</span>
+                        <span><span class="ico ico-news" aria-hidden="true"></span> バンド名候補メモ.txt</span>
                         <span>2 KB</span><span>2019/04/02</span>
                     </button>
                     <button class="trash-item" data-msg="'アルバート.band' は復元できません。アルバートが誰なのかは、もう誰も覚えていません。">
@@ -1068,7 +1070,7 @@
         <!-- Rooibosweeper Window -->
         <div id="sweeper" class="window">
             <div class="title-bar">
-                <div class="title-bar-text"><i class="fa-solid fa-leaf"></i> Rooibosweeper</div>
+                <div class="title-bar-text"><span class="ico ico-sweeper" aria-hidden="true"></span> Rooibosweeper</div>
                 <div class="title-bar-controls">
                     <div class="window-btn" data-action="minimize">_</div>
                     <div class="window-btn" data-action="maximize">□</div>
@@ -1084,7 +1086,7 @@
                     </div>
                     <div class="sweeper-board" id="sweeper-board"></div>
                     <div class="sweeper-footer">
-                        <button class="sweeper-flag-toggle" id="sweeper-flag-toggle">🍵 フラグモード: OFF</button>
+                        <button class="sweeper-flag-toggle" id="sweeper-flag-toggle"><span class="ico ico-sweeper" aria-hidden="true"></span> <span class="sweeper-flag-label">フラグモード: OFF</span></button>
                         <span class="sweeper-msg" id="sweeper-msg">茶葉🍂を踏まずに畑を開拓しよう</span>
                     </div>
                 </div>
@@ -1094,7 +1096,7 @@
         <!-- My Pictures Window (Explorer Style) -->
         <div id="pictures" class="window">
             <div class="title-bar">
-                <div class="title-bar-text">My Pictures</div>
+                <div class="title-bar-text"><span class="ico ico-pictures" aria-hidden="true"></span> My Pictures</div>
                 <div class="title-bar-controls">
                     <div class="window-btn" data-action="minimize">_</div>
                     <div class="window-btn" data-action="maximize">□</div>
@@ -1199,7 +1201,7 @@
         <nav class="nav">
             <div class="nav-list">
                 <a href="#mycomputer" class="nav-link nav-link-index open-window-link" data-window="mycomputer"
-                    title="マイ コンピュータ"><i class="fa-solid fa-desktop"></i> <span class="nav-link-label">マイ
+                    title="マイ コンピュータ"><span class="ico ico-mycomputer" aria-hidden="true"></span> <span class="nav-link-label">マイ
                         コンピュータ</span></a>
                 <a href="#news" class="nav-link open-window-link" data-window="news">News</a>
                 <a href="#live" class="nav-link open-window-link" data-window="live">Live</a>
@@ -1213,7 +1215,7 @@
             style="border: 2px solid #808080; border-bottom: 2px solid #fff; border-right: 2px solid #fff; padding: 2px 5px; font-size: 0.8rem; background: #c0c0c0; display: flex; align-items: center; gap: 8px;">
             <span class="tray-icons">
                 <button class="tray-icon" id="tray-volume" title="音量">🔊</button>
-                <button class="tray-icon" id="tray-tea" title="茶葉の在庫">🍵</button>
+                <button class="tray-icon" id="tray-tea" title="茶葉の在庫" aria-label="茶葉の在庫"><span class="ico ico-cup" aria-hidden="true"></span></button>
             </span>
             <span id="clock">12:00 PM</span>
         </div>
@@ -1227,7 +1229,7 @@
     </div>
     <div id="tray-tea-panel" class="tray-panel">
         <p class="tray-panel-title">茶葉の在庫</p>
-        <p class="tray-panel-text" id="tray-tea-stock">☕☕☕</p>
+        <p class="tray-panel-text" id="tray-tea-stock"><span class="ico ico-cup" aria-hidden="true"></span><span class="ico ico-cup" aria-hidden="true"></span><span class="ico ico-cup" aria-hidden="true"></span></p>
         <button class="tray-tea-drink" id="tray-tea-drink">1杯いれる</button>
     </div>
 
@@ -1237,27 +1239,27 @@
         <div class="start-menu-items">
             <button class="start-menu-item" data-window="hero"><i class="fa-solid fa-house"></i>
                 Looisbos.exe</button>
-            <button class="start-menu-item" data-window="mycomputer"><i class="fa-solid fa-desktop"></i>
+            <button class="start-menu-item" data-window="mycomputer"><span class="ico ico-mycomputer" aria-hidden="true"></span>
                 マイ コンピュータ</button>
-            <button class="start-menu-item" data-window="disco"><i class="fa-solid fa-compact-disc"></i>
+            <button class="start-menu-item" data-window="disco"><span class="ico ico-disco" aria-hidden="true"></span>
                 Winamp (Discography)</button>
-            <button class="start-menu-item" data-window="live"><i class="fa-solid fa-calendar-days"></i>
+            <button class="start-menu-item" data-window="live"><span class="ico ico-live" aria-hidden="true"></span>
                 LIVE SCHEDULE</button>
-            <button class="start-menu-item" data-window="news"><i class="fa-solid fa-file-lines"></i>
+            <button class="start-menu-item" data-window="news"><span class="ico ico-news" aria-hidden="true"></span>
                 news.txt</button>
-            <button class="start-menu-item" data-window="bio"><i class="fa-solid fa-gears"></i>
+            <button class="start-menu-item" data-window="bio"><span class="ico ico-bio" aria-hidden="true"></span>
                 biography.sys</button>
-            <button class="start-menu-item" data-window="pictures"><i class="fa-solid fa-images"></i>
+            <button class="start-menu-item" data-window="pictures"><span class="ico ico-pictures" aria-hidden="true"></span>
                 My Pictures</button>
-            <button class="start-menu-item" data-window="podcast"><i class="fa-solid fa-microphone-lines"></i>
+            <button class="start-menu-item" data-window="podcast"><span class="ico ico-podcast" aria-hidden="true"></span>
                 podcast.exe</button>
             <button class="start-menu-item" id="assistant-item"><i class="fa-solid fa-mug-hot"></i>
                 Assistant</button>
-            <button class="start-menu-item" data-window="contact"><i class="fa-solid fa-envelope"></i>
+            <button class="start-menu-item" data-window="contact"><span class="ico ico-mail" aria-hidden="true"></span>
                 mail.eml</button>
-            <button class="start-menu-item" data-window="sweeper"><i class="fa-solid fa-leaf"></i>
+            <button class="start-menu-item" data-window="sweeper"><span class="ico ico-sweeper" aria-hidden="true"></span>
                 Rooibosweeper.exe</button>
-            <button class="start-menu-item" data-window="trash"><i class="fa-solid fa-trash-can"></i>
+            <button class="start-menu-item" data-window="trash"><span class="ico ico-trash" aria-hidden="true"></span>
                 ごみ箱</button>
             <div class="start-menu-sep"></div>
             <a class="start-menu-item" href="https://x.com/looisbos" target="_blank" rel="noopener"><i
@@ -1317,7 +1319,7 @@
     <div id="trash-dialog" class="trash-dialog">
         <div class="trash-dialog-box">
             <div class="title-bar">
-                <div class="title-bar-text">ごみ箱</div>
+                <div class="title-bar-text"><span class="ico ico-trash" aria-hidden="true"></span> ごみ箱</div>
                 <div class="title-bar-controls">
                     <div class="window-btn" id="trash-dialog-x">×</div>
                 </div>
@@ -1336,7 +1338,7 @@
     <div id="photo-viewer" class="photo-viewer">
         <div class="photo-viewer-box">
             <div class="title-bar">
-                <div class="title-bar-text"><i class="fa-regular fa-image"></i> Windows Picture and Fax Viewer</div>
+                <div class="title-bar-text"><span class="ico ico-pictures" aria-hidden="true"></span> Windows Picture and Fax Viewer</div>
                 <div class="title-bar-controls">
                     <div class="window-btn" id="viewer-close-btn">×</div>
                 </div>
@@ -1361,11 +1363,11 @@
     <!-- Y2K: Tray balloon -->
     <div id="y2k-balloon" class="y2k-balloon">
         <div class="y2k-balloon-close">×</div>
-        <p class="y2k-balloon-title">🎵 New EP "Groceries" 配信中！</p>
+        <p class="y2k-balloon-title"><span class="ico ico-disco" aria-hidden="true"></span> New EP "Groceries" 配信中！</p>
         <a href="https://friendship.lnk.to/Groceries_Looisbos" target="_blank" rel="noopener">▶ 聴いてみる</a>
     </div>
 
-    <script src="assets/js/script.js?v=20260820b"></script>
+    <script src="assets/js/script.js?v=20260821a"></script>
     <script>
         // Startup Sequence logic
         window.addEventListener('DOMContentLoaded', () => {
@@ -1439,7 +1441,7 @@
     <script src="assets/js/y2k.js?v=20260713"></script>
     <script src="assets/js/assistant.js?v=20260716b"></script>
     <script src="assets/js/keitai.js?v=20260716"></script>
-    <script src="assets/js/sweeper.js?v=20260716"></script>
+    <script src="assets/js/sweeper.js?v=20260821a"></script>
 </body>
 
 </html>

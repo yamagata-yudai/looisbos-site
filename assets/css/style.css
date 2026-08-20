@@ -578,7 +578,7 @@ h3 {
     filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
 }
 
-.desktop-icon span {
+.desktop-icon span:not(.ico) {
     background: transparent;
     /* XP icons have transparent label backgrounds usually */
     padding: 2px;
@@ -590,7 +590,7 @@ h3 {
     filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.8)) brightness(1.2);
 }
 
-.desktop-icon:hover span {
+.desktop-icon:hover span:not(.ico) {
     background: #000080;
     color: #fff;
     outline: 1px dotted #ccc;
@@ -692,7 +692,7 @@ h3 {
         font-size: 2rem;
     }
 
-    .desktop-icon span {
+    .desktop-icon span:not(.ico) {
         font-size: 0.75rem;
     }
 
@@ -1181,14 +1181,14 @@ body * {
     filter: drop-shadow(0 0 14px #00f0ff) drop-shadow(0 0 6px #00f0ff) brightness(1.3) !important;
 }
 
-.desktop-icon span {
+.desktop-icon span:not(.ico) {
     background: rgba(0, 0, 0, .5);
     padding: 2px 4px;
     color: #fff;
     text-shadow: 0 0 6px #00f0ff;
 }
 
-.desktop-icon:hover span {
+.desktop-icon:hover span:not(.ico) {
     background: rgba(0, 0, 30, .75);
     outline: 1px dotted #00f0ff;
 }
@@ -1758,7 +1758,7 @@ body.desktop-os .desktop-icons {
     font-weight: bold;
 }
 
-.desktop-icon.icon-selected span {
+.desktop-icon.icon-selected span:not(.ico) {
     background: #000080;
     color: #fff;
 }
@@ -3108,5 +3108,177 @@ body.desktop-os #sweeper {
 
     .tray-panel {
         display: none !important;
+    }
+}
+
+/* ============================================
+   LooisbosXP Pixel Icon Set (16px / 32px sprite)
+   ============================================ */
+.ico {
+    display: inline-block;
+    vertical-align: -3px;
+    width: 16px;
+    height: 16px;
+    background-image: url(../icons/icons-16.png);
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    flex: 0 0 auto;
+}
+
+.ico-mycomputer,
+.ico-teapot     { background-position:     0 0; }
+.ico-disco,
+.ico-tape       { background-position: -16px 0; }
+.ico-live,
+.ico-ticket     { background-position: -32px 0; }
+.ico-news,
+.ico-notepad    { background-position: -48px 0; }
+.ico-bio,
+.ico-floppy     { background-position: -64px 0; }
+.ico-mail,
+.ico-envelope   { background-position: -80px 0; }
+.ico-pictures,
+.ico-photos     { background-position: -96px 0; }
+.ico-podcast,
+.ico-cup        { background-position: -112px 0; }
+.ico-trash      { background-position: -128px 0; }
+.ico-sweeper,
+.ico-spoon      { background-position: -144px 0; }
+
+.ico-lg {
+    width: 32px;
+    height: 32px;
+    background-image: url(../icons/icons-32.png);
+}
+
+.ico-lg.ico-mycomputer,
+.ico-lg.ico-teapot     { background-position:     0 0; }
+.ico-lg.ico-disco,
+.ico-lg.ico-tape       { background-position: -32px 0; }
+.ico-lg.ico-live,
+.ico-lg.ico-ticket     { background-position: -64px 0; }
+.ico-lg.ico-news,
+.ico-lg.ico-notepad    { background-position: -96px 0; }
+.ico-lg.ico-bio,
+.ico-lg.ico-floppy     { background-position: -128px 0; }
+.ico-lg.ico-mail,
+.ico-lg.ico-envelope   { background-position: -160px 0; }
+.ico-lg.ico-pictures,
+.ico-lg.ico-photos     { background-position: -192px 0; }
+.ico-lg.ico-podcast,
+.ico-lg.ico-cup        { background-position: -224px 0; }
+.ico-lg.ico-trash      { background-position: -256px 0; }
+.ico-lg.ico-sweeper,
+.ico-lg.ico-spoon      { background-position: -288px 0; }
+
+/* 状態は filter ではなく PNG 差し替え（ドット絵の色を濁らせない） */
+.ico:hover,
+a:hover > .ico,
+button:hover > .ico            { background-image: url(../icons/icons-16-hover.png); }
+
+.ico-lg:hover,
+a:hover > .ico-lg,
+button:hover > .ico-lg         { background-image: url(../icons/icons-32-hover.png); }
+
+.is-past .ico,
+a.is-past:hover > .ico         { background-image: url(../icons/icons-16-off.png); }
+
+.is-past .ico-lg,
+a.is-past:hover > .ico-lg      { background-image: url(../icons/icons-32-off.png); }
+
+.is-selected .ico,
+.icon-selected .ico,
+.is-selected:hover > .ico,
+.icon-selected:hover > .ico    { background-image: url(../icons/icons-16-selected.png); }
+
+.is-selected .ico-lg,
+.icon-selected .ico-lg,
+.is-selected:hover > .ico-lg,
+.icon-selected:hover > .ico-lg { background-image: url(../icons/icons-32-selected.png); }
+
+/* アイコン＋ラベルは flex + gap で並べる（絵文字時代の余白調整は使わない） */
+.ico-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* デスクトップ: 星空背景でも輪郭が沈まないよう 1px のハードシャドウのみ（ぼかし禁止） */
+.desktop-icon .ico-lg {
+    margin-bottom: 5px;
+    filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, .75));
+}
+
+/* 残る SNS アイコン（ブランドマーク）をドット絵と同じ 32px に揃える */
+.desktop-icon i {
+    font-size: 2rem;
+}
+
+/* スタートメニュー: 残る FA アイコンの桁幅をドット絵の 16px に合わせる */
+.start-menu-item i {
+    width: 16px;
+}
+
+/* タイトルバー（.title-bar-text は既に flex + gap） */
+.title-bar-text .ico {
+    vertical-align: 0;
+}
+
+/* マイ コンピュータのタイル */
+.mycomp-tile .ico-lg {
+    grid-row: 1 / 3;
+    align-self: center;
+    justify-self: center;
+}
+
+.mycomp-address-box,
+.nav-link-index {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.trash-empty-btn,
+.sweeper-flag-toggle,
+.live-btn,
+.disco-link {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 6px;
+}
+
+/* 見出し内のアイコンは行送りを壊さないよう inline のまま扱う */
+.news-title .ico,
+.live-title .ico,
+.live-sub .ico {
+    margin-right: 6px;
+    vertical-align: -2px;
+}
+
+.sweeper-cell .ico {
+    vertical-align: 0;
+    pointer-events: none;
+}
+
+/* Rooibosweeper: 誤ったフラグ */
+.sweeper-wrong {
+    color: #b3453a;
+    font-weight: bold;
+}
+
+/* ダブルクリックでウィンドウを開く間は砂時計（カスタムカーソルは一時退避） */
+body.is-busy,
+body.is-busy * {
+    cursor: wait !important;
+}
+
+body.is-busy #y2k-cursor {
+    opacity: 0;
+}
+
+@media (max-width: 768px) {
+    .desktop-icon .ico-lg {
+        width: 32px;
+        height: 32px;
     }
 }

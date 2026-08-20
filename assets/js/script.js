@@ -615,6 +615,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         icon.addEventListener('dblclick', (e) => {
             e.preventDefault();
+            document.body.classList.add('is-busy');
+            setTimeout(() => document.body.classList.remove('is-busy'), 400);
             const href = icon.getAttribute('href');
             if (desktopOS && icon.dataset.window) {
                 openWindow(icon.dataset.window);
@@ -716,7 +718,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let tea = parseInt(localStorage.getItem('lb_tea') || '3', 10);
         if (isNaN(tea) || tea < 0 || tea > 3) tea = 3;
         const renderTea = () => {
-            teaStockEl.textContent = tea > 0 ? '☕'.repeat(tea) + `　残り${tea}杯分` : '在庫切れ。次の物販で補充します…';
+            teaStockEl.innerHTML = tea > 0
+                ? '<span class="ico ico-cup" aria-hidden="true"></span>'.repeat(tea) + `　残り${tea}杯分`
+                : '在庫切れ。次の物販で補充します…';
             teaBtn.textContent = tea > 0 ? '1杯いれる' : '茶葉を補充する';
         };
         teaBtn.addEventListener('click', () => {

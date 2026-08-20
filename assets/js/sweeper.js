@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const face = document.getElementById('sweeper-face');
     const flagToggle = document.getElementById('sweeper-flag-toggle');
     const msg = document.getElementById('sweeper-msg');
+    const flagLabel = flagToggle.querySelector('.sweeper-flag-label') || flagToggle;
+
+    const ICO_FLAG = '<span class="ico ico-sweeper" aria-hidden="true"></span>';
+    const ICO_MINE = '<span class="ico ico-cup" aria-hidden="true"></span>';
+    const ICO_WRONG = '<span class="sweeper-wrong">×</span>';
 
     const SIZE = 9;
     const MINES = 10;
@@ -129,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const cell = cells[i];
         if (over || cell.revealed) return;
         cell.flagged = !cell.flagged;
-        cell.el.textContent = cell.flagged ? '🍵' : '';
+        cell.el.innerHTML = cell.flagged ? ICO_FLAG : '';
         flagCount += cell.flagged ? 1 : -1;
         minesLed.textContent = pad3(MINES - flagCount);
     }
@@ -141,11 +146,11 @@ document.addEventListener('DOMContentLoaded', () => {
         msg.textContent = 'BREW OVER — 渋くなりました…';
         cells.forEach((cell, i) => {
             if (cell.mine) {
-                cell.el.textContent = '🍂';
+                cell.el.innerHTML = ICO_MINE;
                 cell.el.classList.add('open');
                 if (i === hit) cell.el.classList.add('hit');
             } else if (cell.flagged) {
-                cell.el.textContent = '❌';
+                cell.el.innerHTML = ICO_WRONG;
             }
         });
     }
@@ -156,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
         face.textContent = '😎';
         msg.textContent = `PERFECT BREW! ☕ ${seconds}秒で淹れ上がり`;
         cells.forEach(cell => {
-            if (cell.mine && !cell.flagged) cell.el.textContent = '🍵';
+            if (cell.mine && !cell.flagged) cell.el.innerHTML = ICO_FLAG;
         });
         minesLed.textContent = pad3(0);
     }
@@ -164,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
     face.addEventListener('click', reset);
     flagToggle.addEventListener('click', () => {
         flagMode = !flagMode;
-        flagToggle.textContent = `🍵 フラグモード: ${flagMode ? 'ON' : 'OFF'}`;
+        flagLabel.textContent = `フラグモード: ${flagMode ? 'ON' : 'OFF'}`;
         flagToggle.classList.toggle('on', flagMode);
     });
 
