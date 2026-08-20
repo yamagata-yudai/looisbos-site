@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Claude Code のセッションデータ
+.claude/
+
+# 未選定の生写真（公開用は assets/images/ に置く）
+写真/
+
+# エディタ
+.vscode/
+.idea/
+*.swp
