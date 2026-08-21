@@ -21,13 +21,37 @@
     <meta name="twitter:site" content="@looisbos">
     <link rel="icon" href="assets/icons/favicon.ico" sizes="16x16 32x32">
     <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon-180.png">
-    <!-- Retro formatted fonts fallback -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css?v=20260821a">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css?v=20260821c">
 </head>
 
 <body>
+    <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <defs>
+            <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#fd5949"/>
+                <stop offset="25%" stop-color="#d6249f"/>
+                <stop offset="50%" stop-color="#c13584"/>
+                <stop offset="75%" stop-color="#833ab4"/>
+                <stop offset="100%" stop-color="#405de6"/>
+            </linearGradient>
+        </defs>
+        <symbol id="i-x" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></symbol>
+        <symbol id="i-instagram" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></symbol>
+        <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
+        <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></symbol>
+        <symbol id="i-spotify" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></symbol>
+        <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21H8v2h8v-2h-3v-3.08A7 7 0 0 0 19 11z"/></symbol>
+        <symbol id="i-guitar" viewBox="0 0 24 24"><path d="M20.6 1.6a2 2 0 0 0-2.8 0l-1.9 1.9a2 2 0 0 0-.5 2l.3 1.2-3 3a5.3 5.3 0 0 0-6 1.1 5.6 5.6 0 0 0-1.3 5.6c.2.7 0 1.3-.5 1.7a3 3 0 1 0 4.2 4.2c.4-.5 1-.7 1.7-.5a5.6 5.6 0 0 0 5.6-1.3 5.3 5.3 0 0 0 1.1-6l3-3 1.2.3a2 2 0 0 0 2-.5l1.9-1.9-5-5zM9.9 17.6a1.8 1.8 0 1 1 2.5-2.5 1.8 1.8 0 0 1-2.5 2.5z"/></symbol>
+        <symbol id="i-drum" viewBox="0 0 24 24"><path d="M12 3c-5.5 0-10 1.8-10 4v10c0 2.2 4.5 4 10 4s10-1.8 10-4V7c0-2.2-4.5-4-10-4zm0 2c4.9 0 8 1.5 8 2s-3.1 2-8 2-8-1.5-8-2 3.1-2 8-2zM4 9.9c1.9 1 4.8 1.6 8 1.6s6.1-.6 8-1.6V17c0 .5-3.1 2-8 2s-8-1.5-8-2V9.9z"/><path d="m6.6 11.9 1.7-1 3.7 6.4-1.7 1zm10.8 0-1.7-1-3.7 6.4 1.7 1z"/></symbol>
+        <symbol id="i-house" viewBox="0 0 24 24"><path d="M12 2.7 1.5 11.4l1.3 1.5L4 11.9V21h6v-6h4v6h6v-9.1l1.2 1 1.3-1.5L12 2.7zM18 19h-2v-6H8v6H6v-8.8l6-5 6 5V19z"/></symbol>
+        <symbol id="i-power" viewBox="0 0 24 24"><path d="M11 2h2v10h-2z"/><path d="M16.2 4.6 15 6.2A7 7 0 1 1 9 6.2L7.8 4.6a9 9 0 1 0 8.4 0z"/></symbol>
+        <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 3.5 20 12 6 20.5z"/></symbol>
+        <symbol id="i-caret-left" viewBox="0 0 24 24"><path d="M15.5 4 7 12l8.5 8z"/></symbol>
+        <symbol id="i-caret-right" viewBox="0 0 24 24"><path d="M8.5 4 17 12l-8.5 8z"/></symbol>
+    </svg>
     <!-- Y2K: Custom cursor -->
     <div id="y2k-cursor"></div>
     <!-- Y2K: Background starfield -->
@@ -38,6 +62,7 @@
 
     <!-- BIOS/Startup Sequence Overlay -->
     <div id="startup-overlay" class="startup-overlay">
+        <button type="button" id="startup-skip" class="startup-skip">Skip &#9656;</button>
         <div id="bios-screen" class="bios-screen">
             <p>Antigravity BIOS V4.0, An Energy Star Ally</p>
             <p>Copyright (C) 2026, Looisbos Corporation</p>
@@ -55,10 +80,114 @@
             <div class="xp-load-bar">
                 <div class="xp-load-progress"></div>
             </div>
-            <p style="color: #fff; margin-top: 20px; font-family: sans-serif; font-size: 0.8rem;">Copyright &copy;
+            <p id="xp-load-greeting" class="xp-load-greeting" hidden>おかえりなさい</p>
+            <p style="color: #fff; margin-top: 20px; font-family: var(--font-body); font-size: 0.8rem;">Copyright &copy;
                 Looisbos Tea Room Records, Inc. All rights reserved.</p>
         </div>
     </div>
+    <script>
+        // Startup Sequence
+        (function () {
+            const VISIT_KEY = 'looisbos_last_visit';
+            const DAY = 86400000;
+            const overlay = document.getElementById('startup-overlay');
+            if (!overlay) return;
+
+            const bios = document.getElementById('bios-screen');
+            const xpLoad = document.getElementById('xp-load-screen');
+            const greeting = document.getElementById('xp-load-greeting');
+            const skipBtn = document.getElementById('startup-skip');
+            let timers = [];
+            let finished = false;
+
+            function bootMode() {
+                const params = new URLSearchParams(location.search);
+                if (location.hash || params.has('event')) return 'skip';
+                if (matchMedia('(prefers-reduced-motion: reduce)').matches) return 'skip';
+                const last = Number(localStorage.getItem(VISIT_KEY));
+                if (!last) return 'full';
+                return (Date.now() - last) < 30 * DAY ? 'skip' : 'short';
+            }
+
+            function after(ms, fn) {
+                timers.push(setTimeout(fn, ms));
+            }
+
+            function teardown() {
+                if (finished) return;
+                finished = true;
+                timers.forEach(clearTimeout);
+                timers = [];
+                document.removeEventListener('keydown', onKey);
+                overlay.remove();
+                document.body.classList.remove('booting');
+                if (location.hash && window.looisbosFocusFromHash) window.looisbosFocusFromHash();
+            }
+
+            function fadeOut() {
+                overlay.style.transition = 'opacity .6s ease';
+                overlay.style.opacity = '0';
+                after(600, teardown);
+            }
+
+            function onKey(e) {
+                if (e.key === 'Escape') teardown();
+            }
+
+            function play(mode) {
+                document.body.classList.add('booting');
+                document.addEventListener('keydown', onKey);
+                overlay.addEventListener('click', teardown);
+                if (skipBtn) {
+                    skipBtn.addEventListener('click', (e) => { e.stopPropagation(); teardown(); });
+                    after(1000, () => skipBtn.classList.add('is-visible'));
+                }
+
+                if (mode === 'short') {
+                    if (bios) bios.style.display = 'none';
+                    if (greeting) greeting.hidden = false;
+                    showLoad();
+                    after(1200, fadeOut);
+                    return;
+                }
+
+                after(2500, () => {
+                    if (!bios) return showLoad();
+                    bios.style.transition = 'opacity .5s ease';
+                    bios.style.opacity = '0';
+                    after(500, () => {
+                        bios.style.display = 'none';
+                        showLoad();
+                        after(3000, fadeOut);
+                    });
+                });
+            }
+
+            function showLoad() {
+                if (!xpLoad) return;
+                xpLoad.style.display = 'flex';
+                xpLoad.style.opacity = '0';
+                xpLoad.style.transition = 'opacity .5s ease';
+                xpLoad.offsetHeight;
+                xpLoad.style.opacity = '1';
+            }
+
+            const mode = bootMode();
+            localStorage.setItem(VISIT_KEY, String(Date.now()));
+
+            if (mode === 'skip') {
+                overlay.remove();
+            } else {
+                window.addEventListener('DOMContentLoaded', () => play(mode));
+            }
+
+            window.looisbosRestart = function () {
+                location.hash = '';
+                localStorage.removeItem(VISIT_KEY);
+                location.reload();
+            };
+        })();
+    </script>
 
     <!-- <div class="cursor-dot"></div>
     <div class="cursor-outline"></div> -->
@@ -86,20 +215,19 @@
             <span>recommend.doc</span>
         </a>
         <a href="https://x.com/looisbos" target="_blank" class="desktop-icon">
-            <i class="fa-brands fa-x-twitter" style="color: #fff;"></i>
+            <svg class="svgi svgi-lg svgi-x" aria-hidden="true"><use href="#i-x"/></svg>
             <span>Twitter (X)</span>
         </a>
         <a href="https://www.instagram.com/looisbos/?hl=ja" target="_blank" class="desktop-icon">
-            <i class="fa-brands fa-instagram"
-                style="background: -webkit-linear-gradient(#405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+            <svg class="svgi svgi-lg svgi-ig" aria-hidden="true"><use href="#i-instagram"/></svg>
             <span>Instagram</span>
         </a>
         <a href="https://www.youtube.com/@looisbos_ch526" target="_blank" class="desktop-icon">
-            <i class="fa-brands fa-youtube" style="color: #ff0000;"></i>
+            <svg class="svgi svgi-lg svgi-yt" aria-hidden="true"><use href="#i-youtube"/></svg>
             <span>YouTube</span>
         </a>
         <a href="https://www.tiktok.com/@looisbos_band" target="_blank" class="desktop-icon">
-            <i class="fa-brands fa-tiktok" style="color: #fff;"></i>
+            <svg class="svgi svgi-lg svgi-tt" aria-hidden="true"><use href="#i-tiktok"/></svg>
             <span>TikTok</span>
         </a>
     </div>
@@ -136,7 +264,7 @@
                     <img src="assets/images/artist.jpg" alt="Looisbos Artist Photo"
                         style="width: 100%; height: auto; display: block;" loading="eager">
                 </div>
-                <div style="margin-top: 20px; color: #fff; font-family: 'Times New Roman', serif;">
+                <div style="margin-top: 20px; color: #fff;">
                     <img src="assets/images/logo.png" alt="Looisbos" class="logo-img-hero" style="filter: invert(1);">
                     <p class="hero-subtitle" style="margin-top: 10px;">A Band from Tokyo, Japan 🍵</p>
                     <!-- Y2K: Visitor counter -->
@@ -172,7 +300,7 @@
                 <div class="mycomp-body">
                     <div class="explorer-pane">
                         <div class="explorer-pane-box">
-                            <h4>よく使う項目</h4>
+                            <h3 class="explorer-pane-title">よく使う項目</h3>
                             <ul>
                                 <li><button class="open-window-link" data-window="live">次のライブを見る</button></li>
                                 <li><a href="toritori.html?event=himitsu-0823" target="_blank"
@@ -181,7 +309,7 @@
                             </ul>
                         </div>
                         <div class="explorer-pane-box">
-                            <h4>詳細</h4>
+                            <h3 class="explorer-pane-title">詳細</h3>
                             <p><strong>Looisbos</strong><br>A Band from Tokyo 🍵<br>11 個のオブジェクト</p>
                         </div>
                     </div>
@@ -274,226 +402,201 @@
         <!-- Discography Window (Winamp Style) -->
         <div id="disco" class="window">
             <div class="title-bar" style="background: linear-gradient(90deg, #2b2b2b, #4a4a4a);">
-                <div class="title-bar-text" style="color: #0f0; font-family: monospace;"><span class="ico ico-disco" aria-hidden="true"></span> WINAMP - DISCOGRAPHY</div>
+                <div class="title-bar-text" style="color: #0f0;"><span class="ico ico-disco" aria-hidden="true"></span> WINAMP - DISCOGRAPHY</div>
                 <div class="title-bar-controls">
                     <div class="window-btn" data-action="minimize">_</div>
                     <div class="window-btn" data-action="maximize">□</div>
                     <div class="window-btn" data-action="close">×</div>
                 </div>
             </div>
-            <div class="window-content"
-                style="background: #222; color: #0f0; font-family: monospace; border: 2px solid #555;">
-                <div style="height: 300px; overflow-y: auto; padding-right: 5px;">
-                    <!-- Release: Groceries (4th EP) -->
-                    <div class="disco-item"
-                        style="display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed #555; padding-bottom: 15px;">
-                        <div class="jacket-wrap">
+            <div class="window-content disco-content">
+                <div class="disco-viewer">
+                    <article class="disco-detail" id="disco-detail-0">
+                        <div class="disco-detail-jacket jacket-wrap">
                             <div class="vinyl-outer"><div class="vinyl"></div></div>
                             <img src="assets/images/groceries_jacket.jpg" alt="Groceries" loading="lazy">
                         </div>
-                        <div>
-                            <h3 style="margin: 0 0 5px 0; color: #0f0;">Groceries</h3>
-                            <p style="margin: 0; font-size: 0.8rem; color: #ccc;">EP / 2026.07.01</p>
-                            <br>
-                            <span style="font-size: 0.8rem; color: #aaa;">[Tracks]</span>
-                            <ul style="list-style: none; padding-left: 0; margin-top: 2px; font-size: 0.8rem;">
+                        <div class="disco-detail-body">
+                            <h3 class="disco-detail-title">Groceries</h3>
+                            <p class="disco-detail-meta">EP / 2026.07.01 ・ 5曲</p>
+                            <p class="disco-detail-label">[Tracks]</p>
+                            <ul class="disco-tracklist">
                                 <li>1. The flow of our days has slipped away like sand</li>
                                 <li>2. Lovin' Doo-be-doo</li>
                                 <li>3. Sometimes (Remember My Past Self)</li>
                                 <li>4. Copy &amp; Paste</li>
                                 <li>5. Teenage</li>
                             </ul>
-                            <a href="https://friendship.lnk.to/Groceries_Looisbos" target="_blank" class="disco-link"
-                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;"><span class="ico ico-disco" aria-hidden="true"></span>
-                                Listen on Streaming</a>
-                            <a href="groceries-comments.html" target="_blank" class="disco-link"
-                                style="display: inline-block; margin-top: 8px; margin-left: 6px; padding: 3px 10px; background: #b45309; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;"><span class="ico ico-mail" aria-hidden="true"></span>
-                                推薦コメント</a>
+                            <div class="disco-btns"><a href="https://friendship.lnk.to/Groceries_Looisbos" target="_blank" rel="noopener" class="disco-btn">配信で聴く &#9656;</a><a href="groceries-comments.html" target="_blank" rel="noopener" class="disco-btn disco-btn-sub">推薦コメント</a></div>
                         </div>
-                    </div>
-
-                    <!-- Release: Teenage (Single) -->
-                    <div class="disco-item"
-                        style="display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed #555; padding-bottom: 15px;">
-                        <div class="jacket-wrap">
+                    </article>
+                    <article class="disco-detail" id="disco-detail-1" hidden>
+                        <div class="disco-detail-jacket jacket-wrap">
                             <div class="vinyl-outer"><div class="vinyl"></div></div>
                             <img src="assets/images/teenage.jpg" alt="Teenage" loading="lazy">
                         </div>
-                        <div>
-                            <h3 style="margin: 0 0 5px 0; color: #0f0;">Teenage</h3>
-                            <p style="margin: 0; font-size: 0.8rem; color: #ccc;">Single / 2026.06.03</p>
-                            <br>
-                            <span style="font-size: 0.8rem; color: #aaa;">[Tracks]</span>
-                            <ul style="list-style: none; padding-left: 0; margin-top: 2px; font-size: 0.8rem;">
+                        <div class="disco-detail-body">
+                            <h3 class="disco-detail-title">Teenage</h3>
+                            <p class="disco-detail-meta">Single / 2026.06.03 ・ 1曲</p>
+                            <p class="disco-detail-label">[Tracks]</p>
+                            <ul class="disco-tracklist">
                                 <li>1. Teenage</li>
                             </ul>
-                            <a href="https://friendship.lnk.to/Teenage_Looisbos" target="_blank" class="disco-link"
-                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;"><span class="ico ico-disco" aria-hidden="true"></span>
-                                Listen on Streaming</a>
+                            <div class="disco-btns"><a href="https://friendship.lnk.to/Teenage_Looisbos" target="_blank" rel="noopener" class="disco-btn">配信で聴く &#9656;</a></div>
                         </div>
-                    </div>
-
-                    <!-- Release: Sometimes (Remember My Past Self) (Single) -->
-                    <div class="disco-item"
-                        style="display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed #555; padding-bottom: 15px;">
-                        <div class="jacket-wrap">
+                    </article>
+                    <article class="disco-detail" id="disco-detail-2" hidden>
+                        <div class="disco-detail-jacket jacket-wrap">
                             <div class="vinyl-outer"><div class="vinyl"></div></div>
                             <img src="assets/images/sometimes.jpg" alt="Sometimes (Remember My Past Self)" loading="lazy">
                         </div>
-                        <div>
-                            <h3 style="margin: 0 0 5px 0; color: #0f0;">Sometimes (Remember My Past Self)</h3>
-                            <p style="margin: 0; font-size: 0.8rem; color: #ccc;">Single / 2026.05.10</p>
-                            <br>
-                            <span style="font-size: 0.8rem; color: #aaa;">[Tracks]</span>
-                            <ul style="list-style: none; padding-left: 0; margin-top: 2px; font-size: 0.8rem;">
+                        <div class="disco-detail-body">
+                            <h3 class="disco-detail-title">Sometimes (Remember My Past Self)</h3>
+                            <p class="disco-detail-meta">Single / 2026.05.10 ・ 1曲</p>
+                            <p class="disco-detail-label">[Tracks]</p>
+                            <ul class="disco-tracklist">
                                 <li>1. Sometimes (Remember My Past Self)</li>
                             </ul>
-                            <a href="https://friendship.lnk.to/Sometimes_Looisbos" target="_blank" class="disco-link"
-                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;"><span class="ico ico-disco" aria-hidden="true"></span>
-                                Listen on Streaming</a>
+                            <div class="disco-btns"><a href="https://friendship.lnk.to/Sometimes_Looisbos" target="_blank" rel="noopener" class="disco-btn">配信で聴く &#9656;</a></div>
                         </div>
-                    </div>
-
-                    <!-- Release 1: Lovin' Doo-be-doo -->
-                    <div class="disco-item"
-                        style="display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed #555; padding-bottom: 15px;">
-                        <div class="jacket-wrap">
+                    </article>
+                    <article class="disco-detail" id="disco-detail-3" hidden>
+                        <div class="disco-detail-jacket jacket-wrap">
                             <div class="vinyl-outer"><div class="vinyl"></div></div>
-                            <img src="assets/images/lovin_doobiedo.jpg" alt="Lovin' Doo-be-doo" loading="lazy">
+                            <img src="assets/images/lovin_doobiedo.jpg" alt="Lovin&#x27; Doo-be-doo" loading="lazy">
                         </div>
-                        <div>
-                            <h3 style="margin: 0 0 5px 0; color: #0f0;">Lovin' Doo-be-doo</h3>
-                            <p style="margin: 0; font-size: 0.8rem; color: #ccc;">Single / 2026.04.01</p>
-                            <br>
-                            <span style="font-size: 0.8rem; color: #aaa;">[Tracks]</span>
-                            <ul style="list-style: none; padding-left: 0; margin-top: 2px; font-size: 0.8rem;">
+                        <div class="disco-detail-body">
+                            <h3 class="disco-detail-title">Lovin' Doo-be-doo</h3>
+                            <p class="disco-detail-meta">Single / 2026.04.01 ・ 1曲</p>
+                            <p class="disco-detail-label">[Tracks]</p>
+                            <ul class="disco-tracklist">
                                 <li>1. Lovin' Doo-be-doo</li>
                             </ul>
-                            <a href="https://friendship.lnk.to/LovinDoo-be-doo_Looisbos" target="_blank" class="disco-link"
-                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;"><span class="ico ico-disco" aria-hidden="true"></span>
-                                Listen on Streaming</a>
+                            <div class="disco-btns"><a href="https://friendship.lnk.to/LovinDoo-be-doo_Looisbos" target="_blank" rel="noopener" class="disco-btn">配信で聴く &#9656;</a></div>
                         </div>
-                    </div>
-
-                    <!-- Release 2: Science Children -->
-                    <div class="disco-item"
-                        style="display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed #555; padding-bottom: 15px;">
-                        <div class="jacket-wrap">
+                    </article>
+                    <article class="disco-detail" id="disco-detail-4" hidden>
+                        <div class="disco-detail-jacket jacket-wrap">
                             <div class="vinyl-outer"><div class="vinyl"></div></div>
                             <img src="assets/images/ScienceChildren.jpg" alt="Science Children (feat. Jan flu)" loading="lazy">
                         </div>
-                        <div>
-                            <h3 style="margin: 0 0 5px 0; color: #0f0;">Science Children (feat. Jan flu)</h3>
-                            <p style="margin: 0; font-size: 0.8rem; color: #ccc;">Single / 2024.12.25</p>
-                            <br>
-                            <span style="font-size: 0.8rem; color: #aaa;">[Tracks]</span>
-                            <ul style="list-style: none; padding-left: 0; margin-top: 2px; font-size: 0.8rem;">
+                        <div class="disco-detail-body">
+                            <h3 class="disco-detail-title">Science Children (feat. Jan flu)</h3>
+                            <p class="disco-detail-meta">Single / 2024.12.25 ・ 1曲</p>
+                            <p class="disco-detail-label">[Tracks]</p>
+                            <ul class="disco-tracklist">
                                 <li>1. Science Children</li>
                             </ul>
-                            <a href="https://friendship.lnk.to/SCft.JF_Looisbos" target="_blank" class="disco-link"
-                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;"><span class="ico ico-disco" aria-hidden="true"></span>
-                                Listen on Streaming</a>
+                            <div class="disco-btns"><a href="https://friendship.lnk.to/SCft.JF_Looisbos" target="_blank" rel="noopener" class="disco-btn">配信で聴く &#9656;</a></div>
                         </div>
-                    </div>
-
-                    <!-- Release 2: rooms -->
-                    <div class="disco-item"
-                        style="display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed #555; padding-bottom: 15px;">
-                        <div class="jacket-wrap">
+                    </article>
+                    <article class="disco-detail" id="disco-detail-5" hidden>
+                        <div class="disco-detail-jacket jacket-wrap">
                             <div class="vinyl-outer"><div class="vinyl"></div></div>
                             <img src="assets/images/rooms.jpg" alt="rooms" loading="lazy">
                         </div>
-                        <div>
-                            <h3 style="margin: 0 0 5px 0; color: #0f0;">rooms</h3>
-                            <p style="margin: 0; font-size: 0.8rem; color: #ccc;">EP / 2022.11.30</p>
-                            <br>
-                            <span style="font-size: 0.8rem; color: #aaa;">[Tracks]</span>
-                            <ul style="list-style: none; padding-left: 0; margin-top: 2px; font-size: 0.8rem;">
+                        <div class="disco-detail-body">
+                            <h3 class="disco-detail-title">rooms</h3>
+                            <p class="disco-detail-meta">EP / 2022.11.30 ・ 5曲</p>
+                            <p class="disco-detail-label">[Tracks]</p>
+                            <ul class="disco-tracklist">
                                 <li>1. Thinking about</li>
                                 <li>2. Laundry</li>
                                 <li>3. If you can't understand each other</li>
                                 <li>4. Tell me</li>
                                 <li>5. It might be right</li>
                             </ul>
-                            <a href="https://friendship.lnk.to/rooms" target="_blank" class="disco-link"
-                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;"><span class="ico ico-disco" aria-hidden="true"></span>
-                                Listen on Streaming</a>
+                            <div class="disco-btns"><a href="https://friendship.lnk.to/rooms" target="_blank" rel="noopener" class="disco-btn">配信で聴く &#9656;</a></div>
                         </div>
-                    </div>
-
-                    <!-- Release 3: vase -->
-                    <div class="disco-item"
-                        style="display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px dashed #555; padding-bottom: 15px;">
-                        <div class="jacket-wrap">
+                    </article>
+                    <article class="disco-detail" id="disco-detail-6" hidden>
+                        <div class="disco-detail-jacket jacket-wrap">
                             <div class="vinyl-outer"><div class="vinyl"></div></div>
                             <img src="assets/images/vase.jpeg" alt="vase" loading="lazy">
                         </div>
-                        <div>
-                            <h3 style="margin: 0 0 5px 0; color: #0f0;">vase</h3>
-                            <p style="margin: 0; font-size: 0.8rem; color: #ccc;">EP / 2021.04.21</p>
-                            <br>
-                            <span style="font-size: 0.8rem; color: #aaa;">[Tracks]</span>
-                            <ul style="list-style: none; padding-left: 0; margin-top: 2px; font-size: 0.8rem;">
+                        <div class="disco-detail-body">
+                            <h3 class="disco-detail-title">vase</h3>
+                            <p class="disco-detail-meta">EP / 2021.04.21 ・ 5曲</p>
+                            <p class="disco-detail-label">[Tracks]</p>
+                            <ul class="disco-tracklist">
                                 <li>1. amanda</li>
                                 <li>2. So busy</li>
                                 <li>3. Call your name</li>
                                 <li>4. Folding Umbrella</li>
                                 <li>5. Common Sense</li>
                             </ul>
-                            <a href="https://friendship.lnk.to/vase" target="_blank" class="disco-link"
-                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;"><span class="ico ico-disco" aria-hidden="true"></span>
-                                Listen on Streaming</a>
+                            <div class="disco-btns"><a href="https://friendship.lnk.to/vase" target="_blank" rel="noopener" class="disco-btn">配信で聴く &#9656;</a></div>
                         </div>
-                    </div>
-
-                    <!-- Release 4: chairs -->
-                    <div class="disco-item" style="display: flex; gap: 15px; margin-bottom: 10px;">
-                        <div class="jacket-wrap">
+                    </article>
+                    <article class="disco-detail" id="disco-detail-7" hidden>
+                        <div class="disco-detail-jacket jacket-wrap">
                             <div class="vinyl-outer"><div class="vinyl"></div></div>
                             <img src="assets/images/chairs.jpg" alt="chairs" loading="lazy">
                         </div>
-                        <div>
-                            <h3 style="margin: 0 0 5px 0; color: #0f0;">chairs</h3>
-                            <p style="margin: 0; font-size: 0.8rem; color: #ccc;">EP / 2019.10.1</p>
-                            <br>
-                            <span style="font-size: 0.8rem; color: #aaa;">[Tracks]</span>
-                            <ul style="list-style: none; padding-left: 0; margin-top: 2px; font-size: 0.8rem;">
+                        <div class="disco-detail-body">
+                            <h3 class="disco-detail-title">chairs</h3>
+                            <p class="disco-detail-meta">EP / 2019.10.1 ・ 4曲</p>
+                            <p class="disco-detail-label">[Tracks]</p>
+                            <ul class="disco-tracklist">
                                 <li>1. The bus</li>
                                 <li>2. she said</li>
                                 <li>3. Nowhere</li>
                                 <li>4. papa</li>
                             </ul>
-                            <a href="https://open.spotify.com/album/0ysMSQVm1O9gg19Tfoo4NC?si=NqH8O498SrGPX6p3P2FZ_g"
-                                target="_blank" class="disco-link"
-                                style="display: inline-block; margin-top: 8px; padding: 3px 10px; background: #1DB954; color: #fff; text-decoration: none; border-radius: 3px; font-size: 0.75rem;"><span class="ico ico-disco" aria-hidden="true"></span>
-                                Listen on Spotify</a>
+                            <div class="disco-btns"><a href="https://open.spotify.com/album/0ysMSQVm1O9gg19Tfoo4NC?si=NqH8O498SrGPX6p3P2FZ_g" target="_blank" rel="noopener" class="disco-btn">配信で聴く &#9656;</a></div>
                         </div>
-                    </div>
+                    </article>
                 </div>
-                <!-- Winamp Controls -->
-                <div class="winamp-controls"
-                    style="margin-top: 15px; background: #333; padding: 10px; border: 2px outset #555; display: flex; align-items: center; justify-content: center; gap: 10px;">
-                    <button class="winamp-btn" id="prev-btn" title="Previous"><i
-                            class="fa-solid fa-backward-step"></i></button>
-                    <button class="winamp-btn" id="play-btn" title="Play"><i class="fa-solid fa-play"></i></button>
-                    <button class="winamp-btn" id="pause-btn" title="Pause" style="display: none;"><i
-                            class="fa-solid fa-pause"></i></button>
-                    <button class="winamp-btn" id="next-btn" title="Next"><i
-                            class="fa-solid fa-forward-step"></i></button>
-                    <div class="winamp-status"
-                        style="margin-left: 10px; font-size: 0.7rem; color: #0f0; flex-grow: 1; text-align: left; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
-                        Stopped
-                    </div>
-                </div>
-                <!-- Visualizer Placeholder -->
-                <div
-                    style="margin-top: 10px; height: 30px; background: #000; border: 1px inset #555; position: relative; overflow: hidden;">
-                    <div id="visualizer-bar"
-                        style="width: 100%; height: 100%; background: linear-gradient(90deg, transparent 50%, #0f0 50%); background-size: 20px 100%; opacity: 0.5;">
-                    </div>
-                </div>
-                <!-- Hidden Audio Element -->
-                <audio id="winamp-audio" preload="none"></audio>
+                <ol class="disco-list">
+                    <li><button type="button" class="disco-row is-selected" data-index="0" aria-pressed="true">
+                        <span class="ico ico-disco" aria-hidden="true"></span>
+                        <span class="disco-row-num">01</span>
+                        <span class="disco-row-name">Groceries</span>
+                        <span class="disco-row-kind">EP</span>
+                    </button></li>
+                    <li><button type="button" class="disco-row" data-index="1" aria-pressed="false">
+                        <span class="ico ico-disco" aria-hidden="true"></span>
+                        <span class="disco-row-num">02</span>
+                        <span class="disco-row-name">Teenage</span>
+                        <span class="disco-row-kind">Single</span>
+                    </button></li>
+                    <li><button type="button" class="disco-row" data-index="2" aria-pressed="false">
+                        <span class="ico ico-disco" aria-hidden="true"></span>
+                        <span class="disco-row-num">03</span>
+                        <span class="disco-row-name">Sometimes (Remember My Past Self)</span>
+                        <span class="disco-row-kind">Single</span>
+                    </button></li>
+                    <li><button type="button" class="disco-row" data-index="3" aria-pressed="false">
+                        <span class="ico ico-disco" aria-hidden="true"></span>
+                        <span class="disco-row-num">04</span>
+                        <span class="disco-row-name">Lovin' Doo-be-doo</span>
+                        <span class="disco-row-kind">Single</span>
+                    </button></li>
+                    <li><button type="button" class="disco-row" data-index="4" aria-pressed="false">
+                        <span class="ico ico-disco" aria-hidden="true"></span>
+                        <span class="disco-row-num">05</span>
+                        <span class="disco-row-name">Science Children (feat. Jan flu)</span>
+                        <span class="disco-row-kind">Single</span>
+                    </button></li>
+                    <li><button type="button" class="disco-row" data-index="5" aria-pressed="false">
+                        <span class="ico ico-disco" aria-hidden="true"></span>
+                        <span class="disco-row-num">06</span>
+                        <span class="disco-row-name">rooms</span>
+                        <span class="disco-row-kind">EP</span>
+                    </button></li>
+                    <li><button type="button" class="disco-row" data-index="6" aria-pressed="false">
+                        <span class="ico ico-disco" aria-hidden="true"></span>
+                        <span class="disco-row-num">07</span>
+                        <span class="disco-row-name">vase</span>
+                        <span class="disco-row-kind">EP</span>
+                    </button></li>
+                    <li><button type="button" class="disco-row" data-index="7" aria-pressed="false">
+                        <span class="ico ico-disco" aria-hidden="true"></span>
+                        <span class="disco-row-num">08</span>
+                        <span class="disco-row-name">chairs</span>
+                        <span class="disco-row-kind">EP</span>
+                    </button></li>
+                </ol>
             </div>
         </div>
 
@@ -616,30 +719,9 @@
                         <h3 class="news-title"><span class="ico ico-news" aria-hidden="true"></span>【LIVE】9/6 新宿NINE SPICES 19周年イベント出演決定！</h3>
                         <div class="news-excerpt">
                             9月のイベントも決まりましたよー！<br><br>
-                            新宿NINE SPICES の19周年記念イベントに出演します🎊<br>
-                            <strong>お昼の公演</strong>なので、お間違えのないようお願いします☀<br><br>
-
-                            <strong>"NINE SPICES 19th Anniversary"</strong><br><br>
-
-                            📅 2026年9月6日(日)<br>
-                            📍 新宿 NINE SPICES<br>
-                            open 11:30 / start 11:50<br>
-                            🎫 adv ¥2,500 / door ¥3,000（+1D）<br><br>
-                            [ACT]<br>
-                            Spinning Plums<br>
-                            鉄骨渡り<br>
-                            Looisbos<br><br>
-
-                            <a href="https://looisbos.com/toritori.html?event=ninespices-0906" target="_blank"
-                                class="btn" style="display: inline-block; margin-top: 8px; padding: 6px 18px; font-weight: bold; text-decoration: none; color: #000; font-size: 14px;">
-                                <span class="ico ico-live" aria-hidden="true"></span> チケット取り置きはこちら
-                            </a><br><br>
-
-                            各SNSのDMでも受け付けます🙏<br>
-                            <a href="https://x.com/looisbos" target="_blank"
-                                style="color: blue; text-decoration: underline;">X (@looisbos)</a> /
-                            <a href="https://www.instagram.com/looisbos/?hl=ja" target="_blank"
-                                style="color: blue; text-decoration: underline;">Instagram (@looisbos)</a>
+                            新宿NINE SPICES の19周年記念イベント <strong>"NINE SPICES 19th Anniversary"</strong> に出演します🎊<br>
+                            <strong>お昼の公演</strong>なので、お間違えのないようお願いします☀
+                            <p class="news-more"><a href="#live" class="open-window-link" data-window="live"><span class="ico ico-live" aria-hidden="true"></span> 日時・料金・出演者・取り置きは live_schedule で</a></p>
                         </div>
                     </article>
                     <article class="news-item" id="news-20260802">
@@ -647,29 +729,10 @@
                         <h3 class="news-title"><span class="ico ico-news" aria-hidden="true"></span>福岡遠征決定！"Groceries" release tour in HIMITSU</h3>
                         <div class="news-excerpt">
                             福岡遠征決定.ᐟ.ᐟ.ᐟ<br><br>
-                            Looisbos 4th EP "Groceries" release tour in HIMITSU<br><br>
+                            Looisbos 4th EP "Groceries" release tour in HIMITSU<br>
                             <img src="assets/images/flyer_himitsu_0823.jpg" alt="Groceries release tour in HIMITSU フライヤー"
-                                style="max-width: 50%; height: auto; margin: 10px 0; border: 1px solid #808080;"><br>
-
-                            📅 2026年8月23日(日)<br>
-                            open 18:30 / start 19:00<br>
-                            🎫 ¥2,500（+1D ¥600）<br><br>
-                            [ACT]<br>
-                            Looisbos<br>
-                            micemohee<br>
-                            蜃気楼シングシング<br>
-                            山本海バンド<br><br>
-
-                            <a href="https://looisbos.com/toritori.html?event=himitsu-0823" target="_blank"
-                                class="btn" style="display: inline-block; margin-top: 8px; padding: 6px 18px; font-weight: bold; text-decoration: none; color: #000; font-size: 14px;">
-                                <span class="ico ico-live" aria-hidden="true"></span> チケット取り置きはこちら
-                            </a><br><br>
-
-                            各SNSのDMでも受け付けます🙏<br>
-                            <a href="https://x.com/looisbos" target="_blank"
-                                style="color: blue; text-decoration: underline;">X (@looisbos)</a> /
-                            <a href="https://www.instagram.com/looisbos/?hl=ja" target="_blank"
-                                style="color: blue; text-decoration: underline;">Instagram (@looisbos)</a>
+                                style="max-width: 50%; height: auto; margin: 10px 0; border: 1px solid #808080;">
+                            <p class="news-more"><a href="#live" class="open-window-link" data-window="live"><span class="ico ico-live" aria-hidden="true"></span> 日時・料金・出演者・取り置きは live_schedule で</a></p>
                         </div>
                     </article>
                     <article class="news-item" id="news-20260726">
@@ -918,25 +981,22 @@
                         Configuration (Members)</h3>
                     <div class="members">
                         <div class="member">
-                            <i class="fa-solid fa-drum" style="font-size: 2rem; margin-bottom: 10px; color: #555;"></i>
+                            <svg class="svgi svgi-member" aria-hidden="true"><use href="#i-drum"/></svg>
                             <h3 class="member-name">Gatta</h3>
                             <p class="member-role">Vocal & Drums</p>
                         </div>
                         <div class="member">
-                            <i class="fa-solid fa-guitar"
-                                style="font-size: 2rem; margin-bottom: 10px; color: #555;"></i>
+                            <svg class="svgi svgi-member" aria-hidden="true"><use href="#i-guitar"/></svg>
                             <h3 class="member-name">Yui</h3>
                             <p class="member-role">Guitar & Vocal</p>
                         </div>
                         <div class="member">
-                            <i class="fa-solid fa-guitar"
-                                style="font-size: 2rem; margin-bottom: 10px; color: #555;"></i>
+                            <svg class="svgi svgi-member" aria-hidden="true"><use href="#i-guitar"/></svg>
                             <h3 class="member-name">Mazda</h3>
                             <p class="member-role">Guitar</p>
                         </div>
                         <div class="member">
-                            <i class="fa-solid fa-guitar"
-                                style="font-size: 2rem; margin-bottom: 10px; color: #555;"></i>
+                            <svg class="svgi svgi-member" aria-hidden="true"><use href="#i-guitar"/></svg>
                             <h3 class="member-name">Mio</h3>
                             <p class="member-role">Bass</p>
                         </div>
@@ -975,11 +1035,11 @@
                 <div class="podcast-links">
                     <a href="https://open.spotify.com/show/0W40wltDwFwO3mh0Ssj6c1" target="_blank" rel="noopener"
                         class="podcast-link podcast-link-spotify">
-                        <i class="fa-brands fa-spotify"></i> Spotify で聴く
+                        <svg class="svgi svgi-sp" aria-hidden="true"><use href="#i-spotify"/></svg> Spotify で聴く
                     </a>
                     <a href="https://podcasts.apple.com/jp/podcast/id1887855697" target="_blank" rel="noopener"
                         class="podcast-link podcast-link-apple">
-                        <i class="fa-solid fa-podcast"></i> Apple Podcasts で聴く
+                        <svg class="svgi" aria-hidden="true"><use href="#i-mic"/></svg> Apple Podcasts で聴く
                     </a>
                 </div>
                 <p class="podcast-mail">お便り募集中 📩 yukuocha@gmail.com ／ X: <a
@@ -1044,7 +1104,7 @@
                 </div>
                 <div class="trash-list" id="trash-list">
                     <button class="trash-item" data-msg="'The bus.band' は復元できません。このファイルは既に『chairs』としてリリースされています。">
-                        <span><i class="fa-solid fa-guitar"></i> The bus.band</span>
+                        <span><span class="ico ico-disco" aria-hidden="true"></span> The bus.band</span>
                         <span>212 MB</span><span>2019/08/07</span>
                     </button>
                     <button class="trash-item" data-msg="'バンド名候補メモ.txt' は開けません。「Looisbos」以外の候補は封印されました。">
@@ -1052,15 +1112,15 @@
                         <span>2 KB</span><span>2019/04/02</span>
                     </button>
                     <button class="trash-item" data-msg="'アルバート.band' は復元できません。アルバートが誰なのかは、もう誰も覚えていません。">
-                        <span><i class="fa-solid fa-guitar"></i> アルバート.band</span>
+                        <span><span class="ico ico-disco" aria-hidden="true"></span> アルバート.band</span>
                         <span>187 MB</span><span>2020/11/03</span>
                     </button>
                     <button class="trash-item" data-msg="'喫煙所仮.band' は復元できません。「仮」のまま2年が経過しています。">
-                        <span><i class="fa-solid fa-guitar"></i> 喫煙所仮.band</span>
+                        <span><span class="ico ico-disco" aria-hidden="true"></span> 喫煙所仮.band</span>
                         <span>324 MB</span><span>2024/06/21</span>
                     </button>
                     <button class="trash-item" data-msg="'新曲_仮2_修正_final_これで本当に最終.band' は復元できません。なお『最終』は5回目です。">
-                        <span><i class="fa-solid fa-guitar"></i> 新曲_仮2_修正_final_これで本当に最終.band</span>
+                        <span><span class="ico ico-disco" aria-hidden="true"></span> 新曲_仮2_修正_final_これで本当に最終.band</span>
                         <span>398 MB</span><span>2026/04/30</span>
                     </button>
                 </div>
@@ -1106,13 +1166,13 @@
             <div class="window-content pictures-content">
                 <div class="explorer-pane">
                     <div class="explorer-pane-box">
-                        <h4>画像のタスク</h4>
+                        <h3 class="explorer-pane-title">画像のタスク</h3>
                         <ul>
-                            <li><button id="slideshow-btn"><i class="fa-solid fa-play"></i> スライド ショーを表示する</button></li>
+                            <li><button id="slideshow-btn"><svg class="svgi" aria-hidden="true"><use href="#i-play"/></svg> スライド ショーを表示する</button></li>
                         </ul>
                     </div>
                     <div class="explorer-pane-box">
-                        <h4>詳細</h4>
+                        <h3 class="explorer-pane-title">詳細</h3>
                         <p>My Pictures<br>8 個のオブジェクト<br>2021 – 2026</p>
                     </div>
                 </div>
@@ -1237,7 +1297,7 @@
     <div id="start-menu" class="start-menu">
         <div class="start-menu-banner">Looisbos<span>XP</span></div>
         <div class="start-menu-items">
-            <button class="start-menu-item" data-window="hero"><i class="fa-solid fa-house"></i>
+            <button class="start-menu-item" data-window="hero"><svg class="svgi" aria-hidden="true"><use href="#i-house"/></svg>
                 Looisbos.exe</button>
             <button class="start-menu-item" data-window="mycomputer"><span class="ico ico-mycomputer" aria-hidden="true"></span>
                 マイ コンピュータ</button>
@@ -1253,7 +1313,7 @@
                 My Pictures</button>
             <button class="start-menu-item" data-window="podcast"><span class="ico ico-podcast" aria-hidden="true"></span>
                 podcast.exe</button>
-            <button class="start-menu-item" id="assistant-item"><i class="fa-solid fa-mug-hot"></i>
+            <button class="start-menu-item" id="assistant-item"><span class="ico ico-cup" aria-hidden="true"></span>
                 Assistant</button>
             <button class="start-menu-item" data-window="contact"><span class="ico ico-mail" aria-hidden="true"></span>
                 mail.eml</button>
@@ -1262,16 +1322,15 @@
             <button class="start-menu-item" data-window="trash"><span class="ico ico-trash" aria-hidden="true"></span>
                 ごみ箱</button>
             <div class="start-menu-sep"></div>
-            <a class="start-menu-item" href="https://x.com/looisbos" target="_blank" rel="noopener"><i
-                    class="fa-brands fa-x-twitter"></i> X (Twitter)</a>
+            <a class="start-menu-item" href="https://x.com/looisbos" target="_blank" rel="noopener"><svg class="svgi svgi-x" aria-hidden="true"><use href="#i-x"/></svg> X (Twitter)</a>
             <a class="start-menu-item" href="https://www.instagram.com/looisbos/?hl=ja" target="_blank"
-                rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>
-            <a class="start-menu-item" href="https://www.youtube.com/@looisbos_ch526" target="_blank" rel="noopener"><i
-                    class="fa-brands fa-youtube"></i> YouTube</a>
-            <a class="start-menu-item" href="https://www.tiktok.com/@looisbos_band" target="_blank" rel="noopener"><i
-                    class="fa-brands fa-tiktok"></i> TikTok</a>
+                rel="noopener"><svg class="svgi svgi-ig" aria-hidden="true"><use href="#i-instagram"/></svg> Instagram</a>
+            <a class="start-menu-item" href="https://www.youtube.com/@looisbos_ch526" target="_blank" rel="noopener"><svg class="svgi svgi-yt" aria-hidden="true"><use href="#i-youtube"/></svg> YouTube</a>
+            <a class="start-menu-item" href="https://www.tiktok.com/@looisbos_band" target="_blank" rel="noopener"><svg class="svgi svgi-tt" aria-hidden="true"><use href="#i-tiktok"/></svg> TikTok</a>
             <div class="start-menu-sep"></div>
-            <button class="start-menu-item" id="shutdown-item"><i class="fa-solid fa-power-off"></i>
+            <button class="start-menu-item" id="restart-item"><span class="ico ico-mycomputer" aria-hidden="true"></span>
+                再起動</button>
+            <button class="start-menu-item" id="shutdown-item"><svg class="svgi" aria-hidden="true"><use href="#i-power"/></svg>
                 Shut Down...</button>
         </div>
     </div>
@@ -1347,9 +1406,9 @@
                 <img id="viewer-img" src="" alt="">
             </div>
             <div class="photo-viewer-toolbar">
-                <button id="viewer-prev" aria-label="Previous"><i class="fa-solid fa-caret-left"></i></button>
+                <button id="viewer-prev" aria-label="Previous"><svg class="svgi" aria-hidden="true"><use href="#i-caret-left"/></svg></button>
                 <span id="viewer-caption"></span>
-                <button id="viewer-next" aria-label="Next"><i class="fa-solid fa-caret-right"></i></button>
+                <button id="viewer-next" aria-label="Next"><svg class="svgi" aria-hidden="true"><use href="#i-caret-right"/></svg></button>
             </div>
         </div>
     </div>
@@ -1367,44 +1426,8 @@
         <a href="https://friendship.lnk.to/Groceries_Looisbos" target="_blank" rel="noopener">▶ 聴いてみる</a>
     </div>
 
-    <script src="assets/js/script.js?v=20260821a"></script>
+    <script src="assets/js/script.js?v=20260821c"></script>
     <script>
-        // Startup Sequence logic
-        window.addEventListener('DOMContentLoaded', () => {
-            const bios = document.getElementById('bios-screen');
-            const xpLoad = document.getElementById('xp-load-screen');
-            const overlay = document.getElementById('startup-overlay');
-
-            // Simulate BIOS detection
-            setTimeout(() => {
-                if (bios) {
-                    bios.style.transition = 'opacity 0.5s ease';
-                    bios.style.opacity = '0';
-
-                    setTimeout(() => {
-                        bios.style.display = 'none';
-                        if (xpLoad) {
-                            xpLoad.style.display = 'flex';
-                            xpLoad.style.opacity = '0';
-                            xpLoad.style.transition = 'opacity 0.5s ease';
-                            xpLoad.offsetHeight; // force reflow
-                            xpLoad.style.opacity = '1';
-                        }
-
-                        // Simulate XP Loading
-                        setTimeout(() => {
-                            if (overlay) {
-                                overlay.style.transition = 'opacity 1s ease';
-                                overlay.style.opacity = '0';
-                                setTimeout(() => {
-                                    overlay.style.display = 'none';
-                                }, 1000);
-                            }
-                        }, 3000);
-                    }, 500);
-                }
-            }, 2500);
-        });
 
         // Simple Clock for Taskbar
         function updateClock() {
@@ -1438,7 +1461,7 @@
         })();
     </script>
     <script src="assets/js/screensaver.js?v=20260716"></script>
-    <script src="assets/js/y2k.js?v=20260713"></script>
+    <script src="assets/js/y2k.js?v=20260821b"></script>
     <script src="assets/js/assistant.js?v=20260716b"></script>
     <script src="assets/js/keitai.js?v=20260716"></script>
     <script src="assets/js/sweeper.js?v=20260821a"></script>

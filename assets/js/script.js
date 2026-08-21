@@ -421,6 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
     focusWindowFromHash();
     window.addEventListener('hashchange', focusWindowFromHash);
     if (!desktopOS) window.addEventListener('load', focusWindowFromHash);
+    window.looisbosFocusFromHash = focusWindowFromHash;
 
     // Start Menu & Shut Down
     const startMenu = document.getElementById('start-menu');
@@ -464,77 +465,33 @@ document.addEventListener('DOMContentLoaded', () => {
             const restartBtn = document.getElementById('shutdown-restart');
             if (restartBtn) restartBtn.addEventListener('click', () => location.reload());
         }
-    }
 
-    // Winamp Player Logic
-    const audio = document.getElementById('winamp-audio');
-    const playBtn = document.getElementById('play-btn');
-    const pauseBtn = document.getElementById('pause-btn');
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
-    const statusText = document.querySelector('.winamp-status');
-    const discoItems = document.querySelectorAll('.disco-item');
-    let currentTrackIndex = 0;
-
-    // Dummy track data
-    const tracks = [
-        { name: "Science Children", file: "assets/audio/science_children.mp3" },
-        { name: "rooms - Thinking about", file: "assets/audio/thinking_about.mp3" },
-        { name: "vase - amanda", file: "assets/audio/amanda.mp3" },
-        { name: "chairs - The bus", file: "assets/audio/the_bus.mp3" }
-    ];
-
-    function updateTrack(index) {
-        currentTrackIndex = index;
-        discoItems.forEach((item, i) => {
-            item.classList.toggle('active', i === index);
-            if (i === index) {
-                item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-        });
-        statusText.textContent = `Playing: ${tracks[index].name}`;
-        // audio.src = tracks[index].file;
-    }
-
-    if (playBtn) {
-        playBtn.addEventListener('click', () => {
-            playBtn.style.display = 'none';
-            pauseBtn.style.display = 'flex';
-            statusText.textContent = `Playing: ${tracks[currentTrackIndex].name}`;
-            const visualizer = document.getElementById('visualizer-bar');
-            visualizer.style.animation = 'winampVisualizer 0.5s infinite alternate';
-        });
-    }
-
-    if (pauseBtn) {
-        pauseBtn.addEventListener('click', () => {
-            pauseBtn.style.display = 'none';
-            playBtn.style.display = 'flex';
-            statusText.textContent = "Paused";
-            const visualizer = document.getElementById('visualizer-bar');
-            visualizer.style.animation = 'none';
-        });
-    }
-
-    nextBtn.addEventListener('click', () => {
-        currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
-        updateTrack(currentTrackIndex);
-    });
-
-    prevBtn.addEventListener('click', () => {
-        currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
-        updateTrack(currentTrackIndex);
-    });
-
-    // Add visualizer animation style
-    const winampStyle = document.createElement('style');
-    winampStyle.innerHTML = `
-        @keyframes winampVisualizer {
-            from { opacity: 0.3; background-size: 20px 100%; }
-            to { opacity: 0.8; background-size: 5px 100%; }
+        const restartItem = document.getElementById('restart-item');
+        if (restartItem) {
+            restartItem.addEventListener('click', () => {
+                startMenu.classList.remove('open');
+                if (window.looisbosRestart) window.looisbosRestart();
+                else location.reload();
+            });
         }
-    `;
-    document.head.appendChild(winampStyle);
+    }
+
+    // Discography viewer (Winamp style) — 行クリックで上の詳細を差し替える
+    const discoRows = document.querySelectorAll('.disco-row');
+    const discoDetails = document.querySelectorAll('.disco-detail');
+    if (discoRows.length && discoDetails.length) {
+        discoRows.forEach(row => {
+            row.addEventListener('click', () => {
+                const index = Number(row.dataset.index);
+                discoRows.forEach(r => {
+                    const on = Number(r.dataset.index) === index;
+                    r.classList.toggle('is-selected', on);
+                    r.setAttribute('aria-pressed', String(on));
+                });
+                discoDetails.forEach((d, i) => { d.hidden = i !== index; });
+            });
+        });
+    }
 
     // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');

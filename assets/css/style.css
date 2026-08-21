@@ -12,8 +12,13 @@
     --win-text: #000000;
 
     /* Fonts */
-    --font-primary: 'MS PGothic', 'Osaka', 'Arial', sans-serif;
-    --font-heading: 'MS Gothic', 'Impact', sans-serif;
+    --font-ui: 'DotGothic16', 'MS PGothic', monospace;
+    --font-body: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+    --font-bios: 'Press Start 2P', monospace;
+    --font-lcd: monospace;
+
+    --font-primary: var(--font-ui);
+    --font-heading: var(--font-ui);
 }
 
 *,
@@ -29,7 +34,7 @@ html {
 }
 
 body {
-    font-family: var(--font-primary);
+    font-family: var(--font-body);
     background-color: #000;
     color: var(--win-text);
     line-height: 1.5;
@@ -1969,7 +1974,7 @@ body.desktop-os .desktop-icons {
     font-size: .78rem;
 }
 
-.explorer-pane-box h4 {
+.explorer-pane-box .explorer-pane-title {
     margin: 0;
     padding: 5px 10px;
     font-size: .78rem;
@@ -3281,4 +3286,444 @@ body.is-busy #y2k-cursor {
         width: 32px;
         height: 32px;
     }
+}
+
+/* ============================================
+   Inline SVG icons (Font Awesome 置き換え)
+   ============================================ */
+.svg-sprite {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.svgi {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    flex: 0 0 auto;
+    vertical-align: -0.125em;
+}
+
+/* デスクトップの SNS アイコンはドット絵と同じ 32px */
+.desktop-icon .svgi-lg {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 5px;
+    filter: drop-shadow(0 0 6px #00f0ff) drop-shadow(0 0 2px rgba(0, 240, 255, .6));
+}
+
+.desktop-icon:hover .svgi-lg {
+    filter: drop-shadow(0 0 14px #00f0ff) drop-shadow(0 0 6px #00f0ff) brightness(1.3);
+}
+
+/* ブランドカラー */
+.svgi-x  { color: #fff; }
+.svgi-yt { color: #ff0000; }
+.svgi-tt { color: #fff; }
+.svgi-sp { color: #1db954; }
+.svgi-ig { fill: url(#ig-grad); color: #d6249f; }
+
+.start-menu-item .svgi {
+    width: 16px;
+    height: 16px;
+    color: var(--win-blue);
+}
+
+.start-menu-item:hover .svgi {
+    color: #fff;
+}
+
+.start-menu-item:hover .svgi-ig,
+.start-menu-item:hover .svgi-x,
+.start-menu-item:hover .svgi-yt,
+.start-menu-item:hover .svgi-tt {
+    color: #fff;
+}
+
+.svgi-member {
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.podcast-link .svgi {
+    width: 1.1em;
+    height: 1.1em;
+}
+
+.podcast-link-apple .svgi {
+    color: #d886ff;
+}
+
+#slideshow-btn .svgi,
+#viewer-prev .svgi,
+#viewer-next .svgi {
+    width: .9em;
+    height: .9em;
+}
+
+/* ============================================
+   Typography — UI は DotGothic16 / 本文は Zen Kaku Gothic New
+   ============================================ */
+.title-bar-text,
+.desktop-icon span:not(.ico),
+.mycomp-address,
+.mycomp-address-label,
+.mycomp-group-title,
+.explorer-pane-box .explorer-pane-title,
+.mycomp-tile-name,
+.xp-tab,
+.news-date,
+.live-meta th,
+.nav-link,
+.task-btn,
+.logo-btn,
+.start-menu-item,
+.start-menu-banner,
+.trash-item,
+.trash-empty-btn,
+.trash-dialog-btn,
+.sweeper-flag-toggle,
+.tray-panel-title,
+.tray-tea-drink,
+.podcast-link,
+.y2k-ticker-label,
+.y2k-ticker-track,
+.y2k-popup-btn,
+.live-countdown,
+.y2k-webring-badge,
+.y2k-webring-nav,
+.y2k-webring-link,
+.shutdown-msg,
+.keitai-carrier,
+.viewer-name {
+    font-family: var(--font-ui);
+}
+
+.news-excerpt,
+.live-meta td,
+.live-reserve,
+.live-sub,
+.mycomp-tile-sub,
+.member-role,
+.disco-item ul,
+.disco-item p,
+.podcast-desc,
+.podcast-mail,
+.tray-panel-text,
+.trash-dialog-text,
+.bio-content p,
+.bio-gallery-link {
+    font-family: var(--font-body);
+}
+
+.bios-screen {
+    font-family: var(--font-bios);
+}
+
+.sweeper-led {
+    font-family: var(--font-lcd);
+}
+
+/* DotGothic16 は 16px 設計のビットマップ書体。12px 未満で潰れる */
+.news-date,
+.mycomp-address,
+.mycomp-address-label,
+.xp-tab,
+.trash-item,
+.trash-empty-btn,
+.sweeper-flag-toggle,
+.y2k-ticker-label,
+.y2k-webring-badge,
+.y2k-webring-nav,
+.y2k-webring-link,
+.podcast-link,
+.live-countdown {
+    font-size: 12px;
+}
+
+.start-menu-item,
+.nav-link,
+.task-btn,
+.mycomp-tile-name,
+.mycomp-group-title,
+.explorer-pane-box .explorer-pane-title {
+    font-size: 13px;
+}
+
+/* iOS が入力時に勝手にズームしないよう 16px 以上 */
+input,
+textarea,
+select {
+    font-size: 16px;
+    font-family: var(--font-body);
+}
+
+.photo-thumb span,
+.keitai-carrier {
+    font-size: 12px;
+}
+
+/* ============================================
+   Startup Sequence — Skip / おかえりなさい
+   ============================================ */
+.startup-skip {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    z-index: 2;
+    padding: 6px 14px;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: #cfe0f7;
+    background: rgba(0, 0, 0, .4);
+    border: 1px solid #4a5a72;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity .4s ease;
+    pointer-events: none;
+}
+
+.startup-skip.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.startup-skip:hover,
+.startup-skip:focus-visible {
+    color: #fff;
+    border-color: #7ba7e3;
+    background: rgba(20, 40, 80, .6);
+    outline: none;
+}
+
+.xp-load-greeting {
+    margin-top: 18px;
+    font-family: var(--font-ui);
+    font-size: 14px;
+    color: #cfe0f7;
+    letter-spacing: .08em;
+}
+
+body.booting {
+    overflow: hidden;
+}
+
+/* ============================================
+   Discography — ビューア（上：詳細 / 下：全作品リスト）
+   ============================================ */
+.disco-content {
+    background: #222;
+    color: #7dd87d;
+    border: 2px solid #555;
+    padding: 0;
+}
+
+.disco-viewer {
+    padding: 14px 16px;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.disco-detail {
+    display: flex;
+    gap: 16px;
+}
+
+.disco-detail[hidden] {
+    display: none;
+}
+
+.disco-detail-jacket.jacket-wrap {
+    width: 118px;
+    height: 118px;
+}
+
+.disco-detail-jacket.jacket-wrap img {
+    width: 118px !important;
+    height: 118px !important;
+}
+
+.disco-detail-jacket.jacket-wrap .vinyl-outer {
+    width: 112px;
+    height: 112px;
+}
+
+.disco-detail-jacket.jacket-wrap:hover .vinyl-outer {
+    transform: translateX(66px);
+}
+
+.disco-detail-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.disco-detail-title {
+    margin: 0 0 4px;
+    font-family: var(--font-ui);
+    font-size: 17px;
+    color: #7dd87d;
+}
+
+.disco-detail-meta {
+    margin: 0 0 10px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: #9a9a9a;
+}
+
+.disco-detail-label {
+    margin: 0 0 2px;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: #6f8f6f;
+}
+
+.disco-tracklist {
+    list-style: none;
+    margin: 0 0 12px;
+    padding: 0;
+    font-family: var(--font-body);
+    font-size: 11px;
+    line-height: 1.7;
+    color: #cfe6cf;
+}
+
+.disco-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.disco-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 14px;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    text-decoration: none;
+    color: #06210a;
+    background: #7dd87d;
+    border-top: 2px solid #b6ecb6;
+    border-left: 2px solid #b6ecb6;
+    border-right: 2px solid #3d7a3d;
+    border-bottom: 2px solid #3d7a3d;
+}
+
+.disco-btn:active {
+    border-color: #3d7a3d #b6ecb6 #b6ecb6 #3d7a3d;
+}
+
+.disco-btn-sub {
+    color: #f6efe2;
+    background: #8a4a22;
+    border-top-color: #c67139;
+    border-left-color: #c67139;
+    border-right-color: #4d2711;
+    border-bottom-color: #4d2711;
+}
+
+.disco-btn-sub:active {
+    border-color: #4d2711 #c67139 #c67139 #4d2711;
+}
+
+.disco-list {
+    list-style: none;
+    margin: 0;
+    padding: 4px;
+    max-height: 190px;
+    overflow-y: auto;
+    background: #1a1a1a;
+}
+
+.disco-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 4px 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: #7dd87d;
+    text-align: left;
+}
+
+.disco-row .ico {
+    opacity: .6;
+}
+
+.disco-row:hover {
+    background: #2c3a2a;
+}
+
+.disco-row.is-selected {
+    background: #35452f;
+    color: #b8e8b8;
+}
+
+.disco-row.is-selected .ico {
+    opacity: 1;
+}
+
+.disco-row-num {
+    color: #6f8f6f;
+    flex: 0 0 auto;
+}
+
+.disco-row.is-selected .disco-row-num {
+    color: #9ec89e;
+}
+
+.disco-row-name {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.disco-row-kind {
+    flex: 0 0 auto;
+    font-size: 12px;
+    color: #6f8f6f;
+}
+
+@media (max-width: 768px) {
+    .disco-detail {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .disco-detail-body {
+        width: 100%;
+    }
+
+    .disco-btns {
+        justify-content: center;
+    }
+}
+
+.news-more {
+    margin: 14px 0 0;
+}
+
+.news-more a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: #215dc6;
+    text-decoration: none;
+}
+
+.news-more a:hover {
+    text-decoration: underline;
+    color: #4d8cf5;
 }
