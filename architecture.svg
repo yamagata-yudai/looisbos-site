@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 620" width="860" height="620" font-family="'Helvetica Neue', Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="860" height="620" fill="#F8F6F2" rx="16"/>
+
+  <!-- Title -->
+  <text x="430" y="40" text-anchor="middle" font-size="18" font-weight="700" fill="#2C1810">Looisbos — サイト構成図</text>
+  <text x="430" y="58" text-anchor="middle" font-size="11" fill="#9B8679">looisbos.com</text>
+
+  <!-- ===== ZONE: USER ===== -->
+  <rect x="340" y="72" width="180" height="54" rx="10" fill="#D4EEF7" stroke="#2B7A9E" stroke-width="1.5"/>
+  <text x="430" y="95" text-anchor="middle" font-size="13" font-weight="600" fill="#1B5A78">🌐 ユーザー</text>
+  <text x="430" y="112" text-anchor="middle" font-size="10" fill="#1B5A78">ブラウザからアクセス</text>
+
+  <!-- Arrow: User → GitHub Pages -->
+  <line x1="430" y1="126" x2="430" y2="162" stroke="#2B7A9E" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+  <text x="446" y="148" font-size="9" fill="#2B7A9E">HTTPS</text>
+
+  <!-- ===== ZONE: GITHUB PAGES ===== -->
+  <rect x="60" y="162" width="740" height="200" rx="12" fill="#FFF9F0" stroke="#E8D4A8" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="90" y="185" font-size="11" font-weight="700" fill="#9B8679" letter-spacing="0.08em">GITHUB PAGES</text>
+  <text x="760" y="185" text-anchor="end" font-size="10" fill="#C4AD8A">git push origin main → 自動デプロイ</text>
+
+  <!-- index.html box -->
+  <rect x="90" y="196" width="240" height="148" rx="10" fill="#fff" stroke="#E8D4A8" stroke-width="1.5"/>
+  <rect x="90" y="196" width="240" height="30" rx="10" fill="#2B7A9E"/>
+  <rect x="90" y="212" width="240" height="14" fill="#2B7A9E"/>
+  <text x="210" y="217" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">index.html</text>
+  <text x="210" y="234" text-anchor="middle" font-size="9" fill="#7EB8D4">メインサイト（Windows XP風）</text>
+
+  <text x="108" y="258" font-size="10" fill="#6B4F3A">• ディスコグラフィ</text>
+  <text x="108" y="273" font-size="10" fill="#6B4F3A">• ニュース</text>
+  <text x="108" y="288" font-size="10" fill="#6B4F3A">• バイオグラフィ</text>
+  <text x="108" y="303" font-size="10" fill="#6B4F3A">• コンタクト</text>
+  <text x="108" y="318" font-size="10" fill="#9B8679">style.css / script.js / screensaver.js</text>
+  <text x="108" y="332" font-size="10" fill="#9B8679">audio_manager.js / images/</text>
+
+  <!-- toritori.html box -->
+  <rect x="530" y="196" width="240" height="148" rx="10" fill="#fff" stroke="#E8785A" stroke-width="1.5"/>
+  <rect x="530" y="196" width="240" height="30" rx="10" fill="#E8785A"/>
+  <rect x="530" y="212" width="240" height="14" fill="#E8785A"/>
+  <text x="650" y="217" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">toritori.html</text>
+  <text x="650" y="234" text-anchor="middle" font-size="9" fill="#FAECE7">チケット取り置きフォーム</text>
+
+  <text x="548" y="258" font-size="10" fill="#6B4F3A">• 名前 / 枚数 / メール入力</text>
+  <text x="548" y="273" font-size="10" fill="#6B4F3A">• メールアドレスバリデーション</text>
+  <text x="548" y="288" font-size="10" fill="#6B4F3A">• 送信中ローディング表示</text>
+  <text x="548" y="303" font-size="10" fill="#6B4F3A">• 完了オーバーレイ表示</text>
+  <text x="548" y="324" font-size="10" fill="#E8785A" font-weight="600">→ /looisbos.com/toritori.html</text>
+
+  <!-- Arrow: toritori → GAS -->
+  <line x1="650" y1="364" x2="650" y2="408" stroke="#E8785A" stroke-width="1.5" marker-end="url(#arr-coral)"/>
+  <text x="666" y="390" font-size="9" fill="#E8785A">POST (fetch / no-cors)</text>
+
+  <!-- ===== ZONE: GAS ===== -->
+  <rect x="460" y="408" width="380" height="64" rx="10" fill="#fff" stroke="#3A7D5C" stroke-width="1.5"/>
+  <rect x="460" y="408" width="380" height="26" rx="10" fill="#3A7D5C"/>
+  <rect x="460" y="422" width="380" height="12" fill="#3A7D5C"/>
+  <text x="650" y="426" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">Google Apps Script（Web App）</text>
+  <text x="650" y="446" text-anchor="middle" font-size="10" fill="#2C5E45">gas_code.gs — doPost(e) でデータ受信・処理</text>
+  <text x="650" y="462" text-anchor="middle" font-size="10" fill="#2C5E45">スプレッドシート書き込み ＋ メール送信</text>
+
+  <!-- Arrow: GAS → Sheets -->
+  <line x1="570" y1="472" x2="490" y2="508" stroke="#3A7D5C" stroke-width="1.5" marker-end="url(#arr-green)"/>
+
+  <!-- Arrow: GAS → Mail1 -->
+  <line x1="700" y1="472" x2="680" y2="508" stroke="#3A7D5C" stroke-width="1.5" marker-end="url(#arr-green)"/>
+
+  <!-- Arrow: GAS → Mail2 -->
+  <line x1="760" y1="472" x2="800" y2="508" stroke="#3A7D5C" stroke-width="1.5" marker-end="url(#arr-green)"/>
+
+  <!-- Google Sheets box -->
+  <rect x="400" y="508" width="180" height="56" rx="10" fill="#E8F5E9" stroke="#3A7D5C" stroke-width="1.5"/>
+  <text x="490" y="532" text-anchor="middle" font-size="12" font-weight="600" fill="#2C5E45">📊 Google Sheets</text>
+  <text x="490" y="548" text-anchor="middle" font-size="10" fill="#2C5E45">予約データを記録</text>
+  <text x="490" y="561" text-anchor="middle" font-size="9" fill="#4A9970">受付日時 / 名前 / 枚数 / メール</text>
+
+  <!-- Mail to user -->
+  <rect x="596" y="508" width="148" height="56" rx="10" fill="#FFF3E0" stroke="#F2994A" stroke-width="1.5"/>
+  <text x="670" y="530" text-anchor="middle" font-size="11" font-weight="600" fill="#C47A00">📧 確認メール</text>
+  <text x="670" y="546" text-anchor="middle" font-size="9" fill="#9B6000">予約者のメールアドレスへ</text>
+  <text x="670" y="560" text-anchor="middle" font-size="9" fill="#9B6000">取り置き内容を通知</text>
+
+  <!-- Mail to admin -->
+  <rect x="758" y="508" width="64" height="56" rx="10" fill="#FCE4EC" stroke="#E8785A" stroke-width="1.5"/>
+  <text x="790" y="530" text-anchor="middle" font-size="10" font-weight="600" fill="#C0392B">📬 通知</text>
+  <text x="790" y="546" text-anchor="middle" font-size="8" fill="#C0392B">運営</text>
+  <text x="790" y="558" text-anchor="middle" font-size="7" fill="#C0392B">rooibos</text>
+  <text x="790" y="568" text-anchor="middle" font-size="7" fill="#C0392B">sanova</text>
+
+  <!-- ===== ZONE: DEPLOY FLOW ===== -->
+  <rect x="60" y="386" width="370" height="60" rx="10" fill="#F0F4FF" stroke="#7B9FD4" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="245" y="406" text-anchor="middle" font-size="10" font-weight="700" fill="#4A6FA5" letter-spacing="0.06em">DEPLOY FLOW</text>
+  <text x="80" y="424" font-size="10" fill="#4A6FA5">ローカル編集</text>
+  <line x1="148" y1="420" x2="168" y2="420" stroke="#4A6FA5" stroke-width="1.5" marker-end="url(#arr-indigo)"/>
+  <text x="172" y="424" font-size="10" fill="#4A6FA5">git commit</text>
+  <line x1="234" y1="420" x2="254" y2="420" stroke="#4A6FA5" stroke-width="1.5" marker-end="url(#arr-indigo)"/>
+  <text x="258" y="424" font-size="10" fill="#4A6FA5">git push</text>
+  <line x1="304" y1="420" x2="324" y2="420" stroke="#4A6FA5" stroke-width="1.5" marker-end="url(#arr-indigo)"/>
+  <text x="328" y="424" font-size="10" fill="#4A6FA5">GitHub Pages</text>
+  <text x="245" y="440" text-anchor="middle" font-size="9" fill="#7B9FD4">main ブランチへの push で looisbos.com に自動反映（数分）</text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arr-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#2B7A9E"/>
+    </marker>
+    <marker id="arr-coral" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#E8785A"/>
+    </marker>
+    <marker id="arr-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#3A7D5C"/>
+    </marker>
+    <marker id="arr-indigo" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#4A6FA5"/>
+    </marker>
+  </defs>
+
+</svg>
